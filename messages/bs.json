@@ -15,8 +15,8 @@
     "badge": "Osnovano 2016 · Maršala Tita 3, Sarajevo",
     "stats": [
       { "value": "79", "suffix": "", "label": "Aktivnih klijenata u Austriji" },
+      { "value": "40", "suffix": "h", "label": "Kapacitet po klijentu/mj." },
       { "value": "100", "suffix": "+", "label": "Klijenata ukupno" },
-      { "value": "2016", "suffix": "", "label": "Osnovano u Sarajevu" },
       { "value": "100", "suffix": "%", "label": "SLA usklađenost" }
     ]
   },

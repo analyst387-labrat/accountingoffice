@@ -1,5 +1,6 @@
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
 
 const SERVICE_KEYS = [
@@ -24,13 +25,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           {/* Brand col */}
           <div className="md:col-span-4 space-y-6">
-            <div className="flex items-center gap-3">
-              <span className="w-9 h-9 rounded-sm bg-gold flex items-center justify-center shrink-0">
-                <span className="font-serif font-bold text-navy text-base leading-none">B</span>
-              </span>
-              <span className="font-serif font-semibold text-xl text-offwhite">
-                Bosnia<span className="text-gold">·</span>BH
-              </span>
+            <div className="flex items-center">
+              <div className="relative h-9 w-36">
+                <Image
+                  src="/images/logo/Logo Linear - BBH.png"
+                  alt="Bosnia Business Hub"
+                  fill
+                  className="object-contain object-left"
+                  style={{ filter: 'brightness(0) invert(1)' }}
+                />
+              </div>
             </div>
             <p className="text-sm leading-relaxed text-offwhite/50 font-light italic max-w-xs">
               {t('tagline')}

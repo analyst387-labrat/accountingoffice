@@ -8,15 +8,15 @@
   },
   "hero": {
     "tagline": "White-Label-Buchhaltung für EU-Kanzleien",
-    "headline": "Ihr strategischer Partner im Rechnungswesen",
+    "headline": "Ihr strategischer White-Label-Partner im Rechnungswesen.",
     "subheadline": "BiH-basierte Kapazität für österreichische Steuerberater, deutsche CFOs und regionale Unternehmen. MSFI-konform. DSGVO-bereit. SLA-gesichert.",
     "cta_primary": "30-Min-Intro buchen",
     "cta_secondary": "Leistungen entdecken",
     "badge": "Gegründet 2016 · Maršala Tita 3, Sarajevo",
     "stats": [
       { "value": "79", "suffix": "", "label": "Aktive Mandanten in Österreich" },
+      { "value": "40", "suffix": "h", "label": "Kapazitätsgewinn pro Monat" },
       { "value": "100", "suffix": "+", "label": "Mandanten gesamt" },
-      { "value": "2016", "suffix": "", "label": "Gegründet in Sarajevo" },
       { "value": "100", "suffix": "%", "label": "SLA-Compliance" }
     ]
   },

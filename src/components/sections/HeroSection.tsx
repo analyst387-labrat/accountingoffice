@@ -1,41 +1,68 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { ArrowRight, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 type StatItem = { value: string; suffix: string; label: string };
+
+function MagneticButton({ href, children }: { href: string; children: React.ReactNode }) {
+  const ref = useRef<HTMLAnchorElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x, { stiffness: 280, damping: 18 });
+  const springY = useSpring(y, { stiffness: 280, damping: 18 });
+
+  function onMouseMove(e: React.MouseEvent<HTMLAnchorElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    x.set((e.clientX - rect.left - rect.width / 2) * 0.32);
+    y.set((e.clientY - rect.top - rect.height / 2) * 0.32);
+  }
+
+  function onMouseLeave() {
+    x.set(0);
+    y.set(0);
+  }
+
+  return (
+    <motion.a
+      ref={ref}
+      href={href}
+      style={{ x: springX, y: springY }}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      className="group inline-flex items-center gap-2.5 bg-gold text-navy text-[13px] font-semibold tracking-wide px-7 py-4 min-h-[44px] hover:bg-gold-light transition-colors duration-200 cursor-pointer select-none"
+    >
+      {children}
+    </motion.a>
+  );
+}
 
 export default function HeroSection() {
   const t = useTranslations('hero');
   const stats = t.raw('stats') as StatItem[];
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-navy noise">
-      {/* Architectural grid */}
-      <div className="absolute inset-0 bg-grid" />
+    <section className="relative min-h-screen flex flex-col overflow-hidden bg-navy noise">
+      {/* Architectural grid — left side only */}
+      <div className="absolute inset-0 lg:right-1/2 bg-grid" />
 
       {/* Decorative lines */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Primary diagonal */}
         <div
-          className="absolute -top-40 -right-20 w-px h-[160vh] bg-gradient-to-b from-transparent via-gold/15 to-transparent"
-          style={{ transform: 'rotate(-14deg)' }}
+          className="absolute -top-40 left-[42%] w-px h-[160vh] bg-gradient-to-b from-transparent via-gold/10 to-transparent"
+          style={{ transform: 'rotate(-8deg)' }}
         />
-        {/* Secondary vertical */}
-        <div className="absolute top-0 left-[38%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.04] to-transparent" />
-        {/* Concentric arcs */}
-        <div className="absolute -bottom-80 -right-40 w-[700px] h-[700px] rounded-full border border-gold/[0.08]" />
-        <div className="absolute -bottom-[30rem] -right-60 w-[900px] h-[900px] rounded-full border border-gold/[0.04]" />
-        {/* Horizontal accent at 70% height */}
-        <div className="absolute top-[70%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
+        <div className="absolute top-[65%] left-0 right-1/2 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-36 pb-24 grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-16 xl:gap-24 items-center">
+      <div className="relative z-10 flex-1 flex flex-col lg:grid lg:grid-cols-2 min-h-screen">
         {/* ── Left: Copy ── */}
-        <div className="space-y-7 lg:space-y-8">
+        <div className="flex flex-col justify-center px-6 lg:px-14 xl:px-20 pt-36 pb-20 lg:py-0 space-y-7 lg:space-y-8">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -58,23 +85,23 @@ export default function HeroSection() {
             {t('tagline')}
           </motion.p>
 
-          {/* H1 — editorial scale */}
+          {/* H1 — more aggressive fluid scale */}
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease, delay: 0.18 }}
-            className="font-serif font-bold text-offwhite leading-[1.02] tracking-tighter
-                       text-[clamp(2.75rem,6vw,5.5rem)]"
+            className="font-serif font-bold text-offwhite leading-[1.02] tracking-tighter"
+            style={{ fontSize: 'clamp(2.5rem, 7vw, 6rem)' }}
           >
             {t('headline')}
           </motion.h1>
 
-          {/* Sub */}
+          {/* Subheadline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.32 }}
-            className="text-base md:text-[1.0625rem] text-offwhite/45 leading-[1.75] max-w-[520px] font-light"
+            className="text-base md:text-[1.0625rem] text-offwhite/45 leading-[1.75] max-w-[480px] font-light"
           >
             {t('subheadline')}
           </motion.p>
@@ -86,72 +113,116 @@ export default function HeroSection() {
             transition={{ duration: 0.65, ease, delay: 0.46 }}
             className="flex flex-wrap gap-3.5 pt-1"
           >
-            <a
-              href="#contact"
-              className="group inline-flex items-center gap-2.5 bg-gold text-navy text-[13px] font-semibold tracking-wide px-7 py-3.5 hover:bg-gold-light transition-colors duration-200"
-            >
+            <MagneticButton href="#contact">
               {t('cta_primary')}
               <ArrowRight
                 size={14}
                 className="transition-transform duration-200 group-hover:translate-x-1"
               />
-            </a>
+            </MagneticButton>
             <a
               href="#services"
-              className="inline-flex items-center gap-2 border border-white/15 text-offwhite/55 hover:text-offwhite hover:border-white/30 text-[13px] font-medium px-7 py-3.5 transition-all duration-200"
+              className="inline-flex items-center gap-2 border border-white/15 text-offwhite/55 hover:text-offwhite hover:border-white/30 text-[13px] font-medium px-7 py-4 min-h-[44px] transition-all duration-200"
             >
               {t('cta_secondary')}
             </a>
           </motion.div>
+
+          {/* Mobile stats strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease, delay: 0.58 }}
+            className="lg:hidden grid grid-cols-2 gap-px pt-4 border-t border-white/[0.08]"
+          >
+            {stats.map((stat, i) => (
+              <div key={i} className="flex flex-col gap-0.5 py-4 pr-4">
+                <span className="font-serif text-2xl font-bold text-offwhite leading-none tracking-tighter">
+                  {stat.value}
+                  <span className="text-gold text-lg">{stat.suffix}</span>
+                </span>
+                <span className="text-[10px] font-medium tracking-[0.1em] uppercase text-white/30 leading-tight">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </motion.div>
         </div>
 
-        {/* ── Right: Stats panel ── */}
+        {/* ── Right: Sarajevo photo + floating stats ── */}
         <motion.div
-          initial={{ opacity: 0, x: 32 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.85, ease, delay: 0.38 }}
-          className="hidden lg:flex flex-col"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.1, ease, delay: 0.25 }}
+          className="hidden lg:block relative overflow-hidden"
         >
-          <div className="glass border-0 p-0 overflow-hidden">
-            {/* Panel header bar */}
-            <div className="flex items-center justify-between px-7 py-4 border-b border-white/[0.06]">
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-0.5 bg-gold" />
-                <div className="w-3 h-0.5 bg-gold/40" />
-                <div className="w-1.5 h-0.5 bg-gold/20" />
+          {/* B&W photo */}
+          <Image
+            src="/images/office/Headline Photo Townhall Sarajevo.png"
+            alt="Vijećnica — Sarajevo City Hall"
+            fill
+            className="object-cover object-center grayscale"
+            priority
+            sizes="50vw"
+          />
+
+          {/* Multi-layer navy overlay for depth + readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/60 to-navy/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-navy/30" />
+
+          {/* Floating stats panel — bottom left of photo */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease, delay: 0.65 }}
+            className="absolute bottom-12 left-10 right-10"
+          >
+            <div className="glass overflow-hidden">
+              {/* Panel header */}
+              <div className="flex items-center justify-between px-6 py-3.5 border-b border-white/[0.06]">
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-0.5 bg-gold" />
+                  <div className="w-3 h-0.5 bg-gold/40" />
+                  <div className="w-1.5 h-0.5 bg-gold/20" />
+                </div>
+                <span className="text-[10px] text-white/15 font-mono tracking-[0.2em]">BBH · 2016</span>
               </div>
-              <span className="text-[10px] text-white/15 font-mono tracking-[0.2em]">BBH · 2016</span>
-            </div>
 
-            {/* Stats 2×2 grid */}
-            <div className="grid grid-cols-2 divide-x divide-y divide-white/[0.06]">
-              {stats.map((stat, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.55 + i * 0.08 }}
-                  className="px-7 py-7 flex flex-col gap-1.5"
-                >
-                  <span className="font-serif text-[2.375rem] font-bold text-offwhite leading-none tracking-tighter">
-                    {stat.value}
-                    <span className="text-gold text-2xl">{stat.suffix}</span>
-                  </span>
-                  <span className="text-[10px] font-medium tracking-[0.12em] uppercase text-white/30 leading-tight">
-                    {stat.label}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
+              {/* Stats 2×2 grid */}
+              <div className="grid grid-cols-2 divide-x divide-y divide-white/[0.06]">
+                {stats.map((stat, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.75 + i * 0.09 }}
+                    className="px-6 py-5 flex flex-col gap-1"
+                  >
+                    <span className="font-serif text-[2rem] font-bold text-offwhite leading-none tracking-tighter">
+                      {stat.value}
+                      <span className="text-gold text-xl">{stat.suffix}</span>
+                    </span>
+                    <span className="text-[10px] font-medium tracking-[0.12em] uppercase text-white/30 leading-tight">
+                      {stat.label}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
 
-            {/* Panel footer */}
-            <div className="px-7 py-4 border-t border-white/[0.06] flex items-center gap-2.5">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-[10px] tracking-[0.14em] uppercase text-white/20">
-                MSFI · IFRS · GDPR · SLA-backed
-              </span>
+              {/* Panel footer */}
+              <div className="px-6 py-3 border-t border-white/[0.06] flex items-center gap-2.5">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-[10px] tracking-[0.14em] uppercase text-white/20">
+                  MSFI · IFRS · GDPR · SLA-backed
+                </span>
+              </div>
             </div>
-          </div>
+          </motion.div>
+
+          {/* Photo credit watermark */}
+          <span className="absolute top-6 right-6 text-[9px] tracking-[0.2em] uppercase text-white/15 font-mono">
+            Vijećnica · Sarajevo
+          </span>
         </motion.div>
       </div>
 
@@ -159,8 +230,8 @@ export default function HeroSection() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.3, duration: 0.7 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/15"
+        transition={{ delay: 1.4, duration: 0.7 }}
+        className="absolute bottom-8 left-1/4 lg:left-1/4 -translate-x-1/2 flex flex-col items-center gap-2 text-white/15"
       >
         <span className="text-[9px] tracking-[0.25em] uppercase">Scroll</span>
         <ChevronDown size={14} className="animate-bounce" />

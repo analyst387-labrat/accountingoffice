@@ -16,14 +16,14 @@ const ICONS = {
 
 type ServiceKey = keyof typeof ICONS;
 
-// Bento layout: accounting spans 2 of 3 cols, grants spans 2 of 3 cols
+// Bento: on md (2-col), accounting/grants span both cols; on lg (3-col), they span 2
 const CARD_SPANS: Record<ServiceKey, string> = {
-  accounting: 'md:col-span-2',
-  payroll:    'md:col-span-1',
-  austrian:   'md:col-span-1',
-  strategy:   'md:col-span-1',
-  feasibility:'md:col-span-1',
-  grants:     'md:col-span-2',
+  accounting: 'md:col-span-2 lg:col-span-2',
+  payroll:    'md:col-span-1 lg:col-span-1',
+  austrian:   'md:col-span-1 lg:col-span-1',
+  strategy:   'md:col-span-1 lg:col-span-1',
+  feasibility:'md:col-span-1 lg:col-span-1',
+  grants:     'md:col-span-2 lg:col-span-2',
 };
 
 const SERVICE_KEYS: ServiceKey[] = [
@@ -74,7 +74,7 @@ export default function ServicesGrid() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 md:grid-cols-3"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
           style={{ border: '0.5px solid rgba(0,31,63,0.10)' }}
         >
           {SERVICE_KEYS.map((key, i) => {
@@ -87,10 +87,10 @@ export default function ServicesGrid() {
                 key={key}
                 variants={cardVariants}
                 className={cn(
-                  'group relative bg-offwhite hover:bg-navy transition-colors duration-500 cursor-default overflow-hidden',
+                  'group relative bg-offwhite hover:bg-navy transition-all duration-500 cursor-default overflow-hidden',
+                  'border-[0.5px] border-navy/10 hover:border-gold/30',
                   CARD_SPANS[key]
                 )}
-                style={{ border: '0.5px solid rgba(0,31,63,0.10)' }}
               >
                 {/* Hover shimmer */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-white/[0.02] to-transparent" />

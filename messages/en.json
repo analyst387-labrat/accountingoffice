@@ -15,8 +15,8 @@
     "badge": "Founded 2016 · Maršala Tita 3, Sarajevo",
     "stats": [
       { "value": "79", "suffix": "", "label": "Active Austrian Clients" },
+      { "value": "40", "suffix": "h", "label": "Monthly Capacity Gain" },
       { "value": "100", "suffix": "+", "label": "Total Clients" },
-      { "value": "2016", "suffix": "", "label": "Founded in Sarajevo" },
       { "value": "100", "suffix": "%", "label": "SLA Compliance" }
     ]
   },
