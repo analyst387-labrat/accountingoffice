@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "services": "Usluge",
+    "whyUs": "Zašto BBH",
+    "nearshoring": "Nearshoring",
+    "contact": "Kontakt",
+    "cta": "Kontaktirajte nas"
+  },
+  "hero": {
+    "tagline": "White-Label računovodstvo za EU firme",
+    "headline": "Vaš strateški partner za računovodstvo",
+    "subheadline": "BiH-baziran kapacitet za austrijske poreske savjetnike, njemačke CFO-ove i regionalna preduzeća. MSFI-usklađen. GDPR-spreman. SLA-zaštićen.",
+    "cta_primary": "Zakazite 30-min uvodni razgovor",
+    "cta_secondary": "Istražite usluge",
+    "badge": "100+ aktivnih klijenata · Maršala Tita 3, Sarajevo"
+  },
+  "services": {
+    "title": "Naše usluge",
+    "subtitle": "Sveobuhvatne finansijske i savjetodavne usluge prilagođene BiH tržištu i EU firmama koje traže nearshore kapacitet.",
+    "items": {
+      "accounting": {
+        "title": "BiH računovodstvo",
+        "description": "Kompletno MSFI-usklađeno knjiženje, finansijski izvještaji i regulatorno izvještavanje za subjekte koji posluju po BiH zakonu.",
+        "tag": "MSFI · IFRS"
+      },
+      "payroll": {
+        "title": "Obračun plaća i HR",
+        "description": "Cjelovita obrada platnog spiska, usklađenost s radnim zakonodavstvom i HR administracija prilagođena bosanskom tržištu.",
+        "tag": "Radno pravo · HR"
+      },
+      "austrian": {
+        "title": "Austrijsko outsourcing",
+        "description": "White-label knjiženje i upravljanje klijentskim dosjeima za austrijske Steuerberater i Wirtschaftsprüfer firme.",
+        "tag": "White-Label · AT"
+      },
+      "strategy": {
+        "title": "Poslovna strategija",
+        "description": "ROI modeliranje, finansijske projekcije i strateško planiranje za ulazak na tržište i operativno skaliranje.",
+        "tag": "ROI · Projekcije"
+      },
+      "feasibility": {
+        "title": "Studije izvodljivosti",
+        "description": "Predinvesticijska analiza, procjena rizika i izvještaji o isplativosti za domaće i međunarodne investitore.",
+        "tag": "Predinvesticija"
+      },
+      "grants": {
+        "title": "Aplikacije za grant sredstva",
+        "description": "Cjelovita podrška za EU strukturne fondove, IPA i međunarodne grant aplikacije za subjekte registrovane u BiH.",
+        "tag": "EU fondovi · IPA"
+      }
+    }
+  },
+  "whyUs": {
+    "title": "Zašto Bosnia Business Hub",
+    "subtitle": "Decenija institucionalnog znanja susreće se sa savremenom, efikasnom praksom.",
+    "stats": {
+      "clients": "Aktivnih klijenata",
+      "austria": "Austrijskih partnera",
+      "years": "Godina prakse",
+      "compliance": "Stopa usklađenosti"
+    },
+    "values": [
+      {
+        "title": "Duboka lokalna ekspertiza",
+        "description": "Navigiramo kroz slojevito regulatorno okruženje BiH – entitetski, kantonalni i državni nivo – umjesto vas."
+      },
+      {
+        "title": "EU-ready infrastruktura",
+        "description": "GDPR-usklađeno upravljanje podacima, šifriran prijenos datoteka i višejezično izvještavanje (DE/EN/BS)."
+      },
+      {
+        "title": "White-label kapacitet",
+        "description": "Nevidljivi vašim klijentima. Naš rad se isporučuje pod vašim brendom, u vašem formatu i prema vašem rasporedu."
+      },
+      {
+        "title": "Fiksne SLA obaveze",
+        "description": "Mjesečni rokovi izvještavanja, dedicirani account menadžeri i eskalacijski putevi – sve ugovorno definirano."
+      }
+    ]
+  },
+  "nearshoring": {
+    "title": "Nearshoring model",
+    "subtitle": "Strukturiran put onboardinga koji smanjuje rizik od prvog dana.",
+    "steps": {
+      "intro": {
+        "label": "Korak 01",
+        "title": "30-min uvodni razgovor",
+        "description": "Usklađujemo se po pitanju vašeg klijentskog portfelja, standarda izvještavanja i protokola prijenosa podataka. Bez obaveze."
+      },
+      "pilot": {
+        "label": "Korak 02",
+        "title": "90-dnevni pilot",
+        "description": "Preuzimamo 3–5 klijentskih dosijea pod vašim nadzorom. Uspostavljamo kvalitetne referentne vrijednosti i integraciju radnog toka."
+      },
+      "scale": {
+        "label": "Korak 03",
+        "title": "SLA-zaštićeno skaliranje",
+        "description": "Formalizujemo angažman potpisanim SLA-om, namjenskim timom i mjesečnim pregledima performansi."
+      }
+    },
+    "cta": "Pokrenite razgovor"
+  },
+  "footer": {
+    "tagline": "Precizno računovodstvo. Strateška jasnoća.",
+    "address": "Maršala Tita 3, Sarajevo 71000, Bosna i Hercegovina",
+    "phone": "+387 33 XXX XXX",
+    "email": "office@bbh.ba",
+    "links": {
+      "privacy": "Politika privatnosti",
+      "imprint": "Impressum",
+      "services": "Usluge"
+    },
+    "copyright": "© {year} Bosnia Business Hub. Sva prava zadržana."
+  }
+}

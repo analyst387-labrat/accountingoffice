@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "services": "Leistungen",
+    "whyUs": "Warum BBH",
+    "nearshoring": "Nearshoring",
+    "contact": "Kontakt",
+    "cta": "Beratung anfragen"
+  },
+  "hero": {
+    "tagline": "White-Label-Buchhaltung für EU-Kanzleien",
+    "headline": "Ihr strategischer Partner im Rechnungswesen",
+    "subheadline": "BiH-basierte Kapazität für österreichische Steuerberater, deutsche CFOs und regionale Unternehmen. MSFI-konform. DSGVO-bereit. SLA-gesichert.",
+    "cta_primary": "30-Min-Intro buchen",
+    "cta_secondary": "Leistungen entdecken",
+    "badge": "100+ aktive Mandanten · Maršala Tita 3, Sarajevo"
+  },
+  "services": {
+    "title": "Unsere Leistungen",
+    "subtitle": "Umfassende Finanz- und Beratungsleistungen für den BiH-Markt und EU-Kanzleien mit Nearshore-Bedarf.",
+    "items": {
+      "accounting": {
+        "title": "BiH-Buchhaltung",
+        "description": "Vollständige MSFI-konforme Buchführung, Jahresabschlüsse und regulatorisches Reporting für Unternehmen nach BiH-Recht.",
+        "tag": "MSFI · IFRS"
+      },
+      "payroll": {
+        "title": "Lohnbuchhaltung & HR",
+        "description": "Vollständige Lohnabrechnung, Arbeitsrechtkonformität und HR-Administration für den bosnischen Markt.",
+        "tag": "Arbeitsrecht · HR"
+      },
+      "austrian": {
+        "title": "Österreichisches Outsourcing",
+        "description": "White-Label-Buchführung und Mandantendateimanagement für österreichische Steuerberater- und Wirtschaftsprüferkanzleien.",
+        "tag": "White-Label · AT"
+      },
+      "strategy": {
+        "title": "Unternehmensstrategie",
+        "description": "ROI-Modellierung, Finanzprognosen und strategische Planung für Markteintritt und operatives Wachstum.",
+        "tag": "ROI · Prognosen"
+      },
+      "feasibility": {
+        "title": "Machbarkeitsstudien",
+        "description": "Vorinvestitionsanalysen, Risikobewertung und Rentabilitätsberichte für in- und ausländische Investoren.",
+        "tag": "Vorinvestition"
+      },
+      "grants": {
+        "title": "Förderanträge",
+        "description": "Vollständige Begleitung bei EU-Strukturfonds, IPA- und internationalen Förderanträgen für BiH-registrierte Unternehmen.",
+        "tag": "EU-Fonds · IPA"
+      }
+    }
+  },
+  "whyUs": {
+    "title": "Warum Bosnia Business Hub",
+    "subtitle": "Ein Jahrzehnt institutionelles Wissen trifft auf eine schlanke, moderne Kanzlei.",
+    "stats": {
+      "clients": "Aktive Mandanten",
+      "austria": "Österreichische Partner",
+      "years": "Jahre Praxis",
+      "compliance": "Compliance-Rate"
+    },
+    "values": [
+      {
+        "title": "Tiefe lokale Expertise",
+        "description": "Wir navigieren BiHs mehrschichtigem Regulierungsumfeld – Entitäts-, Kantons- und Staatsebene – damit Sie es nicht müssen."
+      },
+      {
+        "title": "EU-Ready-Infrastruktur",
+        "description": "DSGVO-konforme Datenverarbeitung, verschlüsselte Dateiübertragung und mehrsprachiges Reporting (DE/EN/BS)."
+      },
+      {
+        "title": "White-Label-Kapazität",
+        "description": "Unsichtbar für Ihre Mandanten. Unsere Arbeit wird unter Ihrer Marke, in Ihrer Formatierung und nach Ihrem Zeitplan geliefert."
+      },
+      {
+        "title": "Feste SLA-Verpflichtungen",
+        "description": "Monatliche Berichtsfristen, dedizierte Account Manager und Eskalationspfade – alles vertraglich definiert."
+      }
+    ]
+  },
+  "nearshoring": {
+    "title": "Das Nearshoring-Modell",
+    "subtitle": "Ein strukturierter Onboarding-Pfad, der das Engagement von Anfang an risikoarm gestaltet.",
+    "steps": {
+      "intro": {
+        "label": "Schritt 01",
+        "title": "30-Min-Intro-Gespräch",
+        "description": "Wir stimmen uns zu Ihrem Mandantenportfolio, Reporting-Standards und Datenübertragungsprotokollen ab. Keine Verpflichtung erforderlich."
+      },
+      "pilot": {
+        "label": "Schritt 02",
+        "title": "90-Tage-Pilot",
+        "description": "Wir übernehmen 3–5 Mandantendateien unter Ihrer Aufsicht. Qualitätsbenchmarks und Workflow-Integration werden etabliert."
+      },
+      "scale": {
+        "label": "Schritt 03",
+        "title": "SLA-gesichertes Skalieren",
+        "description": "Formalisierung des Engagements mit unterzeichnetem SLA, dedizierter Teamzuteilung und monatlichen Performance-Reviews."
+      }
+    },
+    "cta": "Gespräch beginnen"
+  },
+  "footer": {
+    "tagline": "Präzise Buchhaltung. Strategische Klarheit.",
+    "address": "Maršala Tita 3, Sarajevo 71000, Bosnien und Herzegowina",
+    "phone": "+387 33 XXX XXX",
+    "email": "office@bbh.ba",
+    "links": {
+      "privacy": "Datenschutz",
+      "imprint": "Impressum",
+      "services": "Leistungen"
+    },
+    "copyright": "© {year} Bosnia Business Hub. Alle Rechte vorbehalten."
+  }
+}

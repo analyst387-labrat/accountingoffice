@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "services": "Services",
+    "whyUs": "Why BBH",
+    "nearshoring": "Nearshoring",
+    "contact": "Contact",
+    "cta": "Get in Touch"
+  },
+  "hero": {
+    "tagline": "White-Label Accounting for EU Firms",
+    "headline": "Your Strategic Partner in Accounting",
+    "subheadline": "BiH-based capacity for Austrian Steuerberater, German CFOs, and regional enterprises. MSFI-compliant. GDPR-ready. SLA-backed.",
+    "cta_primary": "Book a 30-min Intro",
+    "cta_secondary": "Explore Services",
+    "badge": "100+ active clients · Maršala Tita 3, Sarajevo"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive financial and advisory services tailored for the BiH market and EU-based firms seeking nearshore capacity.",
+    "items": {
+      "accounting": {
+        "title": "BiH Accounting",
+        "description": "Full MSFI-compliant bookkeeping, financial statements, and regulatory reporting for entities operating under BiH law.",
+        "tag": "MSFI · IFRS"
+      },
+      "payroll": {
+        "title": "Payroll & HR",
+        "description": "End-to-end payroll processing, labour law compliance, and HR administration tailored for the Bosnian market.",
+        "tag": "Labour Law · HR"
+      },
+      "austrian": {
+        "title": "Austrian Outsourcing",
+        "description": "White-label bookkeeping and client file management for Austrian Steuerberater and Wirtschaftsprüfer firms.",
+        "tag": "White-Label · AT"
+      },
+      "strategy": {
+        "title": "Business Strategy",
+        "description": "ROI modelling, financial projections, and strategic planning for market entry and operational scaling.",
+        "tag": "ROI · Projections"
+      },
+      "feasibility": {
+        "title": "Feasibility Studies",
+        "description": "Pre-investment analysis, risk assessment, and viability reports for local and international investors.",
+        "tag": "Pre-Investment"
+      },
+      "grants": {
+        "title": "Grant Applications",
+        "description": "End-to-end support for EU structural funds, IPA, and international grant applications for BiH-registered entities.",
+        "tag": "EU Funds · IPA"
+      }
+    }
+  },
+  "whyUs": {
+    "title": "Why Bosnia Business Hub",
+    "subtitle": "A decade of institutional knowledge meets a lean, modern practice.",
+    "stats": {
+      "clients": "Active Clients",
+      "austria": "Austrian Partners",
+      "years": "Years in Practice",
+      "compliance": "Compliance Rate"
+    },
+    "values": [
+      {
+        "title": "Deep Local Expertise",
+        "description": "We navigate BiH's layered regulatory environment — Entity, Cantonal, and State-level — so you don't have to."
+      },
+      {
+        "title": "EU-Ready Infrastructure",
+        "description": "GDPR-compliant data handling, encrypted file transfer, and multilingual reporting (DE/EN/BS)."
+      },
+      {
+        "title": "White-Label Capacity",
+        "description": "Invisible to your clients. Our work ships under your brand, with your formatting, and on your timeline."
+      },
+      {
+        "title": "Fixed SLA Commitments",
+        "description": "Monthly reporting deadlines, dedicated account managers, and escalation paths — all contractually defined."
+      }
+    ]
+  },
+  "nearshoring": {
+    "title": "The Nearshoring Model",
+    "subtitle": "A structured onboarding path that de-risks the engagement from day one.",
+    "steps": {
+      "intro": {
+        "label": "Step 01",
+        "title": "30-Min Intro Call",
+        "description": "We align on your client portfolio, reporting standards, and data transfer protocols. No commitment required."
+      },
+      "pilot": {
+        "label": "Step 02",
+        "title": "90-Day Pilot",
+        "description": "We handle 3–5 client files under your supervision. Establish quality benchmarks and workflow integration."
+      },
+      "scale": {
+        "label": "Step 03",
+        "title": "SLA-Backed Scaling",
+        "description": "Formalise the engagement with a signed SLA, dedicated team allocation, and monthly performance reviews."
+      }
+    },
+    "cta": "Start the Conversation"
+  },
+  "footer": {
+    "tagline": "Precision accounting. Strategic clarity.",
+    "address": "Maršala Tita 3, Sarajevo 71000, Bosnia & Herzegovina",
+    "phone": "+387 33 XXX XXX",
+    "email": "office@bbh.ba",
+    "links": {
+      "privacy": "Privacy Policy",
+      "imprint": "Imprint",
+      "services": "Services"
+    },
+    "copyright": "© {year} Bosnia Business Hub. All rights reserved."
+  }
+}
