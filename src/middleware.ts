@@ -28,6 +28,6 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // Match root (for geo-redirect) and all locale-prefixed routes
-  matcher: ['/', '/(de|en|bs)/:path*'],
+  // Match root (geo-redirect), locale homepages, and all locale-prefixed routes
+  matcher: ['/', '/(de|en|bs)', '/(de|en|bs)/:path*'],
 };
