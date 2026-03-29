@@ -16,6 +16,7 @@
   --color-offwhite-warm: #F0EDE6;
   --color-gold:          #B8975A;
   --color-gold-light:    #D4AF7A;
+  --color-gold-dim:      #8B6E3E;
 
   /* System tokens → brand */
   --color-background:    var(--color-offwhite);
@@ -37,7 +38,7 @@
   --color-popover-foreground: var(--color-navy);
   --color-destructive:   oklch(0.577 0.245 27.325);
 
-  /* shadcn/sidebar passthrough */
+  /* shadcn passthrough */
   --color-sidebar:                    oklch(0.985 0 0);
   --color-sidebar-foreground:         var(--color-navy);
   --color-sidebar-primary:            var(--color-navy);
@@ -47,7 +48,7 @@
   --color-sidebar-border:             oklch(0.88 0 0);
   --color-sidebar-ring:               var(--color-navy-light);
 
-  /* Charts (unused but required by shadcn) */
+  /* Charts */
   --color-chart-1: oklch(0.87 0 0);
   --color-chart-2: oklch(0.556 0 0);
   --color-chart-3: oklch(0.439 0 0);
@@ -55,12 +56,12 @@
   --color-chart-5: oklch(0.269 0 0);
 
   /* Radii */
-  --radius: 0.375rem;
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 2);
+  --radius: 0.25rem;
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) * 2);
+  --radius-xl: calc(var(--radius) * 3);
+  --radius-2xl: calc(var(--radius) * 4);
 
   /* Typography */
   --font-sans:    var(--font-inter);
@@ -77,64 +78,107 @@
 
   html {
     @apply scroll-smooth antialiased;
-    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "ss01" 1;
+    text-rendering: optimizeLegibility;
   }
 
   body {
     @apply bg-background text-foreground font-sans;
   }
 
+  /* Force Playfair on all headings */
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif);
-    letter-spacing: -0.02em;
+    font-family: var(--font-playfair), Georgia, 'Times New Roman', serif;
+    letter-spacing: -0.025em;
+    font-weight: 700;
   }
 
   ::selection {
     background-color: var(--color-navy);
     color: var(--color-offwhite);
   }
+
+  /* Thin scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--color-offwhite); }
+  ::-webkit-scrollbar-thumb { background: var(--color-slate-light); border-radius: 2px; }
 }
 
-/* ─── Utility Classes ──────────────────────────────────────────── */
+/* ─── Utilities ────────────────────────────────────────────────── */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-balance { text-wrap: balance; }
+  .tracking-tighter { letter-spacing: -0.04em; }
+
+  /* ── Glassmorphism ── */
+  /* Light surface (for dark backgrounds) */
+  .glass {
+    background: linear-gradient(
+      135deg,
+      oklch(1 0 0 / 0.06) 0%,
+      oklch(1 0 0 / 0.02) 100%
+    );
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    border: 0.5px solid oklch(1 0 0 / 0.10);
   }
 
-  /* Glassmorphism surface */
-  .glass {
-    background: oklch(1 0 0 / 0.08);
+  /* Navy-tinted glass (for nav, overlays) */
+  .glass-navy {
+    background: linear-gradient(
+      180deg,
+      oklch(0.12 0.045 240 / 0.92) 0%,
+      oklch(0.10 0.04 240 / 0.96) 100%
+    );
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
-    border: 1px solid oklch(1 0 0 / 0.12);
+    border-bottom: 0.5px solid oklch(1 0 0 / 0.07);
   }
 
-  .glass-navy {
-    background: oklch(0.13 0.04 240 / 0.85);
-    backdrop-filter: blur(16px) saturate(200%);
-    -webkit-backdrop-filter: blur(16px) saturate(200%);
-    border: 1px solid oklch(1 0 0 / 0.08);
-  }
-
-  /* Subtle grid pattern background */
+  /* ── Grid pattern ── */
   .bg-grid {
     background-image:
-      linear-gradient(oklch(0.13 0.04 240 / 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(0.13 0.04 240 / 0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
+      linear-gradient(oklch(1 0 0 / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(1 0 0 / 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
   }
 
-  /* Decorative line */
+  /* ── Section accent line ── */
   .line-accent {
     position: relative;
+    padding-bottom: 1.25rem;
   }
   .line-accent::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: 0;
     left: 0;
-    width: 48px;
-    height: 2px;
+    width: 40px;
+    height: 1.5px;
     background: var(--color-gold);
+  }
+
+  /* ── Bento card border ── */
+  .bento-border {
+    border: 0.5px solid oklch(0.13 0.04 240 / 0.12);
+  }
+
+  /* ── Gold timeline line ── */
+  .timeline-track {
+    background: linear-gradient(
+      90deg,
+      var(--color-gold-dim) 0%,
+      var(--color-gold) 50%,
+      var(--color-gold-dim) 100%
+    );
+  }
+
+  /* ── Noise texture overlay ── */
+  .noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
   }
 }

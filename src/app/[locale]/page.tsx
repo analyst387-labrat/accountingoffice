@@ -5,6 +5,7 @@ import ServicesGrid from '@/components/sections/ServicesGrid';
 import WhyUs from '@/components/sections/WhyUs';
 import NearshoringModel from '@/components/sections/NearshoringModel';
 import ContactSection from '@/components/sections/ContactSection';
+import TrustBar from '@/components/sections/TrustBar';
 
 export default function HomePage() {
   return (
@@ -17,6 +18,7 @@ export default function HomePage() {
         <NearshoringModel />
         <ContactSection />
       </main>
+      <TrustBar />
       <Footer />
     </>
   );

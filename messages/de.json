@@ -12,7 +12,13 @@
     "subheadline": "BiH-basierte Kapazität für österreichische Steuerberater, deutsche CFOs und regionale Unternehmen. MSFI-konform. DSGVO-bereit. SLA-gesichert.",
     "cta_primary": "30-Min-Intro buchen",
     "cta_secondary": "Leistungen entdecken",
-    "badge": "100+ aktive Mandanten · Maršala Tita 3, Sarajevo"
+    "badge": "Gegründet 2016 · Maršala Tita 3, Sarajevo",
+    "stats": [
+      { "value": "79", "suffix": "", "label": "Aktive Mandanten in Österreich" },
+      { "value": "100", "suffix": "+", "label": "Mandanten gesamt" },
+      { "value": "2016", "suffix": "", "label": "Gegründet in Sarajevo" },
+      { "value": "100", "suffix": "%", "label": "SLA-Compliance" }
+    ]
   },
   "services": {
     "title": "Unsere Leistungen",
@@ -29,9 +35,9 @@
         "tag": "Arbeitsrecht · HR"
       },
       "austrian": {
-        "title": "Österreichisches Outsourcing",
-        "description": "White-Label-Buchführung und Mandantendateimanagement für österreichische Steuerberater- und Wirtschaftsprüferkanzleien.",
-        "tag": "White-Label · AT"
+        "title": "Österreichischer Markt",
+        "description": "White-Label-Buchführung für Steuerberater und Wirtschaftsprüfer. Mit digitalem Archivierungsservice, DSGVO-konformem Dateimanagement und österreichischem Kontenrahmen.",
+        "tag": "AT · DSGVO"
       },
       "strategy": {
         "title": "Unternehmensstrategie",
@@ -52,10 +58,10 @@
   },
   "whyUs": {
     "title": "Warum Bosnia Business Hub",
-    "subtitle": "Ein Jahrzehnt institutionelles Wissen trifft auf eine schlanke, moderne Kanzlei.",
+    "subtitle": "Ein Jahrzehnt institutionelles Wissen trifft auf eine schlanke, moderne Kanzlei für EU-BiH-Zusammenarbeit.",
     "stats": {
       "clients": "Aktive Mandanten",
-      "austria": "Österreichische Partner",
+      "austria": "Aktiv in Österreich",
       "years": "Jahre Praxis",
       "compliance": "Compliance-Rate"
     },
@@ -76,7 +82,12 @@
         "title": "Feste SLA-Verpflichtungen",
         "description": "Monatliche Berichtsfristen, dedizierte Account Manager und Eskalationspfade – alles vertraglich definiert."
       }
-    ]
+    ],
+    "testimonial": {
+      "quote": "BBH hat unsere gesamte Lohnabrechnung übernommen — pünktlich, fehlerfrei. 40 Stunden/Monat Kapazitätsgewinn.",
+      "author": "Steuerberater, Wien",
+      "detail": "Österreichische Steuerberatungskanzlei, Mandant seit 2019"
+    }
   },
   "nearshoring": {
     "title": "Das Nearshoring-Modell",
@@ -84,25 +95,37 @@
     "steps": {
       "intro": {
         "label": "Schritt 01",
-        "title": "30-Min-Intro-Gespräch",
-        "description": "Wir stimmen uns zu Ihrem Mandantenportfolio, Reporting-Standards und Datenübertragungsprotokollen ab. Keine Verpflichtung erforderlich."
+        "title": "30-minütiges Erstgespräch",
+        "description": "Wir bestimmen Ihren Einstiegspunkt — Leistungsumfang, Datenübertragungsprotokolle und Reporting-Standards. Ohne Verpflichtung.",
+        "detail": "Kostenlose Beratung"
       },
       "pilot": {
         "label": "Schritt 02",
-        "title": "90-Tage-Pilot",
-        "description": "Wir übernehmen 3–5 Mandantendateien unter Ihrer Aufsicht. Qualitätsbenchmarks und Workflow-Integration werden etabliert."
+        "title": "90-Tage-Pilotmandat",
+        "description": "Wir übernehmen 10–20 Ihrer Lohnbuchhaltungs- oder Buchführungspakete unter vollständiger Aufsicht. Benchmarks und Workflows werden etabliert.",
+        "detail": "10–20 Pakete"
       },
       "scale": {
         "label": "Schritt 03",
-        "title": "SLA-gesichertes Skalieren",
-        "description": "Formalisierung des Engagements mit unterzeichnetem SLA, dedizierter Teamzuteilung und monatlichen Performance-Reviews."
+        "title": "SLA & Vollintegration",
+        "description": "Formalisierung mit unterzeichnetem SLA. Dediziertes Team, monatliche Performance-Reviews und nahtloses Skalieren.",
+        "detail": "Vertragliches SLA"
       }
     },
     "cta": "Gespräch beginnen"
   },
+  "trustBar": {
+    "headline": "Ihr verlängerter Arm in Sarajevo",
+    "subline": "Ihre BiH-Kapazität. Europäische Standards.",
+    "items": [
+      { "icon": "shield", "label": "DSGVO Konform", "sub": "Datenschutz-konform" },
+      { "icon": "award", "label": "ISO-Qualitätsstandards", "sub": "Prozessexzellenz" },
+      { "icon": "cpu", "label": "KI-gestützte Automation", "sub": "Moderne Werkzeuge" }
+    ]
+  },
   "footer": {
     "tagline": "Präzise Buchhaltung. Strategische Klarheit.",
-    "address": "Maršala Tita 3, Sarajevo 71000, Bosnien und Herzegowina",
+    "address": "Maršala Tita 3, 71000 Sarajevo, Bosnien und Herzegowina",
     "phone": "+387 33 XXX XXX",
     "email": "office@bbh.ba",
     "links": {
