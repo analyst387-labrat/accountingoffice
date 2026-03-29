@@ -28,10 +28,6 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // Match all pathnames except:
-  // - /api (API routes)
-  // - /_next (Next.js internals)
-  // - /_static (inside /public)
-  // - all root files inside /public (e.g. /favicon.ico)
-  matcher: ['/((?!api|_next|_static|_vercel|[\\w-]+\\.\\w+).*)'],
+  // Match root (for geo-redirect) and all locale-prefixed routes
+  matcher: ['/', '/(de|en|bs)/:path*'],
 };
