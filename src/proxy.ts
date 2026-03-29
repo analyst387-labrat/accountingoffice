@@ -1,57 +1,37 @@
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './i18n/routing';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 
-// Country-to-locale mapping for geolocation redirect
-const DACH_COUNTRIES = new Set(['DE', 'AT', 'CH']);
-const BALKAN_COUNTRIES = new Set(['BA', 'RS', 'HR', 'ME', 'MK', 'SI', 'AL', 'XK']);
-
-const intlMiddleware = createMiddleware(routing);
+const handleI18nRouting = createMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Only apply geo-redirect on the root path (no locale prefix yet)
-  const isRootPath = pathname === '/';
+  // 1. If we are at the root '/', apply geo-logic
+  if (pathname === '/') {
+    const country = request.headers.get('x-vercel-ip-country') || 'US';
 
-  if (isRootPath) {
-    // Vercel provides CF-IPCountry header; fallback to Accept-Language
-    const country =
-      request.headers.get('x-vercel-ip-country') ||
-      request.headers.get('cf-ipcountry') ||
-      null;
-
-    if (country) {
-      if (DACH_COUNTRIES.has(country)) {
-        const url = request.nextUrl.clone();
-        url.pathname = '/de';
-        return NextResponse.redirect(url, { status: 302 });
-      }
-      if (BALKAN_COUNTRIES.has(country)) {
-        const url = request.nextUrl.clone();
-        url.pathname = '/bs';
-        return NextResponse.redirect(url, { status: 302 });
-      }
+    // DACH Region → German
+    if (['DE', 'AT', 'CH'].includes(country)) {
+      return Response.redirect(new URL('/de', request.url));
     }
-
-    // Fallback: check Accept-Language header
-    const acceptLang = request.headers.get('accept-language') ?? '';
-    if (/^de(-[A-Z]{2})?/i.test(acceptLang)) {
-      const url = request.nextUrl.clone();
-      url.pathname = '/de';
-      return NextResponse.redirect(url, { status: 302 });
+    // Balkans → Bosnian
+    if (['BA', 'RS', 'HR', 'ME'].includes(country)) {
+      return Response.redirect(new URL('/bs', request.url));
     }
-    if (/^(bs|hr|sr)(-[A-Z]{2})?/i.test(acceptLang)) {
-      const url = request.nextUrl.clone();
-      url.pathname = '/bs';
-      return NextResponse.redirect(url, { status: 302 });
-    }
+    // Default → English
+    return Response.redirect(new URL('/en', request.url));
   }
 
-  return intlMiddleware(request);
+  // 2. Otherwise, let next-intl handle standard locale routing
+  return handleI18nRouting(request);
 }
 
 export const config = {
-  // Match all paths except static files and Next.js internals
-  matcher: ['/((?!_next|_vercel|.*\\..*).*)'],
+  // Match all pathnames except:
+  // - /api (API routes)
+  // - /_next (Next.js internals)
+  // - /_static (inside /public)
+  // - all root files inside /public (e.g. /favicon.ico)
+  matcher: ['/((?!api|_next|_static|_vercel|[\\w-]+\\.\\w+).*)'],
 };
