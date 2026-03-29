@@ -90,8 +90,8 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease, delay: 0.18 }}
-            className="font-serif font-bold text-offwhite leading-[1.02] tracking-tighter"
-            style={{ fontSize: 'clamp(2.5rem, 7vw, 6rem)' }}
+            className="font-serif font-bold text-offwhite leading-[1.02] tracking-tighter max-w-[18ch]"
+            style={{ fontSize: 'clamp(2.5rem, 7vw, 6rem)', fontWeight: 800 }}
           >
             {t('headline')}
           </motion.h1>
@@ -101,7 +101,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.32 }}
-            className="text-base md:text-[1.0625rem] text-offwhite/45 leading-[1.75] max-w-[480px] font-light"
+            className="text-base md:text-[1.0625rem] text-offwhite/60 leading-[1.75] max-w-[480px] font-light"
           >
             {t('subheadline')}
           </motion.p>

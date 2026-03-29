@@ -28,7 +28,7 @@ export default function Footer() {
             <div className="flex items-center">
               <div className="relative h-9 w-36">
                 <Image
-                  src="/images/logo/Logo Linear - BBH.png"
+                  src="/images/logo/BBH Linear Logo Black.png"
                   alt="Bosnia Business Hub"
                   fill
                   className="object-contain object-left"

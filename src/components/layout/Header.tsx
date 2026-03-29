@@ -69,7 +69,7 @@ export default function Header() {
           >
             <div className="relative h-8 w-28">
               <Image
-                src="/images/logo/Logo Linear - BBH.png"
+                src="/images/logo/BBH Linear Logo Black.png"
                 alt="Bosnia Business Hub"
                 fill
                 className="object-contain object-left"
@@ -214,7 +214,7 @@ export default function Header() {
                     'text-sm font-medium tracking-widest transition-colors min-h-[44px] px-2',
                     locale === loc.code
                       ? 'text-gold font-semibold'
-                      : 'text-offwhite/40 hover:text-offwhite'
+                      : 'text-offwhite/50 hover:text-offwhite'
                   )}
                 >
                   {loc.label}

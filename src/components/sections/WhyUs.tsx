@@ -76,7 +76,7 @@ export default function WhyUs() {
             </h2>
           </div>
           <div className="flex items-end">
-            <p className="text-[0.9375rem] text-offwhite/40 leading-[1.75] font-light max-w-lg">
+            <p className="text-[0.9375rem] text-offwhite/55 leading-[1.75] font-light max-w-lg">
               {t('subtitle')}
             </p>
           </div>

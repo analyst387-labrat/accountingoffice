@@ -81,7 +81,7 @@ export default function ContactSection() {
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="space-y-1.5">
-                  <label className="text-xs text-offwhite/40 uppercase tracking-widest">Name</label>
+                  <label className="text-xs text-offwhite/60 uppercase tracking-widest">Name</label>
                   <input
                     type="text"
                     className="w-full bg-offwhite/5 border border-offwhite/10 rounded-sm px-4 py-3 text-sm text-offwhite placeholder:text-offwhite/20 focus:outline-none focus:border-gold/40 transition-colors"
@@ -89,7 +89,7 @@ export default function ContactSection() {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-xs text-offwhite/40 uppercase tracking-widest">Company</label>
+                  <label className="text-xs text-offwhite/60 uppercase tracking-widest">Company</label>
                   <input
                     type="text"
                     className="w-full bg-offwhite/5 border border-offwhite/10 rounded-sm px-4 py-3 text-sm text-offwhite placeholder:text-offwhite/20 focus:outline-none focus:border-gold/40 transition-colors"
@@ -98,7 +98,7 @@ export default function ContactSection() {
                 </div>
               </div>
               <div className="space-y-1.5">
-                <label className="text-xs text-offwhite/40 uppercase tracking-widest">Email</label>
+                <label className="text-xs text-offwhite/60 uppercase tracking-widest">Email</label>
                 <input
                   type="email"
                   className="w-full bg-offwhite/5 border border-offwhite/10 rounded-sm px-4 py-3 text-sm text-offwhite placeholder:text-offwhite/20 focus:outline-none focus:border-gold/40 transition-colors"
@@ -106,7 +106,7 @@ export default function ContactSection() {
                 />
               </div>
               <div className="space-y-1.5">
-                <label className="text-xs text-offwhite/40 uppercase tracking-widest">Message</label>
+                <label className="text-xs text-offwhite/60 uppercase tracking-widest">Message</label>
                 <textarea
                   rows={4}
                   className="w-full bg-offwhite/5 border border-offwhite/10 rounded-sm px-4 py-3 text-sm text-offwhite placeholder:text-offwhite/20 focus:outline-none focus:border-gold/40 transition-colors resize-none"
