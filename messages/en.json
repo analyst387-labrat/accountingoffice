@@ -8,7 +8,7 @@
   },
   "hero": {
     "tagline": "White-Label Accounting for EU Firms",
-    "headline": "Your Strategic Partner in Accounting",
+    "headline": "Your Strategic White-Label Partner in Accounting",
     "subheadline": "BiH-based capacity for Austrian Steuerberater, German CFOs, and regional enterprises. MSFI-compliant. GDPR-ready. SLA-backed.",
     "cta_primary": "Book a 30-min Intro",
     "cta_secondary": "Explore Services",
@@ -22,36 +22,36 @@
   },
   "services": {
     "title": "Our Services",
-    "subtitle": "Comprehensive financial and advisory services for the BiH market and EU firms seeking nearshore capacity.",
+    "subtitle": "Comprehensive financial and advisory services built for operational excellence — serving BiH-registered companies and EU firms seeking white-label nearshore capacity.",
     "items": {
       "accounting": {
-        "title": "BiH Accounting",
-        "description": "Full MSFI-compliant bookkeeping, financial statements, and regulatory reporting for entities operating under BiH law.",
+        "title": "BiH Accounting & Reporting",
+        "description": "Full MSFI-compliant general ledger maintenance, PDV (VAT) tax optimisation, inventory accounting, and annual financial statements for companies registered under BiH law.",
         "tag": "MSFI · IFRS"
       },
       "payroll": {
         "title": "Payroll & HR",
-        "description": "End-to-end payroll processing, labour law compliance, and HR administration tailored for the Bosnian market.",
+        "description": "Discreet, end-to-end payroll processing including MIP/GIP statutory forms, personal file management, and full labour-law compliance tailored to the BiH regulatory framework.",
         "tag": "Labour Law · HR"
       },
       "austrian": {
-        "title": "Austrian Market Support",
-        "description": "White-label bookkeeping for Steuerberater and Wirtschaftsprüfer firms. Includes digital archiving, DSGVO/GDPR-compliant file management, and Austrian chart-of-accounts formatting.",
+        "title": "Austrian Market Outsourcing",
+        "description": "Dedicated white-label support for Austrian Steuerberater and Wirtschaftsprüfer. Covers bookkeeping in the Austrian chart of accounts, digital archiving, UVA preparation, and DSGVO-compliant file handover.",
         "tag": "AT · DSGVO"
       },
       "strategy": {
-        "title": "Business Strategy",
-        "description": "ROI modelling, financial projections, and strategic planning for market entry and operational scaling.",
+        "title": "Business Plans",
+        "description": "Investor-ready business plans with ROI modelling, market-entry analysis for Slovenia and the EU, competitive benchmarking, and financial projections aligned to IFRS reporting standards.",
         "tag": "ROI · Projections"
       },
       "feasibility": {
-        "title": "Feasibility Studies",
-        "description": "Pre-investment analysis, risk assessment, and viability reports for local and international investors.",
+        "title": "Feasibility Analysis",
+        "description": "Two-stage analysis: Prefeasibility — rapid risk identification and scope validation; Feasibility — detailed economic modelling, ROI forecasting, and bankable viability reporting for local and international investors.",
         "tag": "Pre-Investment"
       },
       "grants": {
         "title": "Grant Applications",
-        "description": "End-to-end support for EU structural funds, IPA, and international grant applications for BiH-registered entities.",
+        "description": "End-to-end EU structural fund and IPA grant management: opportunity mapping, application drafting, narrative reporting, and donor-compliant budget preparation for BiH-registered entities.",
         "tag": "EU Funds · IPA"
       }
     }
@@ -62,8 +62,8 @@
     "stats": {
       "clients": "Active Clients",
       "austria": "Active in Austria",
-      "years": "Years in Practice",
-      "compliance": "Compliance Rate"
+      "team": "Expert Team",
+      "aiPowered": "AI-Powered"
     },
     "values": [
       {

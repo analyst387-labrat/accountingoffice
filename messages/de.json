@@ -22,36 +22,36 @@
   },
   "services": {
     "title": "Unsere Leistungen",
-    "subtitle": "Umfassende Finanz- und Beratungsleistungen für den BiH-Markt und EU-Kanzleien mit Nearshore-Bedarf.",
+    "subtitle": "Umfassende Finanz- und Beratungsleistungen für operative Exzellenz — für BiH-ansässige Unternehmen und EU-Kanzleien mit White-Label-Nearshore-Bedarf.",
     "items": {
       "accounting": {
-        "title": "BiH-Buchhaltung",
-        "description": "Vollständige MSFI-konforme Buchführung, Jahresabschlüsse und regulatorisches Reporting für Unternehmen nach BiH-Recht.",
+        "title": "Buchhaltung & Berichterstattung",
+        "description": "Vollständige MSFI-konforme Hauptbuchhaltung, PDV-Steueroptimierung, Wareneinsatzrechnung und Jahresabschlüsse für in BiH registrierte Unternehmen.",
         "tag": "MSFI · IFRS"
       },
       "payroll": {
-        "title": "Lohnbuchhaltung & HR",
-        "description": "Vollständige Lohnabrechnung, Arbeitsrechtkonformität und HR-Administration für den bosnischen Markt.",
+        "title": "Lohnverrechnung & HR",
+        "description": "Diskrete und vollständige Lohnverrechnung inklusive gesetzlicher MIP/GIP-Formulare, Personalaktenverwaltung und Arbeitsrechtkonformität nach bosnischem Recht.",
         "tag": "Arbeitsrecht · HR"
       },
       "austrian": {
-        "title": "Österreichischer Markt",
-        "description": "White-Label-Buchführung für Steuerberater und Wirtschaftsprüfer. Mit digitalem Archivierungsservice, DSGVO-konformem Dateimanagement und österreichischem Kontenrahmen.",
+        "title": "Outsourcing Österreich",
+        "description": "White-Label-Buchhaltungsunterstützung für Steuerberater und Wirtschaftsprüfer: österreichischer Kontenrahmen, digitales Archivierungssystem, UVA-Vorbereitung und DSGVO-konformes Dateimanagement.",
         "tag": "AT · DSGVO"
       },
       "strategy": {
-        "title": "Unternehmensstrategie",
-        "description": "ROI-Modellierung, Finanzprognosen und strategische Planung für Markteintritt und operatives Wachstum.",
+        "title": "Businesspläne",
+        "description": "Investorentaugliche Businesspläne mit ROI-Modellierung, Markteintrittsanalyse für Slowenien und die EU, Wettbewerbsbenchmarking und IFRS-konforme Finanzprognosen.",
         "tag": "ROI · Prognosen"
       },
       "feasibility": {
         "title": "Machbarkeitsstudien",
-        "description": "Vorinvestitionsanalysen, Risikobewertung und Rentabilitätsberichte für in- und ausländische Investoren.",
+        "description": "Zweistufige Analyse: Vormachbarkeitsstudie — schnelle Risikoidentifikation und Umfangsvalidierung; Machbarkeitsstudie — detaillierte Wirtschaftlichkeitsmodellierung, ROI-Prognose und bankfähige Rentabilitätsberichte.",
         "tag": "Vorinvestition"
       },
       "grants": {
         "title": "Förderanträge",
-        "description": "Vollständige Begleitung bei EU-Strukturfonds, IPA- und internationalen Förderanträgen für BiH-registrierte Unternehmen.",
+        "description": "Vollständiges EU-Strukturfonds- und IPA-Förderantragsmanagement: Fördermittelrecherche, Antragstellung, Berichterstattung und förderkonformes Budgetmanagement für in BiH registrierte Einheiten.",
         "tag": "EU-Fonds · IPA"
       }
     }
@@ -62,8 +62,8 @@
     "stats": {
       "clients": "Aktive Mandanten",
       "austria": "Aktiv in Österreich",
-      "years": "Jahre Praxis",
-      "compliance": "Compliance-Rate"
+      "team": "Expertenteam",
+      "aiPowered": "KI-gestützt"
     },
     "values": [
       {
