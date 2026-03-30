@@ -1,149 +1,143 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { cn } from '@/lib/utils';
 import { RevealOnScroll, SectionLabel, SectionHeading } from '@/components/ui/reveal';
 
 type ServiceKey = 'accounting' | 'payroll' | 'austrian' | 'strategy' | 'feasibility' | 'grants';
 
-// Left column: 01, 03, 05 — Right column (staggered): 02, 04, 06
-const LEFT_KEYS:  ServiceKey[] = ['accounting', 'austrian',  'feasibility'];
-const RIGHT_KEYS: ServiceKey[] = ['payroll',    'strategy',  'grants'];
-
-const ALL_KEYS: ServiceKey[] = [
+const SERVICE_KEYS: ServiceKey[] = [
   'accounting', 'payroll', 'austrian', 'strategy', 'feasibility', 'grants',
 ];
 
 const AUSTRIAN_PILLS = ['Steuerberater Support', 'Digital Archiving', 'DSGVO/GDPR'];
 
-// ── Stagger entrance ──────────────────────────────────────────────────
-const columnVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.09 } },
-};
-
-const entranceVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: 'spring' as const, mass: 0.4, damping: 28, stiffness: 85 },
-  },
-};
-
-// ── Hover variants — 0.6s border, spring content shift ───────────────
-const topBorderVariants = {
-  rest:  { backgroundColor: 'rgba(203,213,225,0.7)' }, // slate-200 equivalent
-  hover: {
-    backgroundColor: '#001F3F',
-    transition: { duration: 0.6, ease: 'easeOut' as const },
-  },
-};
-
-const contentShiftVariants = {
-  rest:  { x: 0 },
-  hover: {
-    x: 4,
-    transition: { type: 'spring' as const, mass: 0.35, damping: 26, stiffness: 100 },
-  },
-};
-
-// ── Card ──────────────────────────────────────────────────────────────
-function ServiceCard({ serviceKey }: { serviceKey: ServiceKey }) {
-  const t    = useTranslations('services');
-  const idx  = ALL_KEYS.indexOf(serviceKey);
-  const num  = String(idx + 1).padStart(2, '0');
+// ── Row component ────────────────────────────────────────────────────
+function ServiceRow({
+  serviceKey,
+  index,
+  isHovered,
+  anyHovered,
+  onEnter,
+  onLeave,
+}: {
+  serviceKey: ServiceKey;
+  index: number;
+  isHovered: boolean;
+  anyHovered: boolean;
+  onEnter: () => void;
+  onLeave: () => void;
+}) {
+  const t = useTranslations('services');
+  const num = String(index + 1).padStart(2, '0');
   const isAustrian = serviceKey === 'austrian';
-  const isWide     = serviceKey === 'accounting';
 
   return (
-    <motion.article variants={entranceVariants} className="relative">
+    <motion.div
+      onHoverStart={onEnter}
+      onHoverEnd={onLeave}
+      animate={{ opacity: anyHovered && !isHovered ? 0.35 : 1 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
+      className="relative cursor-default group"
+    >
+      {/* Top border — animates to deep navy on hover */}
       <motion.div
-        className="relative pt-8 pb-12 overflow-hidden cursor-default"
-        initial="rest"
-        whileHover="hover"
-        animate="rest"
-      >
-        {/* Animated top border — full width, 0.5px */}
-        <motion.div
-          className="absolute top-0 left-0 right-0"
-          style={{ height: '0.5px' }}
-          variants={topBorderVariants}
-        />
+        className="absolute top-0 left-0 right-0"
+        style={{ height: '0.5px' }}
+        animate={{ backgroundColor: isHovered ? '#001F3F' : 'rgba(203,213,225,0.8)' }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+      />
 
-        {/* Ghost number — pushed to far right edge, larger */}
-        <span
-          className="absolute right-0 top-0 font-serif font-bold select-none pointer-events-none leading-none"
-          style={{
-            fontSize: 'clamp(5.5rem, 11vw, 9rem)',
-            opacity: 0.035,
-            color: '#001F3F',
-            letterSpacing: '-0.04em',
-            lineHeight: 0.85,
-          }}
-          aria-hidden
-        >
-          {num}
-        </span>
+      {/* Row background — faint cream on hover */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        animate={{ backgroundColor: isHovered ? 'rgba(240,237,230,0.65)' : 'rgba(0,0,0,0)' }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+      />
 
-        {/* Content — shifts 4px right on hover */}
+      <div className="relative z-10 flex items-start justify-between gap-12 py-8 px-0">
+        {/* Left: meta + title + description */}
         <motion.div
-          variants={contentShiftVariants}
-          className="relative z-10 flex flex-col"
+          className="flex flex-col gap-3 min-w-0"
+          animate={{ x: isHovered ? 20 : 0 }}
+          transition={{ type: 'spring', mass: 0.35, damping: 26, stiffness: 100 }}
         >
-          {/* Micro-label — 9px, bold, wide tracking, plenty of space below */}
-          <span
-            className="text-[9px] font-bold tracking-[0.25em] uppercase text-slate-400/80 font-sans mb-5"
-          >
+          {/* Metadata label */}
+          <span className="text-[10px] tracking-[0.3em] uppercase font-sans font-medium text-slate-400">
             {t(`items.${serviceKey}.tag`)}
           </span>
 
-          {/* Title */}
+          {/* Title — large elegant serif */}
           <h3
-            className={cn(
-              'font-serif font-semibold tracking-tighter text-navy leading-snug mb-4',
-              isWide
-                ? 'text-[1.625rem] md:text-[2rem]'
-                : 'text-[1.25rem] md:text-[1.375rem]'
-            )}
+            className="font-serif font-semibold tracking-tighter leading-tight"
+            style={{ color: '#1a1a1a', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}
           >
             {t(`items.${serviceKey}.title`)}
           </h3>
 
-          {/* Description */}
-          <p className="text-[13.5px] text-slate leading-relaxed font-light max-w-[44ch]">
-            {t(`items.${serviceKey}.description`)}
-          </p>
-
-          {/* Austrian pills */}
-          {isAustrian && (
-            <div className="flex flex-wrap gap-x-5 gap-y-1 mt-4">
-              {AUSTRIAN_PILLS.map((pill) => (
-                <span
-                  key={pill}
-                  className="text-[9px] font-bold tracking-[0.22em] uppercase text-gold/70 font-sans"
+          {/* Description — hidden by default, fades in on hover */}
+          <AnimatePresence initial={false}>
+            {isHovered && (
+              <motion.div
+                key="desc"
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 4 }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+                className="flex flex-col gap-3"
+              >
+                <p
+                  className="text-[13.5px] leading-relaxed font-light max-w-[56ch]"
+                  style={{ color: '#666666' }}
                 >
-                  {pill}
-                </span>
-              ))}
-            </div>
-          )}
+                  {t(`items.${serviceKey}.description`)}
+                </p>
+                {isAustrian && (
+                  <div className="flex flex-wrap gap-x-5 gap-y-1">
+                    {AUSTRIAN_PILLS.map((pill) => (
+                      <span
+                        key={pill}
+                        className="text-[9px] font-bold tracking-[0.25em] uppercase text-gold/70 font-sans"
+                      >
+                        {pill}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
-      </motion.div>
-    </motion.article>
+
+        {/* Right: delicate serif number */}
+        <span
+          className="font-serif font-normal shrink-0 mt-1 select-none"
+          style={{
+            fontSize: '0.8125rem',
+            color: '#1a1a1a',
+            opacity: isHovered ? 0.5 : 0.2,
+            letterSpacing: '0.05em',
+            transition: 'opacity 0.4s ease',
+          }}
+        >
+          {num}
+        </span>
+      </div>
+    </motion.div>
   );
 }
 
 // ── Section ───────────────────────────────────────────────────────────
 export default function ServicesGrid() {
   const t = useTranslations('services');
+  const [hoveredKey, setHoveredKey] = useState<ServiceKey | null>(null);
 
   return (
     <section id="services" className="py-20 lg:py-[120px] bg-offwhite">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+      <div className="max-w-5xl mx-auto px-6 lg:px-10">
+        {/* Section header */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <RevealOnScroll direction="left">
             <SectionLabel>02 · Services</SectionLabel>
             <SectionHeading className="line-accent">{t('title')}</SectionHeading>
@@ -155,33 +149,23 @@ export default function ServicesGrid() {
           </RevealOnScroll>
         </div>
 
-        {/* Two-column staggered layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 lg:gap-x-32">
-          {/* Left column — baseline */}
-          <motion.div
-            variants={columnVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-          >
-            {LEFT_KEYS.map((key) => (
-              <ServiceCard key={key} serviceKey={key} />
+        {/* Editorial list */}
+        <RevealOnScroll direction="up" delay={0.05}>
+          {/* Bottom border on the last item */}
+          <div style={{ borderBottom: '0.5px solid rgba(203,213,225,0.8)' }}>
+            {SERVICE_KEYS.map((key, i) => (
+              <ServiceRow
+                key={key}
+                serviceKey={key}
+                index={i}
+                isHovered={hoveredKey === key}
+                anyHovered={hoveredKey !== null}
+                onEnter={() => setHoveredKey(key)}
+                onLeave={() => setHoveredKey(null)}
+              />
             ))}
-          </motion.div>
-
-          {/* Right column — offset downward for asymmetric stagger */}
-          <motion.div
-            variants={columnVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            className="md:translate-y-24"
-          >
-            {RIGHT_KEYS.map((key) => (
-              <ServiceCard key={key} serviceKey={key} />
-            ))}
-          </motion.div>
-        </div>
+          </div>
+        </RevealOnScroll>
       </div>
     </section>
   );
