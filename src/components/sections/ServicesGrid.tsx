@@ -7,20 +7,32 @@ import { RevealOnScroll, SectionLabel, SectionHeading } from '@/components/ui/re
 
 type ServiceKey = 'accounting' | 'payroll' | 'austrian' | 'strategy' | 'feasibility' | 'grants';
 
-// Left column: 01, 03, 05 — Right column (staggered down): 02, 04, 06
-const LEFT_KEYS:  ServiceKey[] = ['accounting', 'austrian',  'feasibility'];
-const RIGHT_KEYS: ServiceKey[] = ['payroll',    'strategy',  'grants'];
+// Row 1: accounting (8) + payroll (4)
+// Row 2: austrian (4) + strategy (4, -mt-12) + feasibility (4)
+// Row 3: grants (7) + negative space (5)
+const LAYOUT: Record<ServiceKey, { span: string; offset?: string }> = {
+  accounting:  { span: 'md:col-span-8' },
+  payroll:     { span: 'md:col-span-4' },
+  austrian:    { span: 'md:col-span-4' },
+  strategy:    { span: 'md:col-span-4', offset: 'md:-mt-12' },
+  feasibility: { span: 'md:col-span-4' },
+  grants:      { span: 'md:col-span-7' },
+};
 
-const ALL_KEYS: ServiceKey[] = [
-  'accounting', 'payroll', 'austrian', 'strategy', 'feasibility', 'grants',
+const SERVICE_KEYS: ServiceKey[] = [
+  'accounting', 'payroll',
+  'austrian', 'strategy', 'feasibility',
+  'grants',
 ];
+
+const ALL_KEYS: ServiceKey[] = [...SERVICE_KEYS];
 
 const AUSTRIAN_PILLS = ['Steuerberater Support', 'Digital Archiving', 'DSGVO/GDPR'];
 
 // ── Stagger entrance ──────────────────────────────────────────────────
-const columnVariants = {
+const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.09 } },
+  visible: { transition: { staggerChildren: 0.07 } },
 };
 
 const entranceVariants = {
@@ -32,7 +44,7 @@ const entranceVariants = {
   },
 };
 
-// ── Hover variants — 0.6s border transition, spring content shift ─────
+// ── Hover variants ────────────────────────────────────────────────────
 const topBorderVariants = {
   rest:  { backgroundColor: 'rgba(203,213,225,0.7)' },
   hover: {
@@ -51,28 +63,32 @@ const contentShiftVariants = {
 
 // ── Card ──────────────────────────────────────────────────────────────
 function ServiceCard({ serviceKey }: { serviceKey: ServiceKey }) {
-  const t    = useTranslations('services');
-  const idx  = ALL_KEYS.indexOf(serviceKey);
-  const num  = String(idx + 1).padStart(2, '0');
+  const t          = useTranslations('services');
+  const idx        = ALL_KEYS.indexOf(serviceKey);
+  const num        = String(idx + 1).padStart(2, '0');
   const isAustrian = serviceKey === 'austrian';
   const isWide     = serviceKey === 'accounting';
+  const { span, offset } = LAYOUT[serviceKey];
 
   return (
-    <motion.article variants={entranceVariants} className="relative">
+    <motion.article
+      variants={entranceVariants}
+      className={cn('col-span-12 relative', span, offset)}
+    >
       <motion.div
         className="relative pt-8 pb-12 overflow-hidden cursor-default"
         initial="rest"
         whileHover="hover"
         animate="rest"
       >
-        {/* Animated top border — full width, 0.5px */}
+        {/* Animated top border — 0.5px, full width */}
         <motion.div
           className="absolute top-0 left-0 right-0"
           style={{ height: '0.5px' }}
           variants={topBorderVariants}
         />
 
-        {/* Ghost number — far right edge, large serif */}
+        {/* Ghost number — far right, large serif */}
         <span
           className="absolute right-0 top-0 font-serif font-bold select-none pointer-events-none leading-none"
           style={{
@@ -153,33 +169,21 @@ export default function ServicesGrid() {
           </RevealOnScroll>
         </div>
 
-        {/* Two-column staggered layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 lg:gap-x-32">
-          {/* Left column — baseline */}
-          <motion.div
-            variants={columnVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-          >
-            {LEFT_KEYS.map((key) => (
-              <ServiceCard key={key} serviceKey={key} />
-            ))}
-          </motion.div>
+        {/* 12-col asymmetric editorial grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="grid grid-cols-12 gap-x-0 gap-y-0"
+        >
+          {SERVICE_KEYS.map((key) => (
+            <ServiceCard key={key} serviceKey={key} />
+          ))}
 
-          {/* Right column — offset downward for asymmetric stagger */}
-          <motion.div
-            variants={columnVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            className="md:translate-y-24"
-          >
-            {RIGHT_KEYS.map((key) => (
-              <ServiceCard key={key} serviceKey={key} />
-            ))}
-          </motion.div>
-        </div>
+          {/* Negative space after Grants */}
+          <div className="hidden md:block md:col-span-5" aria-hidden />
+        </motion.div>
       </div>
     </section>
   );
