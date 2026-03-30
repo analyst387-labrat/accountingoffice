@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Phone, Layers, CheckSquare, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -81,6 +82,40 @@ export default function NearshoringModel() {
   return (
     <section id="nearshoring" className="py-20 lg:py-[120px] bg-offwhite-warm relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-navy/6 to-transparent" />
+
+      {/* Sarajevo Bridge — ink illustration ghost, bottom-right */}
+      <div className="absolute bottom-0 right-0 w-[55%] md:w-[44%] pointer-events-none select-none">
+        {/* Fade mask: left edge fades to transparent so the bridge bleeds in naturally */}
+        <div
+          className="absolute inset-0 z-10"
+          style={{
+            background: 'linear-gradient(to right, var(--color-offwhite-warm) 0%, transparent 30%)',
+          }}
+        />
+        {/* Bottom fade so it sits flush with section edge */}
+        <div
+          className="absolute inset-0 z-10"
+          style={{
+            background: 'linear-gradient(to top, var(--color-offwhite-warm) 0%, transparent 18%)',
+          }}
+        />
+        <motion.div
+          initial={{ opacity: 0, x: 24 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ type: 'spring', mass: 0.5, damping: 30, stiffness: 70, delay: 0.35 }}
+        >
+          <Image
+            src="/images/office/Sarajevo Bridge.png"
+            alt=""
+            width={900}
+            height={420}
+            className="w-full h-auto"
+            style={{ mixBlendMode: 'multiply', opacity: 0.1 }}
+            aria-hidden
+          />
+        </motion.div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}

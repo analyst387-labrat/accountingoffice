@@ -2,50 +2,146 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { BookOpen, Users, Globe, TrendingUp, FileSearch, Award } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { RevealOnScroll, SectionLabel, SectionHeading } from '@/components/ui/reveal';
 
-const ICONS = {
-  accounting: BookOpen,
-  payroll: Users,
-  austrian: Globe,
-  strategy: TrendingUp,
-  feasibility: FileSearch,
-  grants: Award,
-} as const;
+// ── Types ────────────────────────────────────────────────────────────
+type ServiceKey = 'accounting' | 'payroll' | 'austrian' | 'strategy' | 'feasibility' | 'grants';
 
-type ServiceKey = keyof typeof ICONS;
-
-const CARD_SPANS: Record<ServiceKey, string> = {
-  accounting:  'md:col-span-2 lg:col-span-2',
-  payroll:     'md:col-span-1 lg:col-span-1',
-  austrian:    'md:col-span-1 lg:col-span-1',
-  strategy:    'md:col-span-1 lg:col-span-1',
-  feasibility: 'md:col-span-1 lg:col-span-1',
-  grants:      'md:col-span-2 lg:col-span-2',
+// ── Layout config ────────────────────────────────────────────────────
+// Each entry: col span classes + optional vertical offset (asymmetric break)
+const LAYOUT: Record<ServiceKey, { span: string; offset?: string }> = {
+  accounting:  { span: 'md:col-span-8' },
+  payroll:     { span: 'md:col-span-4' },
+  austrian:    { span: 'md:col-span-4' },
+  strategy:    { span: 'md:col-span-4', offset: 'md:-mt-12' },
+  feasibility: { span: 'md:col-span-4' },
+  grants:      { span: 'md:col-span-7' },
 };
 
 const SERVICE_KEYS: ServiceKey[] = [
-  'accounting', 'payroll', 'austrian', 'strategy', 'feasibility', 'grants',
+  'accounting', 'payroll',
+  'austrian', 'strategy', 'feasibility',
+  'grants',
 ];
 
 const AUSTRIAN_PILLS = ['Steuerberater Support', 'Digital Archiving', 'DSGVO/GDPR'];
 
+// ── Stagger entrance ─────────────────────────────────────────────────
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.06 } },
+  visible: { transition: { staggerChildren: 0.07 } },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 24 },
+const entranceVariants = {
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: 'spring' as const, mass: 0.4, damping: 28, stiffness: 90 },
+    transition: { type: 'spring' as const, mass: 0.4, damping: 28, stiffness: 85 },
   },
 };
 
+// ── Hover sub-variants (propagated from inner hover manager) ─────────
+const topBorderVariants = {
+  rest:  { backgroundColor: 'rgba(0,0,0,0.08)' },
+  hover: { backgroundColor: '#B8975A', transition: { duration: 0.35, ease: 'easeOut' as const } },
+};
+
+const contentShiftVariants = {
+  rest:  { x: 0 },
+  hover: { x: 4, transition: { type: 'spring' as const, mass: 0.35, damping: 26, stiffness: 100 } },
+};
+
+// ── Card component ───────────────────────────────────────────────────
+function ServiceCard({ serviceKey, index }: { serviceKey: ServiceKey; index: number }) {
+  const t = useTranslations('services');
+  const { span, offset } = LAYOUT[serviceKey];
+  const isAustrian = serviceKey === 'austrian';
+  const num = String(index + 1).padStart(2, '0');
+
+  return (
+    // Outer: participates in entrance stagger
+    <motion.article
+      variants={entranceVariants}
+      className={cn('col-span-12 relative', span, offset)}
+    >
+      {/* Inner: manages hover state, propagates to children */}
+      <motion.div
+        className="relative h-full pt-7 pb-10 pr-8 overflow-hidden cursor-default"
+        initial="rest"
+        whileHover="hover"
+        animate="rest"
+      >
+        {/* Animated top border line */}
+        <motion.div
+          className="absolute top-0 left-0 right-0 h-[0.5px]"
+          variants={topBorderVariants}
+        />
+
+        {/* Ghost index number — large serif, faint */}
+        <span
+          className="absolute right-4 top-2 font-serif font-bold select-none pointer-events-none leading-none"
+          style={{
+            fontSize: 'clamp(4rem, 8vw, 7rem)',
+            opacity: 0.04,
+            color: '#001F3F',
+            letterSpacing: '-0.04em',
+            lineHeight: 1,
+          }}
+          aria-hidden
+        >
+          {num}
+        </span>
+
+        {/* Content — shifts 4px right on hover */}
+        <motion.div
+          variants={contentShiftVariants}
+          className="relative z-10 flex flex-col gap-4"
+        >
+          {/* Tag — bare, no box */}
+          <span className="text-[10px] tracking-[0.2em] uppercase font-medium text-slate-400 font-sans">
+            {t(`items.${serviceKey}.tag`)}
+          </span>
+
+          {/* Title */}
+          <h3
+            className={cn(
+              'font-serif font-semibold tracking-tighter text-navy leading-snug',
+              // Wider cards get larger title
+              serviceKey === 'accounting'
+                ? 'text-[1.625rem] md:text-[1.875rem]'
+                : 'text-[1.25rem] md:text-[1.375rem]'
+            )}
+          >
+            {t(`items.${serviceKey}.title`)}
+          </h3>
+
+          {/* Description */}
+          <p className="text-[13.5px] text-slate leading-relaxed font-light max-w-[42ch]">
+            {t(`items.${serviceKey}.description`)}
+          </p>
+
+          {/* Austrian feature pills — bare text labels, gold */}
+          {isAustrian && (
+            <div className="flex flex-wrap gap-x-4 gap-y-1 mt-1">
+              {AUSTRIAN_PILLS.map((pill) => (
+                <span
+                  key={pill}
+                  className="text-[10px] font-medium tracking-[0.15em] uppercase text-gold/75 font-sans"
+                >
+                  {pill}
+                </span>
+              ))}
+            </div>
+          )}
+        </motion.div>
+      </motion.div>
+    </motion.article>
+  );
+}
+
+// ── Section ──────────────────────────────────────────────────────────
 export default function ServicesGrid() {
   const t = useTranslations('services');
 
@@ -53,7 +149,7 @@ export default function ServicesGrid() {
     <section id="services" className="py-20 lg:py-[120px] bg-offwhite">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           <RevealOnScroll direction="left">
             <SectionLabel>02 · Services</SectionLabel>
             <SectionHeading className="line-accent">{t('title')}</SectionHeading>
@@ -65,95 +161,20 @@ export default function ServicesGrid() {
           </RevealOnScroll>
         </div>
 
-        {/* Bento grid */}
+        {/* 12-col asymmetric editorial grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr"
-          style={{ border: '0.5px solid rgba(0,31,63,0.08)' }}
+          className="grid grid-cols-12 gap-x-0 gap-y-0"
         >
-          {SERVICE_KEYS.map((key, i) => {
-            const Icon = ICONS[key];
-            const isWide = key === 'accounting' || key === 'grants';
-            const isAustrian = key === 'austrian';
+          {SERVICE_KEYS.map((key, i) => (
+            <ServiceCard key={key} serviceKey={key} index={i} />
+          ))}
 
-            return (
-              <motion.div
-                key={key}
-                variants={cardVariants}
-                className={cn(
-                  'group relative bg-offwhite hover:bg-navy active:bg-navy-light',
-                  'transition-colors duration-500 cursor-default overflow-hidden h-full',
-                  'border-[0.5px] border-navy/8 hover:border-gold/25',
-                  CARD_SPANS[key]
-                )}
-              >
-                {/* Hover shimmer */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-white/[0.015] to-transparent" />
-
-                <div
-                  className={cn(
-                    'relative z-10 p-8 md:p-9 h-full flex flex-col gap-5',
-                    isWide ? 'md:flex-row md:items-start md:gap-12' : ''
-                  )}
-                >
-                  {/* Icon */}
-                  <div className="shrink-0">
-                    <div
-                      className="w-10 h-10 flex items-center justify-center transition-colors duration-500"
-                      style={{ border: '0.5px solid rgba(0,31,63,0.10)' }}
-                    >
-                      <Icon
-                        size={18}
-                        className="text-slate-light group-hover:text-gold transition-colors duration-500"
-                        strokeWidth={1.5}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex flex-col gap-3 flex-1 min-w-0">
-                    <div className="flex items-start justify-between gap-4 flex-wrap">
-                      <h3 className="font-serif text-xl font-semibold text-navy group-hover:text-offwhite transition-colors duration-500 leading-snug">
-                        {t(`items.${key}.title`)}
-                      </h3>
-                      <span
-                        className="shrink-0 text-[9px] font-semibold tracking-[0.18em] uppercase text-slate-light group-hover:text-gold/50 transition-colors duration-500 px-2 py-0.5"
-                        style={{ border: '0.5px solid currentColor' }}
-                      >
-                        {t(`items.${key}.tag`)}
-                      </span>
-                    </div>
-
-                    <p className="text-[13.5px] text-slate group-hover:text-offwhite/55 transition-colors duration-500 leading-relaxed font-light">
-                      {t(`items.${key}.description`)}
-                    </p>
-
-                    {isAustrian && (
-                      <div className="flex flex-wrap gap-2 mt-1">
-                        {AUSTRIAN_PILLS.map((pill) => (
-                          <span
-                            key={pill}
-                            className="text-[9px] font-medium tracking-[0.12em] uppercase text-gold/70 group-hover:text-gold/50 transition-colors duration-500 px-2 py-0.5"
-                            style={{ border: '0.5px solid currentColor' }}
-                          >
-                            {pill}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                {/* Index */}
-                <span className="absolute bottom-5 right-6 font-mono text-[10px] text-navy/[0.05] group-hover:text-white/[0.05] transition-colors duration-500 select-none">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-              </motion.div>
-            );
-          })}
+          {/* Active white space after Grants — col-span-5 */}
+          <div className="hidden md:block md:col-span-5" aria-hidden />
         </motion.div>
       </div>
     </section>

@@ -156,7 +156,7 @@ export default function HeroSection() {
             src="/images/office/Headline Photo Townhall Sarajevo.png"
             alt="Vijećnica — Sarajevo City Hall"
             fill
-            className="object-cover object-bottom grayscale"
+            className="object-cover object-center grayscale"
             priority
             sizes="50vw"
           />
