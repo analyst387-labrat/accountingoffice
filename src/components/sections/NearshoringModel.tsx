@@ -84,7 +84,7 @@ export default function NearshoringModel() {
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-navy/6 to-transparent" />
 
       {/* Sarajevo Bridge — ink illustration ghost, bottom-right */}
-      <div className="absolute bottom-0 right-0 w-[55%] md:w-[44%] pointer-events-none select-none">
+      <div className="absolute bottom-0 right-0 w-[66%] md:w-[53%] pointer-events-none select-none">
         {/* Fade mask: left edge fades to transparent so the bridge bleeds in naturally */}
         <div
           className="absolute inset-0 z-10"

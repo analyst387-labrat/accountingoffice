@@ -5,32 +5,22 @@ import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import { RevealOnScroll, SectionLabel, SectionHeading } from '@/components/ui/reveal';
 
-// ── Types ────────────────────────────────────────────────────────────
 type ServiceKey = 'accounting' | 'payroll' | 'austrian' | 'strategy' | 'feasibility' | 'grants';
 
-// ── Layout config ────────────────────────────────────────────────────
-// Each entry: col span classes + optional vertical offset (asymmetric break)
-const LAYOUT: Record<ServiceKey, { span: string; offset?: string }> = {
-  accounting:  { span: 'md:col-span-8' },
-  payroll:     { span: 'md:col-span-4' },
-  austrian:    { span: 'md:col-span-4' },
-  strategy:    { span: 'md:col-span-4', offset: 'md:-mt-12' },
-  feasibility: { span: 'md:col-span-4' },
-  grants:      { span: 'md:col-span-7' },
-};
+// Left column: 01, 03, 05 — Right column (staggered): 02, 04, 06
+const LEFT_KEYS:  ServiceKey[] = ['accounting', 'austrian',  'feasibility'];
+const RIGHT_KEYS: ServiceKey[] = ['payroll',    'strategy',  'grants'];
 
-const SERVICE_KEYS: ServiceKey[] = [
-  'accounting', 'payroll',
-  'austrian', 'strategy', 'feasibility',
-  'grants',
+const ALL_KEYS: ServiceKey[] = [
+  'accounting', 'payroll', 'austrian', 'strategy', 'feasibility', 'grants',
 ];
 
 const AUSTRIAN_PILLS = ['Steuerberater Support', 'Digital Archiving', 'DSGVO/GDPR'];
 
-// ── Stagger entrance ─────────────────────────────────────────────────
-const containerVariants = {
+// ── Stagger entrance ──────────────────────────────────────────────────
+const columnVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.07 } },
+  visible: { transition: { staggerChildren: 0.09 } },
 };
 
 const entranceVariants = {
@@ -42,52 +32,55 @@ const entranceVariants = {
   },
 };
 
-// ── Hover sub-variants (propagated from inner hover manager) ─────────
+// ── Hover variants — 0.6s border, spring content shift ───────────────
 const topBorderVariants = {
-  rest:  { backgroundColor: 'rgba(0,0,0,0.08)' },
-  hover: { backgroundColor: '#B8975A', transition: { duration: 0.35, ease: 'easeOut' as const } },
+  rest:  { backgroundColor: 'rgba(203,213,225,0.7)' }, // slate-200 equivalent
+  hover: {
+    backgroundColor: '#001F3F',
+    transition: { duration: 0.6, ease: 'easeOut' as const },
+  },
 };
 
 const contentShiftVariants = {
   rest:  { x: 0 },
-  hover: { x: 4, transition: { type: 'spring' as const, mass: 0.35, damping: 26, stiffness: 100 } },
+  hover: {
+    x: 4,
+    transition: { type: 'spring' as const, mass: 0.35, damping: 26, stiffness: 100 },
+  },
 };
 
-// ── Card component ───────────────────────────────────────────────────
-function ServiceCard({ serviceKey, index }: { serviceKey: ServiceKey; index: number }) {
-  const t = useTranslations('services');
-  const { span, offset } = LAYOUT[serviceKey];
+// ── Card ──────────────────────────────────────────────────────────────
+function ServiceCard({ serviceKey }: { serviceKey: ServiceKey }) {
+  const t    = useTranslations('services');
+  const idx  = ALL_KEYS.indexOf(serviceKey);
+  const num  = String(idx + 1).padStart(2, '0');
   const isAustrian = serviceKey === 'austrian';
-  const num = String(index + 1).padStart(2, '0');
+  const isWide     = serviceKey === 'accounting';
 
   return (
-    // Outer: participates in entrance stagger
-    <motion.article
-      variants={entranceVariants}
-      className={cn('col-span-12 relative', span, offset)}
-    >
-      {/* Inner: manages hover state, propagates to children */}
+    <motion.article variants={entranceVariants} className="relative">
       <motion.div
-        className="relative h-full pt-7 pb-10 pr-8 overflow-hidden cursor-default"
+        className="relative pt-8 pb-12 overflow-hidden cursor-default"
         initial="rest"
         whileHover="hover"
         animate="rest"
       >
-        {/* Animated top border line */}
+        {/* Animated top border — full width, 0.5px */}
         <motion.div
-          className="absolute top-0 left-0 right-0 h-[0.5px]"
+          className="absolute top-0 left-0 right-0"
+          style={{ height: '0.5px' }}
           variants={topBorderVariants}
         />
 
-        {/* Ghost index number — large serif, faint */}
+        {/* Ghost number — pushed to far right edge, larger */}
         <span
-          className="absolute right-4 top-2 font-serif font-bold select-none pointer-events-none leading-none"
+          className="absolute right-0 top-0 font-serif font-bold select-none pointer-events-none leading-none"
           style={{
-            fontSize: 'clamp(4rem, 8vw, 7rem)',
-            opacity: 0.04,
+            fontSize: 'clamp(5.5rem, 11vw, 9rem)',
+            opacity: 0.035,
             color: '#001F3F',
             letterSpacing: '-0.04em',
-            lineHeight: 1,
+            lineHeight: 0.85,
           }}
           aria-hidden
         >
@@ -97,20 +90,21 @@ function ServiceCard({ serviceKey, index }: { serviceKey: ServiceKey; index: num
         {/* Content — shifts 4px right on hover */}
         <motion.div
           variants={contentShiftVariants}
-          className="relative z-10 flex flex-col gap-4"
+          className="relative z-10 flex flex-col"
         >
-          {/* Tag — bare, no box */}
-          <span className="text-[10px] tracking-[0.2em] uppercase font-medium text-slate-400 font-sans">
+          {/* Micro-label — 9px, bold, wide tracking, plenty of space below */}
+          <span
+            className="text-[9px] font-bold tracking-[0.25em] uppercase text-slate-400/80 font-sans mb-5"
+          >
             {t(`items.${serviceKey}.tag`)}
           </span>
 
           {/* Title */}
           <h3
             className={cn(
-              'font-serif font-semibold tracking-tighter text-navy leading-snug',
-              // Wider cards get larger title
-              serviceKey === 'accounting'
-                ? 'text-[1.625rem] md:text-[1.875rem]'
+              'font-serif font-semibold tracking-tighter text-navy leading-snug mb-4',
+              isWide
+                ? 'text-[1.625rem] md:text-[2rem]'
                 : 'text-[1.25rem] md:text-[1.375rem]'
             )}
           >
@@ -118,17 +112,17 @@ function ServiceCard({ serviceKey, index }: { serviceKey: ServiceKey; index: num
           </h3>
 
           {/* Description */}
-          <p className="text-[13.5px] text-slate leading-relaxed font-light max-w-[42ch]">
+          <p className="text-[13.5px] text-slate leading-relaxed font-light max-w-[44ch]">
             {t(`items.${serviceKey}.description`)}
           </p>
 
-          {/* Austrian feature pills — bare text labels, gold */}
+          {/* Austrian pills */}
           {isAustrian && (
-            <div className="flex flex-wrap gap-x-4 gap-y-1 mt-1">
+            <div className="flex flex-wrap gap-x-5 gap-y-1 mt-4">
               {AUSTRIAN_PILLS.map((pill) => (
                 <span
                   key={pill}
-                  className="text-[10px] font-medium tracking-[0.15em] uppercase text-gold/75 font-sans"
+                  className="text-[9px] font-bold tracking-[0.22em] uppercase text-gold/70 font-sans"
                 >
                   {pill}
                 </span>
@@ -141,7 +135,7 @@ function ServiceCard({ serviceKey, index }: { serviceKey: ServiceKey; index: num
   );
 }
 
-// ── Section ──────────────────────────────────────────────────────────
+// ── Section ───────────────────────────────────────────────────────────
 export default function ServicesGrid() {
   const t = useTranslations('services');
 
@@ -161,21 +155,33 @@ export default function ServicesGrid() {
           </RevealOnScroll>
         </div>
 
-        {/* 12-col asymmetric editorial grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-12 gap-x-0 gap-y-0"
-        >
-          {SERVICE_KEYS.map((key, i) => (
-            <ServiceCard key={key} serviceKey={key} index={i} />
-          ))}
+        {/* Two-column staggered layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 lg:gap-x-32">
+          {/* Left column — baseline */}
+          <motion.div
+            variants={columnVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+          >
+            {LEFT_KEYS.map((key) => (
+              <ServiceCard key={key} serviceKey={key} />
+            ))}
+          </motion.div>
 
-          {/* Active white space after Grants — col-span-5 */}
-          <div className="hidden md:block md:col-span-5" aria-hidden />
-        </motion.div>
+          {/* Right column — offset downward for asymmetric stagger */}
+          <motion.div
+            variants={columnVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            className="md:translate-y-24"
+          >
+            {RIGHT_KEYS.map((key) => (
+              <ServiceCard key={key} serviceKey={key} />
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
