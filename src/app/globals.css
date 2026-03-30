@@ -94,38 +94,41 @@
     line-height: 1.1;
   }
 
-  /* Fluid type scale — masthead H1, editorial H2, clean H3 */
+  /* ── Fluid type scale ── */
+  /* H1: bold sans-serif (Inter) — masthead impact, -0.05em tracking */
   h1 {
-    font-size: clamp(2.25rem, 6vw, 4.5rem);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-size: clamp(2.5rem, 7vw, 6rem);
     font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 1.02;
+    letter-spacing: -0.05em;
+    line-height: 1.0;
   }
 
+  /* H2/H3: Playfair Display — editorial contrast against bold sans H1 */
   h2 {
-    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-size: clamp(1.875rem, 3.5vw, 2.75rem);
     letter-spacing: -0.03em;
   }
 
   h3 {
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
     letter-spacing: -0.02em;
   }
 
   /* Inter for all body + UI elements */
   p, li {
     font-family: var(--font-inter), system-ui, sans-serif;
-    line-height: 1.65;
+    line-height: 1.6;
   }
 
   a, button, input, textarea, select, label, nav {
     font-family: var(--font-inter), system-ui, sans-serif;
   }
 
-  /* Elevated body line-height on larger screens for premium readability */
+  /* Premium desktop readability */
   @media (min-width: 1024px) {
     p {
-      line-height: 1.78;
+      line-height: 1.75;
     }
   }
 

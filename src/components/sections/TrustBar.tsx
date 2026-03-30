@@ -1,10 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Shield, Award, Cpu } from 'lucide-react';
-
-const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
+import { RevealOnScroll } from '@/components/ui/reveal';
 
 const ICON_MAP: Record<string, React.ElementType> = {
   shield: Shield,
@@ -20,48 +18,41 @@ export default function TrustBar() {
 
   return (
     <section className="relative bg-navy-muted overflow-hidden">
-      {/* Gold rule on top */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/35 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-20 items-center">
-          {/* ── Headline ── */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, ease }}
-          >
-            <p className="font-serif text-3xl md:text-4xl font-bold text-offwhite leading-tight tracking-tight">
+          {/* Headline */}
+          <RevealOnScroll direction="left">
+            <p
+              className="font-serif font-bold text-offwhite leading-tight tracking-tight"
+              style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}
+            >
               {t('headline')}
             </p>
-            <p className="text-sm text-white/35 mt-2 font-light">
-              {t('subline')}
-            </p>
-          </motion.div>
+            <p className="text-sm text-white/40 mt-2 font-light">{t('subline')}</p>
+          </RevealOnScroll>
 
-          {/* ── Trust items ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, ease, delay: 0.12 }}
+          {/* Trust items */}
+          <RevealOnScroll
+            direction="right"
+            delay={0.1}
             className="flex flex-col sm:flex-row gap-0"
-            style={{ border: '0.5px solid rgba(255,255,255,0.08)' }}
+            style={{ border: '0.5px solid rgba(255,255,255,0.07)' }}
           >
             {items.map((item, i) => {
               const Icon = ICON_MAP[item.icon] ?? Shield;
               return (
                 <div
                   key={i}
-                  className="flex items-center gap-4 px-7 py-5 group hover:bg-white/[0.03] transition-colors duration-300"
+                  className="flex items-center gap-4 px-7 py-5 hover:bg-white/[0.03] active:bg-white/[0.05] transition-colors duration-500"
                   style={{
-                    borderRight: i < items.length - 1 ? '0.5px solid rgba(255,255,255,0.08)' : undefined,
+                    borderRight: i < items.length - 1 ? '0.5px solid rgba(255,255,255,0.07)' : undefined,
                   }}
                 >
                   <div
                     className="w-9 h-9 flex items-center justify-center shrink-0"
-                    style={{ border: '0.5px solid rgba(184,151,90,0.25)' }}
+                    style={{ border: '0.5px solid rgba(184,151,90,0.22)' }}
                   >
                     <Icon size={16} className="text-gold" strokeWidth={1.5} />
                   </div>
@@ -76,12 +67,11 @@ export default function TrustBar() {
                 </div>
               );
             })}
-          </motion.div>
+          </RevealOnScroll>
         </div>
       </div>
 
-      {/* Bottom rule */}
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.05] to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
     </section>
   );
 }
