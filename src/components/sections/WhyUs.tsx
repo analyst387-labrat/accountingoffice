@@ -9,10 +9,10 @@ const VALUE_ICONS = [Shield, Globe, Tag, FileCheck];
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const STATS = [
-  { value: 100, suffix: '+', key: 'clients' },
-  { value: 79,  suffix: '',  key: 'austria' },
-  { value: 10,  suffix: '+', key: 'years'   },
-  { value: 100, suffix: '%', key: 'compliance' },
+  { value: 100, suffix: '+', key: 'clients'   },
+  { value: 79,  suffix: '',  key: 'austria'   },
+  { value: 5,   suffix: '',  key: 'team'      },
+  { value: 100, suffix: '%', key: 'aiPowered' },
 ] as const;
 
 /* ── Count-up hook ── */
@@ -122,7 +122,7 @@ export default function WhyUs() {
                   <h3 className="font-serif text-[1.0625rem] font-semibold text-offwhite leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-white/35 leading-[1.7] font-light">
+                  <p className="text-sm text-white/55 leading-relaxed font-light">
                     {item.description}
                   </p>
                 </motion.div>

@@ -65,9 +65,9 @@ export default function Header() {
           {/* Logo */}
           <Link
             href={`/${locale}`}
-            className="flex items-center gap-3 group shrink-0"
+            className="flex items-center group shrink-0 py-1"
           >
-            <div className="relative h-8 w-28">
+            <div className="relative h-9 w-32">
               <Image
                 src="/images/logo/BBH Linear Logo Black.png"
                 alt="Bosnia Business Hub"

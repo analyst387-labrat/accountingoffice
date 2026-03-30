@@ -74,7 +74,7 @@ export default function ServicesGrid() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr"
           style={{ border: '0.5px solid rgba(0,31,63,0.10)' }}
         >
           {SERVICE_KEYS.map((key, i) => {
@@ -87,7 +87,7 @@ export default function ServicesGrid() {
                 key={key}
                 variants={cardVariants}
                 className={cn(
-                  'group relative bg-offwhite hover:bg-navy transition-all duration-500 cursor-default overflow-hidden',
+                  'group relative bg-offwhite hover:bg-navy transition-all duration-500 cursor-default overflow-hidden h-full',
                   'border-[0.5px] border-navy/10 hover:border-gold/30',
                   CARD_SPANS[key]
                 )}

@@ -8,7 +8,7 @@
   },
   "hero": {
     "tagline": "White-Label računovodstvo za EU firme",
-    "headline": "Vaš strateški partner za računovodstvo",
+    "headline": "Vaš strateški White-Label partner za računovodstvo",
     "subheadline": "BiH-baziran kapacitet za austrijske poreske savjetnike, njemačke CFO-ove i regionalna preduzeća. MSFI-usklađen. GDPR-spreman. SLA-zaštićen.",
     "cta_primary": "Zakazite 30-min uvodni razgovor",
     "cta_secondary": "Istražite usluge",
@@ -22,36 +22,36 @@
   },
   "services": {
     "title": "Naše usluge",
-    "subtitle": "Sveobuhvatne finansijske i savjetodavne usluge za BiH tržište i EU firme koje traže nearshore kapacitet.",
+    "subtitle": "Sveobuhvatne finansijske i savjetodavne usluge za operativnu izvrsnost — za BiH subjekte i EU firme koje traže White-Label nearshore kapacitet.",
     "items": {
       "accounting": {
-        "title": "BiH računovodstvo",
-        "description": "Kompletno MSFI-usklađeno knjiženje, finansijski izvještaji i regulatorno izvještavanje za subjekte koji posluju po BiH zakonu.",
+        "title": "Sveobuhvatno vođenje poslovnih knjiga",
+        "description": "Kompletno MSFI-usklađeno vođenje glavne knjige, porezno savjetovanje i PDV optimizacija, računovodstvo zaliha i godišnji finansijski izvještaji za subjekte registrovane u BiH.",
         "tag": "MSFI · IFRS"
       },
       "payroll": {
         "title": "Obračun plaća i HR",
-        "description": "Cjelovita obrada platnog spiska, usklađenost s radnim zakonodavstvom i HR administracija prilagođena bosanskom tržištu.",
+        "description": "Diskretna i cjelovita obrada platnog spiska uključujući zakonske MIP/GIP obrasce, upravljanje personalnim dosjeima i usklađenost s radnim zakonodavstvom BiH.",
         "tag": "Radno pravo · HR"
       },
       "austrian": {
-        "title": "Austrijsko tržište",
-        "description": "White-label knjiženje za austrijske Steuerberater i Wirtschaftsprüfer firme. Uključuje digitalno arhiviranje, GDPR-usklađeno upravljanje datotekama i austrijski kontni okvir.",
+        "title": "Outsourcing za austrijsko tržište",
+        "description": "White-Label računovodstvena podrška za austrijske Steuerberater i Wirtschaftsprüfer: austrijski kontni okvir, digitalno arhiviranje, priprema UVA obrazaca i GDPR-usklađeno predavanje dokumentacije.",
         "tag": "AT · DSGVO"
       },
       "strategy": {
-        "title": "Poslovna strategija",
-        "description": "ROI modeliranje, finansijske projekcije i strateško planiranje za ulazak na tržište i operativno skaliranje.",
+        "title": "Poslovni planovi",
+        "description": "Poslovni planovi spremni za investitore s ROI modeliranjem, analizom ulaska na tržište Slovenije i EU, konkurentnim benchmarkingom i finansijskim projekcijama usklađenim s IFRS standardima.",
         "tag": "ROI · Projekcije"
       },
       "feasibility": {
         "title": "Studije izvodljivosti",
-        "description": "Predinvesticijska analiza, procjena rizika i izvještaji o isplativosti za domaće i međunarodne investitore.",
+        "description": "Dvostepena analiza: Predfeasibility — brza identifikacija rizika i validacija opsega; Feasibility — detaljno ekonomsko modeliranje, ROI prognoza i bankabilni izvještaji o isplativosti za domaće i strane investitore.",
         "tag": "Predinvesticija"
       },
       "grants": {
         "title": "Aplikacije za grant sredstva",
-        "description": "Cjelovita podrška za EU strukturne fondove, IPA i međunarodne grant aplikacije za subjekte registrovane u BiH.",
+        "description": "Kompletno upravljanje EU strukturnim fondovima i IPA grant aplikacijama: mapiranje mogućnosti, izrada prijava, narativno izvještavanje i budžetska dokumentacija usklađena s donatorskim zahtjevima.",
         "tag": "EU fondovi · IPA"
       }
     }
@@ -62,8 +62,8 @@
     "stats": {
       "clients": "Aktivnih klijenata",
       "austria": "Aktivnih u Austriji",
-      "years": "Godina prakse",
-      "compliance": "Stopa usklađenosti"
+      "team": "Tim stručnjaka",
+      "aiPowered": "AI automatizacija"
     },
     "values": [
       {

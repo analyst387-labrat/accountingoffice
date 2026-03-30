@@ -154,8 +154,8 @@ export default function NearshoringModel() {
             {t('cta')}
             <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
           </a>
-          <p className="text-[12px] text-slate-light font-light">
-            No contract required for Step 01 or Step 02.
+          <p className="text-[12px] text-slate-light font-light tracking-wide">
+            Seamless onboarding process with clear milestones.
           </p>
         </motion.div>
       </div>
