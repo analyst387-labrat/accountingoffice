@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { Playfair_Display } from 'next/font/google';
+import { Inter, Newsreader, JetBrains_Mono } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
@@ -9,16 +8,23 @@ import '../globals.css';
 
 const inter = Inter({
   variable: '--font-inter',
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin'],
   display: 'swap',
 });
 
-const playfair = Playfair_Display({
-  variable: '--font-playfair',
-  subsets: ['latin', 'latin-ext'],
+const newsreader = Newsreader({
+  variable: '--font-newsreader',
+  subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['400', '700'],
   style: ['normal', 'italic'],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: '--font-jetbrains-mono',
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600'],
 });
 
 type Props = {
@@ -77,9 +83,9 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale}
-      className={`${inter.variable} ${playfair.variable} h-full`}
+      className={`${inter.variable} ${newsreader.variable} ${jetbrainsMono.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col bg-offwhite text-navy antialiased">
+      <body className="min-h-full flex flex-col bg-[#0c0e10] text-[#f3f1ea] antialiased">
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

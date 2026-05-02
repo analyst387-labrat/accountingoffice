@@ -1,110 +1,172 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { MapPin, Mail, Phone, ArrowRight } from 'lucide-react';
-import { RevealOnScroll, SectionLabel } from '@/components/ui/reveal';
-
-function ContactDetail({ icon: Icon, label, value, href }: {
-  icon: React.ElementType;
-  label: string;
-  value: string;
-  href?: string;
-}) {
-  return (
-    <div className="flex items-start gap-4">
-      <div className="w-9 h-9 rounded-sm border border-gold/18 flex items-center justify-center shrink-0 mt-0.5">
-        <Icon size={15} className="text-gold" strokeWidth={1.5} />
-      </div>
-      <div>
-        <p className="text-[10px] text-offwhite/30 uppercase tracking-[0.2em] font-sans mb-1">{label}</p>
-        {href ? (
-          <a href={href} className="text-offwhite/70 text-sm hover:text-gold active:opacity-70 transition-colors duration-500">
-            {value}
-          </a>
-        ) : (
-          <p className="text-offwhite/70 text-sm">{value}</p>
-        )}
-      </div>
-    </div>
-  );
-}
-
-const inputClass =
-  'w-full bg-offwhite/[0.04] border border-offwhite/8 px-4 py-3 text-sm text-offwhite placeholder:text-offwhite/18 focus:outline-none focus:border-gold/35 hover:border-offwhite/15 transition-colors duration-500 resize-none';
 
 export default function ContactSection() {
-  const tNav = useTranslations('nav');
-  const tFooter = useTranslations('footer');
   const tNear = useTranslations('nearshoring');
+  const tFooter = useTranslations('footer');
 
   return (
-    <section id="contact" className="py-20 lg:py-[120px] bg-navy relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-50" />
-      <div className="absolute -top-px inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
+    <section id="contact" className="bg-[#0c0e10] border-b border-[#23282d]">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr]">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-          {/* Left */}
-          <RevealOnScroll direction="left" className="space-y-8">
-            <div>
-              <SectionLabel light>05 · {tNav('contact')}</SectionLabel>
-              <h2
-                className="font-sans font-black text-offwhite leading-none"
-                style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.05em' }}
-              >
-                {tNear('cta')}
-              </h2>
-            </div>
-            <div className="space-y-5">
-              <ContactDetail icon={MapPin} label="Address" value={tFooter('address')} />
-              <ContactDetail
-                icon={Phone}
-                label="Phone"
-                value={tFooter('phone')}
-                href={`tel:${tFooter('phone').replace(/\s/g, '')}`}
-              />
-              <ContactDetail
-                icon={Mail}
-                label="Email"
-                value={tFooter('email')}
-                href={`mailto:${tFooter('email')}`}
-              />
-            </div>
-          </RevealOnScroll>
-
-          {/* Right: Form */}
-          <RevealOnScroll direction="right" delay={0.1}>
-            <form
-              className="glass p-8 space-y-5"
-              onSubmit={(e) => e.preventDefault()}
+        {/* LEFT */}
+        <div
+          className="lg:border-r lg:border-[#23282d] flex flex-col justify-between"
+          style={{ padding: '80px 40px' }}
+        >
+          <div>
+            {/* Eyebrow */}
+            <p
+              className="text-[11px] tracking-[0.22em] uppercase text-[#6a6c6a] mb-6"
+              style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div className="space-y-1.5">
-                  <label className="text-[10px] text-offwhite/55 uppercase tracking-[0.2em] font-sans">Name</label>
-                  <input type="text" className={inputClass} placeholder="Max Mustermann" />
+              05 — CONTACT
+            </p>
+
+            {/* Serif title */}
+            <h2
+              className="text-[#f3f1ea] font-normal mb-5"
+              style={{
+                fontSize: 'clamp(40px, 4vw, 56px)',
+                letterSpacing: '-0.025em',
+                fontFamily: 'var(--font-newsreader), Georgia, serif',
+                lineHeight: 0.96,
+              }}
+            >
+              Begin the conversation.
+            </h2>
+
+            {/* Lede */}
+            <p className="text-[15px] text-[#a4a4a0] leading-relaxed max-w-md mb-10">
+              {tNear('subtitle')}
+            </p>
+
+            {/* Info rows */}
+            <dl className="space-y-0">
+              {[
+                { label: 'ADDRESS', value: tFooter('address'), href: undefined },
+                { label: 'PHONE', value: tFooter('phone'), href: `tel:${tFooter('phone').replace(/\s/g, '')}` },
+                { label: 'EMAIL', value: tFooter('email'), href: `mailto:${tFooter('email')}` },
+              ].map((row) => (
+                <div
+                  key={row.label}
+                  className="flex flex-col sm:grid sm:grid-cols-[100px_1fr] gap-2 py-4 border-t border-[#23282d]"
+                >
+                  <dt
+                    className="text-[10px] tracking-[0.18em] uppercase text-[#6a6c6a] pt-0.5"
+                    style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+                  >
+                    {row.label}
+                  </dt>
+                  <dd>
+                    {row.href ? (
+                      <a
+                        href={row.href}
+                        className="text-[14px] text-[#a4a4a0] hover:text-[#f3f1ea] transition-colors duration-200"
+                      >
+                        {row.value}
+                      </a>
+                    ) : (
+                      <span className="text-[14px] text-[#a4a4a0]">{row.value}</span>
+                    )}
+                  </dd>
                 </div>
-                <div className="space-y-1.5">
-                  <label className="text-[10px] text-offwhite/55 uppercase tracking-[0.2em] font-sans">Company</label>
-                  <input type="text" className={inputClass} placeholder="Kanzlei Mustermann GmbH" />
-                </div>
+              ))}
+            </dl>
+          </div>
+
+          {/* Italic tagline */}
+          <p
+            className="mt-10 text-[15px] text-[#6a6c6a] italic"
+            style={{ fontFamily: 'var(--font-newsreader), Georgia, serif' }}
+          >
+            Ihr verlängerter Arm in Sarajevo
+          </p>
+        </div>
+
+        {/* RIGHT: Form */}
+        <div
+          className="bg-[#14171a] flex flex-col justify-center"
+          style={{ padding: '80px 40px' }}
+        >
+          <form onSubmit={(e) => e.preventDefault()} className="space-y-7 max-w-lg w-full">
+            {/* Name + Company */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
+              <div>
+                <label
+                  className="block text-[10px] tracking-[0.18em] uppercase text-[#6a6c6a] mb-2"
+                  style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+                >
+                  NAME
+                </label>
+                <input
+                  type="text"
+                  placeholder="Max Mustermann"
+                  className="w-full bg-transparent border-b border-[#2d3239] pb-2.5 text-[14px] text-[#f3f1ea] placeholder:text-[#6a6c6a] focus:outline-none focus:border-[#7fa9c4] transition-colors duration-200"
+                />
               </div>
-              <div className="space-y-1.5">
-                <label className="text-[10px] text-offwhite/55 uppercase tracking-[0.2em] font-sans">Email</label>
-                <input type="email" className={inputClass} placeholder="max@kanzlei.at" />
+              <div>
+                <label
+                  className="block text-[10px] tracking-[0.18em] uppercase text-[#6a6c6a] mb-2"
+                  style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+                >
+                  COMPANY
+                </label>
+                <input
+                  type="text"
+                  placeholder="Kanzlei Mustermann GmbH"
+                  className="w-full bg-transparent border-b border-[#2d3239] pb-2.5 text-[14px] text-[#f3f1ea] placeholder:text-[#6a6c6a] focus:outline-none focus:border-[#7fa9c4] transition-colors duration-200"
+                />
               </div>
-              <div className="space-y-1.5">
-                <label className="text-[10px] text-offwhite/55 uppercase tracking-[0.2em] font-sans">Message</label>
-                <textarea rows={4} className={inputClass} placeholder="Tell us about your capacity needs…" />
-              </div>
+            </div>
+
+            {/* Email */}
+            <div>
+              <label
+                className="block text-[10px] tracking-[0.18em] uppercase text-[#6a6c6a] mb-2"
+                style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+              >
+                EMAIL
+              </label>
+              <input
+                type="email"
+                placeholder="max@kanzlei.at"
+                className="w-full bg-transparent border-b border-[#2d3239] pb-2.5 text-[14px] text-[#f3f1ea] placeholder:text-[#6a6c6a] focus:outline-none focus:border-[#7fa9c4] transition-colors duration-200"
+              />
+            </div>
+
+            {/* Message */}
+            <div>
+              <label
+                className="block text-[10px] tracking-[0.18em] uppercase text-[#6a6c6a] mb-2"
+                style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+              >
+                MESSAGE
+              </label>
+              <textarea
+                rows={4}
+                placeholder="Tell us about your capacity needs…"
+                className="w-full bg-transparent border-b border-[#2d3239] pb-2.5 text-[14px] text-[#f3f1ea] placeholder:text-[#6a6c6a] focus:outline-none focus:border-[#7fa9c4] transition-colors duration-200 resize-none"
+              />
+            </div>
+
+            {/* Bottom row: compliance tags + submit */}
+            <div className="flex items-center justify-between pt-2 gap-4 flex-wrap">
+              <span
+                className="text-[10px] tracking-[0.15em] uppercase text-[#6a6c6a]"
+                style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+              >
+                DSGVO · ENCRYPTED · 24H REPLY
+              </span>
               <button
                 type="submit"
-                className="group w-full flex items-center justify-center gap-2.5 bg-gold text-navy text-sm font-semibold px-6 py-3.5 hover:bg-gold-light active:opacity-80 transition-colors duration-500"
+                className="rounded-full bg-[#f3f1ea] text-[#0c0e10] px-6 py-2.5 text-[13px] font-medium hover:bg-[#d4c8a6] transition-colors duration-200 min-h-[40px]"
               >
                 Send Message
-                <ArrowRight size={16} className="transition-transform duration-500 group-hover:translate-x-1" />
               </button>
-            </form>
-          </RevealOnScroll>
+            </div>
+          </form>
         </div>
       </div>
     </section>

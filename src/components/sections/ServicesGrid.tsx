@@ -1,23 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { cn } from '@/lib/utils';
-import { RevealOnScroll, SectionLabel, SectionHeading } from '@/components/ui/reveal';
 
 type ServiceKey = 'accounting' | 'payroll' | 'austrian' | 'investor' | 'fpa' | 'grants';
-
-// Row 1: accounting (8) + payroll (4)
-// Row 2: austrian (4) + investor (4, -mt-12) + fpa (4)
-// Row 3: grants (7) + negative space (5)
-const LAYOUT: Record<ServiceKey, { span: string; offset?: string }> = {
-  accounting: { span: 'md:col-span-8' },
-  payroll:    { span: 'md:col-span-4' },
-  austrian:   { span: 'md:col-span-4' },
-  investor:   { span: 'md:col-span-4', offset: 'md:-mt-12' },
-  fpa:        { span: 'md:col-span-4' },
-  grants:     { span: 'md:col-span-7' },
-};
 
 const SERVICE_KEYS: ServiceKey[] = [
   'accounting', 'payroll',
@@ -25,165 +11,118 @@ const SERVICE_KEYS: ServiceKey[] = [
   'grants',
 ];
 
-const ALL_KEYS: ServiceKey[] = [...SERVICE_KEYS];
-
-const AUSTRIAN_PILLS = ['Steuerberater Support', 'Digital Archiving', 'DSGVO/GDPR'];
-
-// ── Stagger entrance ──────────────────────────────────────────────────
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.07 } },
-};
-
-const entranceVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: 'spring' as const, mass: 0.4, damping: 28, stiffness: 85 },
-  },
-};
-
-// ── Hover variants ────────────────────────────────────────────────────
-const topBorderVariants = {
-  rest:  { backgroundColor: 'rgba(203,213,225,0.7)' },
-  hover: {
-    backgroundColor: '#001F3F',
-    transition: { duration: 0.6, ease: 'easeOut' as const },
-  },
-};
-
-const contentShiftVariants = {
-  rest:  { x: 0 },
-  hover: {
-    x: 4,
-    transition: { type: 'spring' as const, mass: 0.35, damping: 26, stiffness: 100 },
-  },
-};
-
-// ── Card ──────────────────────────────────────────────────────────────
-function ServiceCard({ serviceKey }: { serviceKey: ServiceKey }) {
-  const t          = useTranslations('services');
-  const idx        = ALL_KEYS.indexOf(serviceKey);
-  const num        = String(idx + 1).padStart(2, '0');
-  const isAustrian = serviceKey === 'austrian';
-  const isWide     = serviceKey === 'accounting';
-  const { span, offset } = LAYOUT[serviceKey];
+function ServiceCard({ serviceKey, index }: { serviceKey: ServiceKey; index: number }) {
+  const t = useTranslations('services');
+  const [hovered, setHovered] = useState(false);
+  const num = `/${String(index + 1).padStart(2, '0')}`;
 
   return (
-    <motion.article
-      variants={entranceVariants}
-      className={cn('col-span-12 relative', span, offset)}
+    <article
+      className="relative flex flex-col border-t border-[#23282d] transition-colors duration-200"
+      style={{
+        padding: '36px 32px',
+        minHeight: '320px',
+        background: hovered ? '#14171a' : '#0c0e10',
+        borderRight: '1px solid #23282d',
+        cursor: 'default',
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      <motion.div
-        className="relative pt-8 pb-12 overflow-hidden cursor-default"
-        initial="rest"
-        whileHover="hover"
-        animate="rest"
-      >
-        {/* Animated top border — 0.5px, full width */}
-        <motion.div
-          className="absolute top-0 left-0 right-0"
-          style={{ height: '0.5px' }}
-          variants={topBorderVariants}
-        />
-
-        {/* Ghost number — far right, large serif */}
+      {/* Top row */}
+      <div className="flex items-center justify-between mb-6">
         <span
-          className="absolute right-0 top-0 font-serif font-bold select-none pointer-events-none leading-none"
-          style={{
-            fontSize: 'clamp(5.5rem, 11vw, 9rem)',
-            opacity: 0.035,
-            color: '#001F3F',
-            letterSpacing: '-0.04em',
-            lineHeight: 0.85,
-          }}
+          className="text-[10px] tracking-[0.18em] text-[#f3f1ea]"
+          style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
           aria-hidden
         >
           {num}
         </span>
-
-        {/* Content — shifts 4px right on hover */}
-        <motion.div
-          variants={contentShiftVariants}
-          className="relative z-10 flex flex-col"
+        <span
+          className="text-[10px] tracking-[0.14em] uppercase text-[#6a6c6a]"
+          style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
         >
-          {/* Micro-label */}
-          <span className="text-[9px] font-bold tracking-[0.25em] uppercase text-slate-400/80 font-sans mb-5">
-            {t(`items.${serviceKey}.tag`)}
-          </span>
+          {t(`items.${serviceKey}.tag`)}
+        </span>
+      </div>
 
-          {/* Title */}
-          <h3
-            className={cn(
-              'font-serif font-semibold tracking-tighter text-navy leading-snug mb-4',
-              isWide
-                ? 'text-[1.625rem] md:text-[2rem]'
-                : 'text-[1.25rem] md:text-[1.375rem]'
-            )}
+      {/* Title */}
+      <h3
+        className="text-[#f3f1ea] font-normal mb-4"
+        style={{
+          fontSize: '26px',
+          letterSpacing: '-0.015em',
+          fontFamily: 'var(--font-newsreader), Georgia, serif',
+          lineHeight: 1.2,
+        }}
+      >
+        {t(`items.${serviceKey}.title`)}
+      </h3>
+
+      {/* Body */}
+      <p className="text-[14px] text-[#a4a4a0] leading-relaxed flex-1">
+        {t(`items.${serviceKey}.description`)}
+      </p>
+
+      {/* Learn more */}
+      <div className="mt-6">
+        <span
+          className="text-[10px] tracking-[0.2em] uppercase text-[#6a6c6a] transition-colors duration-200 flex items-center gap-2"
+          style={{ fontFamily: 'var(--font-jetbrains-mono), monospace', color: hovered ? '#a4a4a0' : '#6a6c6a' }}
+        >
+          LEARN MORE
+          <span
+            className="transition-transform duration-200"
+            style={{ transform: hovered ? 'translateX(4px)' : 'none' }}
           >
-            {t(`items.${serviceKey}.title`)}
-          </h3>
-
-          {/* Description */}
-          <p className="text-[13.5px] text-slate leading-relaxed font-light max-w-[44ch]">
-            {t(`items.${serviceKey}.description`)}
-          </p>
-
-          {/* Austrian pills */}
-          {isAustrian && (
-            <div className="flex flex-wrap gap-x-5 gap-y-1 mt-4">
-              {AUSTRIAN_PILLS.map((pill) => (
-                <span
-                  key={pill}
-                  className="text-[9px] font-bold tracking-[0.22em] uppercase text-gold/70 font-sans"
-                >
-                  {pill}
-                </span>
-              ))}
-            </div>
-          )}
-        </motion.div>
-      </motion.div>
-    </motion.article>
+            →
+          </span>
+        </span>
+      </div>
+    </article>
   );
 }
 
-// ── Section ───────────────────────────────────────────────────────────
 export default function ServicesGrid() {
   const t = useTranslations('services');
 
   return (
-    <section id="services" className="py-20 lg:py-[120px] bg-offwhite">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-          <RevealOnScroll direction="left">
-            <SectionLabel>02 · Services</SectionLabel>
-            <SectionHeading className="line-accent">{t('title')}</SectionHeading>
-          </RevealOnScroll>
-          <RevealOnScroll direction="right" delay={0.08} className="flex items-end">
-            <p className="text-[0.9375rem] text-slate leading-relaxed font-light max-w-lg">
-              {t('subtitle')}
-            </p>
-          </RevealOnScroll>
+    <section id="services" className="bg-[#0c0e10] border-b border-[#23282d]">
+      {/* Section header */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 border-b border-[#23282d]">
+        {/* Left: eyebrow */}
+        <div className="px-8 py-10 lg:border-r lg:border-[#23282d] flex items-center">
+          <span
+            className="text-[11px] tracking-[0.22em] uppercase text-[#6a6c6a]"
+            style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+          >
+            02 — PRACTICE AREAS
+          </span>
         </div>
+        {/* Right: heading + lede */}
+        <div className="px-8 py-10">
+          <h2
+            className="text-[#f3f1ea] font-normal mb-4"
+            style={{
+              fontSize: 'clamp(28px, 3vw, 40px)',
+              letterSpacing: '-0.02em',
+              fontFamily: 'var(--font-newsreader), Georgia, serif',
+              lineHeight: 1.1,
+            }}
+          >
+            {t('title')}
+          </h2>
+          <p className="text-[15px] text-[#a4a4a0] leading-relaxed max-w-lg">
+            {t('subtitle')}
+          </p>
+        </div>
+      </div>
 
-        {/* 12-col asymmetric editorial grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-12 gap-x-0 gap-y-0"
-        >
-          {SERVICE_KEYS.map((key) => (
-            <ServiceCard key={key} serviceKey={key} />
-          ))}
-
-          {/* Negative space after Grants */}
-          <div className="hidden md:block md:col-span-5" aria-hidden />
-        </motion.div>
+      {/* Services grid — 3 columns desktop, 1 column mobile */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {SERVICE_KEYS.map((key, i) => (
+          <ServiceCard key={key} serviceKey={key} index={i} />
+        ))}
       </div>
     </section>
   );

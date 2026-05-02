@@ -1,78 +1,71 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { Phone, Layers, CheckSquare, ArrowRight } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { RevealOnScroll, SectionLabel, SectionHeading, spring } from '@/components/ui/reveal';
 
-const STEP_ICONS = [Phone, Layers, CheckSquare] as const;
 type StepKey = 'intro' | 'pilot' | 'scale';
 const STEPS: StepKey[] = ['intro', 'pilot', 'scale'];
 
-function TimelineBar() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start 0.85', 'end 0.35'],
-  });
-  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
+// Progress bar widths for each step
+const STEP_PROGRESS = ['33%', '66%', '100%'];
 
-  return (
-    <div ref={ref} className="hidden md:block absolute top-[3.25rem] left-[8%] right-[8%] h-px z-0">
-      <div className="absolute inset-0 bg-navy/8" />
-      <motion.div className="absolute inset-y-0 left-0 right-0 origin-left timeline-track" style={{ scaleX }} />
-    </div>
-  );
-}
+// Pill tags for each step
+const STEP_TAGS = ['COMPLIMENTARY', '10–20 PACKAGES', 'CONTRACTUAL SLA'];
 
 function StepCard({ stepKey, index }: { stepKey: StepKey; index: number }) {
   const t = useTranslations('nearshoring');
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-40px' });
-  const Icon = STEP_ICONS[index];
+  const isLast = index === STEPS.length - 1;
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 28 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ ...spring, delay: index * 0.14 }}
-      className="relative z-10 flex flex-col items-start px-6 lg:px-8 pt-0 pb-10 group"
+    <article
+      className="flex flex-col"
+      style={{
+        padding: '40px 32px 48px',
+        borderRight: !isLast ? '1px solid #23282d' : 'none',
+        borderTop: '1px solid #23282d',
+      }}
     >
-      {/* Node circle */}
-      <div className="relative mb-8">
-        <div className={cn(
-          'w-[52px] h-[52px] flex items-center justify-center transition-colors duration-500',
-          'bg-offwhite group-hover:bg-gold',
-          'shadow-[0_0_0_1px_rgba(0,31,63,0.08)] group-hover:shadow-[0_0_0_1px_rgba(184,151,90,0.45)]'
-        )}>
-          <Icon size={20} className="text-navy transition-colors duration-500" strokeWidth={1.5} />
-        </div>
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <div className="absolute inset-0 animate-ping bg-gold/12 rounded-full" />
-        </div>
+      {/* Top row: step label + pill tag */}
+      <div className="flex items-center justify-between mb-5">
+        <span
+          className="text-[10px] tracking-[0.22em] uppercase text-[#6a6c6a]"
+          style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+        >
+          STEP {String(index + 1).padStart(2, '0')}
+        </span>
+        <span
+          className="text-[9px] tracking-[0.18em] uppercase text-[#7fa9c4] border border-[#2d3239] rounded-full px-3 py-1"
+          style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+        >
+          {STEP_TAGS[index]}
+        </span>
       </div>
 
-      <span className="text-[9px] font-bold tracking-[0.22em] uppercase text-gold mb-2">
-        {t(`steps.${stepKey}.detail`)}
-      </span>
-      <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-slate-light mb-2 font-sans">
-        {t(`steps.${stepKey}.label`)}
-      </p>
-      <h3 className="font-serif text-[1.25rem] font-bold text-navy leading-snug tracking-tight mb-3">
+      {/* Progress bar */}
+      <div className="relative h-px bg-[#23282d] mb-8">
+        <div
+          className="absolute inset-y-0 left-0 bg-[#7fa9c4]"
+          style={{ width: STEP_PROGRESS[index] }}
+        />
+      </div>
+
+      {/* Title */}
+      <h3
+        className="text-[#f3f1ea] font-normal mb-4"
+        style={{
+          fontSize: '28px',
+          letterSpacing: '-0.015em',
+          fontFamily: 'var(--font-newsreader), Georgia, serif',
+          lineHeight: 1.2,
+        }}
+      >
         {t(`steps.${stepKey}.title`)}
       </h3>
-      <p className="text-[13.5px] text-slate leading-relaxed font-light max-w-[280px]">
+
+      {/* Body */}
+      <p className="text-[14px] text-[#a4a4a0] leading-relaxed flex-1">
         {t(`steps.${stepKey}.description`)}
       </p>
-
-      {index < STEPS.length - 1 && (
-        <div className="md:hidden mt-8 w-px h-10 bg-gradient-to-b from-gold/35 to-transparent ml-[26px]" />
-      )}
-    </motion.div>
+    </article>
   );
 }
 
@@ -80,80 +73,56 @@ export default function NearshoringModel() {
   const t = useTranslations('nearshoring');
 
   return (
-    <section id="nearshoring" className="py-20 lg:py-[120px] bg-offwhite-warm relative overflow-hidden">
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-navy/6 to-transparent" />
-
-      {/* Sarajevo Bridge — ink illustration ghost, bottom-right */}
-      <div className="absolute bottom-0 right-0 w-[66%] md:w-[53%] pointer-events-none select-none">
-        {/* Fade mask: left edge fades to transparent so the bridge bleeds in naturally */}
-        <div
-          className="absolute inset-0 z-10"
-          style={{
-            background: 'linear-gradient(to right, var(--color-offwhite-warm) 0%, transparent 30%)',
-          }}
-        />
-        {/* Bottom fade so it sits flush with section edge */}
-        <div
-          className="absolute inset-0 z-10"
-          style={{
-            background: 'linear-gradient(to top, var(--color-offwhite-warm) 0%, transparent 18%)',
-          }}
-        />
-        <motion.div
-          initial={{ opacity: 0, x: 24 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ type: 'spring', mass: 0.5, damping: 30, stiffness: 70, delay: 0.35 }}
-        >
-          <Image
-            src="/images/office/Sarajevo Bridge.png"
-            alt=""
-            width={900}
-            height={420}
-            className="w-full h-auto"
-            style={{ mixBlendMode: 'multiply', opacity: 0.1 }}
-            aria-hidden
-          />
-        </motion.div>
+    <section id="nearshoring" className="bg-[#0c0e10] border-b border-[#23282d]">
+      {/* Section header */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 border-b border-[#23282d]">
+        <div className="px-8 py-10 lg:border-r lg:border-[#23282d] flex items-center">
+          <span
+            className="text-[11px] tracking-[0.22em] uppercase text-[#6a6c6a]"
+            style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+          >
+            04 — ENGAGEMENT MODEL
+          </span>
+        </div>
+        <div className="px-8 py-10">
+          <h2
+            className="text-[#f3f1ea] font-normal mb-4"
+            style={{
+              fontSize: 'clamp(28px, 3vw, 40px)',
+              letterSpacing: '-0.02em',
+              fontFamily: 'var(--font-newsreader), Georgia, serif',
+              lineHeight: 1.1,
+            }}
+          >
+            {t('title')}
+          </h2>
+          <p className="text-[15px] text-[#a4a4a0] leading-relaxed max-w-lg">
+            {t('subtitle')}
+          </p>
+        </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-          <RevealOnScroll direction="left">
-            <SectionLabel>04 · Process</SectionLabel>
-            <SectionHeading className="line-accent">{t('title')}</SectionHeading>
-          </RevealOnScroll>
-          <RevealOnScroll direction="right" delay={0.08} className="flex items-end">
-            <p className="text-[0.9375rem] text-slate leading-relaxed font-light max-w-lg">
-              {t('subtitle')}
-            </p>
-          </RevealOnScroll>
-        </div>
+      {/* Step cards — 3-col desktop, stacked mobile */}
+      <div className="grid grid-cols-1 lg:grid-cols-3">
+        {STEPS.map((key, i) => (
+          <StepCard key={key} stepKey={key} index={i} />
+        ))}
+      </div>
 
-        {/* Timeline */}
-        <div className="relative">
-          <TimelineBar />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-            {STEPS.map((key, i) => (
-              <StepCard key={key} stepKey={key} index={i} />
-            ))}
-          </div>
-        </div>
-
-        {/* CTA */}
-        <RevealOnScroll direction="up" delay={0.2} className="mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-3 bg-navy text-offwhite text-[13px] font-semibold tracking-wide px-8 py-4 hover:bg-navy-light active:opacity-80 transition-colors duration-500"
-          >
-            {t('cta')}
-            <ArrowRight size={14} className="transition-transform duration-500 group-hover:translate-x-1" />
-          </a>
-          <p className="text-[12px] text-slate-light font-light tracking-wide">
-            Three stages. Documented, supervised, SLA-governed.
-          </p>
-        </RevealOnScroll>
+      {/* CTA row */}
+      <div className="px-8 py-10 border-t border-[#23282d] flex flex-col sm:flex-row items-start sm:items-center gap-5">
+        <a
+          href="#contact"
+          className="rounded-full bg-[#f3f1ea] text-[#0c0e10] px-6 py-3 text-[13px] font-medium hover:bg-[#d4c8a6] transition-colors duration-200 min-h-[44px] flex items-center"
+        >
+          {t('cta')}
+        </a>
+        <p
+          className="text-[12px] text-[#6a6c6a] tracking-wide"
+          style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+        >
+          Three stages. Documented, supervised, SLA-governed.
+        </p>
       </div>
     </section>
   );

@@ -65,9 +65,23 @@
 
   /* Typography */
   --font-sans:    var(--font-inter);
-  --font-serif:   var(--font-playfair);
-  --font-mono:    var(--font-geist-mono);
-  --font-heading: var(--font-playfair);
+  --font-serif:   var(--font-newsreader);
+  --font-mono:    var(--font-jetbrains-mono);
+  --font-heading: var(--font-newsreader);
+
+  /* VAULT tokens */
+  --color-vault-bg:       #0c0e10;
+  --color-vault-bg-2:     #14171a;
+  --color-vault-bg-3:     #1a1d21;
+  --color-vault-line:     #23282d;
+  --color-vault-line-2:   #2d3239;
+  --color-vault-fg:       #f3f1ea;
+  --color-vault-fg-dim:   #a4a4a0;
+  --color-vault-fg-mute:  #6a6c6a;
+  --color-vault-accent:   #7fa9c4;
+  --color-vault-warm:     #d4c8a6;
+  --font-newsreader:      var(--font-newsreader);
+  --font-jetbrains:       var(--font-jetbrains-mono);
 }
 
 /* ─── Base Styles ──────────────────────────────────────────────── */
@@ -83,36 +97,34 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    background-color: #0c0e10;
+    color: #f3f1ea;
+    font-family: var(--font-inter), system-ui, sans-serif;
   }
 
-  /* Force Playfair on all headings */
+  /* VAULT headings — Newsreader serif */
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-playfair), Georgia, 'Times New Roman', serif;
+    font-family: var(--font-newsreader), Georgia, 'Times New Roman', serif;
     letter-spacing: -0.025em;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1.1;
   }
 
   /* ── Fluid type scale ── */
-  /* H1: bold sans-serif (Inter) — masthead impact, -0.05em tracking */
   h1 {
-    font-family: var(--font-inter), system-ui, sans-serif;
-    font-size: clamp(2.5rem, 7vw, 6rem);
-    font-weight: 800;
-    letter-spacing: -0.05em;
-    line-height: 1.0;
+    font-size: clamp(3rem, 6.4vw, 6rem);
+    line-height: 0.96;
+    letter-spacing: -0.025em;
   }
 
-  /* H2/H3: Playfair Display — editorial contrast against bold sans H1 */
   h2 {
     font-size: clamp(1.875rem, 3.5vw, 2.75rem);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
   }
 
   h3 {
     font-size: clamp(1.125rem, 2vw, 1.375rem);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
   }
 
   /* Inter for all body + UI elements */
@@ -133,14 +145,14 @@
   }
 
   ::selection {
-    background-color: var(--color-navy);
-    color: var(--color-offwhite);
+    background-color: #7fa9c4;
+    color: #0c0e10;
   }
 
   /* Thin scrollbar */
   ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--color-offwhite); }
-  ::-webkit-scrollbar-thumb { background: var(--color-slate-light); border-radius: 2px; }
+  ::-webkit-scrollbar-track { background: #0c0e10; }
+  ::-webkit-scrollbar-thumb { background: #2d3239; border-radius: 2px; }
 }
 
 /* ─── Utilities ────────────────────────────────────────────────── */
@@ -253,4 +265,20 @@
     pointer-events: none;
     z-index: 0;
   }
+
+  /* ── VAULT line utility ── */
+  .vault-line {
+    border-color: #23282d;
+  }
+
+  /* ── Mono label utility ── */
+  .font-mono {
+    font-family: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
+  }
+}
+
+/* ── Ticker animation ── */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }

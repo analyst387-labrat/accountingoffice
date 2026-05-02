@@ -10,7 +10,8 @@
       "Read(//tmp/**)",
       "Bash(node -e \"require\\('fs'\\).writeFileSync\\('/tmp/test.js', 'console.log\\(42\\)'\\)\")",
       "Bash(node /tmp/test.js)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(npx next *)"
     ]
   }
 }
