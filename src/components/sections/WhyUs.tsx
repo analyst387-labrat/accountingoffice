@@ -1,7 +1,8 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Shield, Globe, Tag, FileCheck, Quote } from 'lucide-react';
 import { RevealOnScroll, SectionLabel, SectionHeading } from '@/components/ui/reveal';
@@ -11,7 +12,7 @@ const VALUE_ICONS = [Shield, Globe, Tag, FileCheck];
 const STATS = [
   { value: 100, suffix: '+', key: 'clients'   },
   { value: 79,  suffix: '',  key: 'austria'   },
-  { value: 5,   suffix: '',  key: 'team'      },
+  { value: 7,   suffix: '',  key: 'team'      },
   { value: 100, suffix: '%', key: 'aiPowered' },
 ] as const;
 
@@ -55,6 +56,97 @@ function StatCard({ value, suffix, labelKey }: { value: number; suffix: string; 
   );
 }
 
+type PracticeItem = { k: string; v: string };
+
+function PracticeStrip() {
+  const t = useTranslations('whyUs');
+  const practice = t.raw('practice') as { title: string; items: PracticeItem[] };
+
+  return (
+    <div className="mt-24 -mx-6 lg:-mx-10">
+      {/* Bridge illustration band */}
+      <div className="relative overflow-hidden bg-gradient-to-b from-navy to-navy-muted/60 border-t border-white/[0.06]">
+        <div className="absolute inset-0 pointer-events-none select-none">
+          <div
+            className="absolute inset-0 z-10"
+            style={{ background: 'linear-gradient(to right, var(--color-navy) 0%, transparent 25%)' }}
+          />
+          <div
+            className="absolute inset-0 z-10"
+            style={{ background: 'linear-gradient(to top, var(--color-navy) 0%, transparent 30%)' }}
+          />
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ type: 'spring', mass: 0.5, damping: 32, stiffness: 65, delay: 0.2 }}
+            className="flex justify-end"
+          >
+            <Image
+              src="/images/office/Sarajevo Bridge.png"
+              alt=""
+              width={900}
+              height={320}
+              className="w-[70%] h-auto"
+              style={{ filter: 'invert(1) brightness(0.7)', mixBlendMode: 'screen', opacity: 0.18 }}
+              aria-hidden
+            />
+          </motion.div>
+        </div>
+
+        <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-10 py-10 flex items-end justify-between gap-4 flex-wrap">
+          <span className="text-[10px] font-semibold tracking-[0.22em] uppercase text-offwhite/30 font-sans">
+            Bridging EU practice with BiH capacity
+          </span>
+          <span className="text-[10px] font-mono tracking-[0.18em] text-offwhite/20">
+            Latin Bridge · Sarajevo
+          </span>
+        </div>
+      </div>
+
+      {/* Practice grid */}
+      <div className="border-t border-white/[0.06] bg-navy-muted/20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-12">
+          <RevealOnScroll direction="up" delay={0.04}>
+            <p className="text-[9px] font-bold tracking-[0.28em] uppercase text-gold/60 font-sans mb-3">
+              /Practice card
+            </p>
+            <h3
+              className="font-serif font-semibold text-offwhite tracking-tight mb-10"
+              style={{ fontSize: 'clamp(1.375rem, 2.5vw, 2rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}
+            >
+              {practice.title}
+            </h3>
+          </RevealOnScroll>
+
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+            style={{ border: '0.5px solid rgba(255,255,255,0.06)' }}
+          >
+            {practice.items.map((item, i) => (
+              <RevealOnScroll
+                key={i}
+                direction="up"
+                delay={i * 0.06}
+                className="flex flex-col gap-3 px-7 py-7"
+                style={{ borderRight: '0.5px solid rgba(255,255,255,0.06)' }}
+              >
+                <p className="text-[10px] font-semibold tracking-[0.2em] uppercase font-mono"
+                  style={{ color: '#7fa9c4' }}>
+                  {String(i + 1).padStart(2, '0')} · {item.k}
+                </p>
+                <p className="text-[13.5px] text-offwhite/60 leading-relaxed font-light">
+                  {item.v}
+                </p>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function WhyUs() {
   const t = useTranslations('whyUs');
   const testimonial = t.raw('testimonial') as { quote: string; author: string; detail: string };
@@ -68,7 +160,7 @@ export default function WhyUs() {
         {/* Header */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           <RevealOnScroll direction="left">
-            <SectionLabel light>03 · Why BBH</SectionLabel>
+            <SectionLabel light>03 · Operating Principles</SectionLabel>
             <SectionHeading light>{t('title')}</SectionHeading>
           </RevealOnScroll>
           <RevealOnScroll direction="right" delay={0.08} className="flex items-end">
@@ -139,6 +231,9 @@ export default function WhyUs() {
           </RevealOnScroll>
         </div>
       </div>
+
+      {/* Practice strip — full bleed below the padded container */}
+      <PracticeStrip />
     </section>
   );
 }

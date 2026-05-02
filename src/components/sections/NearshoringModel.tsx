@@ -151,7 +151,7 @@ export default function NearshoringModel() {
             <ArrowRight size={14} className="transition-transform duration-500 group-hover:translate-x-1" />
           </a>
           <p className="text-[12px] text-slate-light font-light tracking-wide">
-            Seamless onboarding process with clear milestones.
+            Three stages. Documented, supervised, SLA-governed.
           </p>
         </RevealOnScroll>
       </div>

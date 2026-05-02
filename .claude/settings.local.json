@@ -1,7 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-git --no-turbopack)"
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-git --no-turbopack)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(list\\(d.keys\\(\\)\\)\\)\")",
+      "Bash(python3 -)",
+      "Bash(python3 /tmp/write_de.py)",
+      "Bash(node -e ' *)",
+      "Bash(printf '%s' \"test\")",
+      "Read(//tmp/**)",
+      "Bash(node -e \"require\\('fs'\\).writeFileSync\\('/tmp/test.js', 'console.log\\(42\\)'\\)\")",
+      "Bash(node /tmp/test.js)",
+      "Bash(npx tsc *)"
     ]
   }
 }

@@ -2,129 +2,138 @@
   "nav": {
     "services": "Services",
     "whyUs": "Why BBH",
-    "nearshoring": "Nearshoring",
+    "nearshoring": "Engagement",
     "contact": "Contact",
     "cta": "Get in Touch"
   },
   "hero": {
-    "tagline": "White-Label Accounting for EU Firms",
-    "headline": "Your Strategic White-Label Partner in Accounting",
-    "subheadline": "BiH-based capacity for Austrian Steuerberater, German CFOs, and regional enterprises. MSFI-compliant. GDPR-ready. SLA-backed.",
-    "cta_primary": "Book a 30-min Intro",
-    "cta_secondary": "Explore Services",
-    "badge": "Founded 2016 · Maršala Tita 3, Sarajevo",
+    "tagline": "White-Label Accounting & Tax · DACH Mandates",
+    "headline": "Quiet capacity for serious tax & accounting practices.",
+    "subheadline": "Bosnia Business Hub provides MSFI- and HGB-compliant accounting and tax capacity to Austrian Steuerberater, German tax advisors, and CFOs. Discreet, GDPR-aligned, SLA-governed.",
+    "cta_primary": "Schedule consultation",
+    "cta_secondary": "Review services",
+    "badge": "Established 2016 · Maršala Tita 3, Sarajevo",
     "stats": [
-      { "value": "79", "suffix": "", "label": "Active Austrian Clients" },
-      { "value": "40", "suffix": "h", "label": "Monthly Capacity Gain" },
-      { "value": "100", "suffix": "+", "label": "Total Clients" },
-      { "value": "100", "suffix": "%", "label": "SLA Compliance" }
+      { "value": "79", "suffix": "", "label": "Active Austrian mandates" },
+      { "value": "40", "suffix": "h", "label": "Capacity returned · per partner / month" },
+      { "value": "100", "suffix": "+", "label": "Cumulative client base" },
+      { "value": "100", "suffix": "%", "label": "SLA compliance · 2024" }
     ]
   },
   "services": {
-    "title": "Our Services",
-    "subtitle": "Comprehensive financial and advisory services built for operational excellence — serving BiH-registered companies and EU firms seeking white-label nearshore capacity.",
+    "title": "Six service lines, one engagement framework.",
+    "subtitle": "Each engagement is governed by a dedicated partner, a documented SLA, and a fixed monthly reporting cadence. We operate as your back office — invisible to your clients.",
     "items": {
       "accounting": {
-        "title": "BiH Accounting & Reporting",
-        "description": "Full MSFI-compliant general ledger maintenance, PDV (VAT) tax optimisation, inventory accounting, and annual financial statements for companies registered under BiH law.",
+        "title": "BiH accounting & statutory reporting",
+        "description": "General-ledger maintenance under Bosnian MSFI, PDV (VAT) optimisation, inventory accounting, and statutory year-end financial statements for BiH-registered entities.",
         "tag": "MSFI · IFRS"
       },
       "payroll": {
-        "title": "Payroll & HR",
-        "description": "Discreet, end-to-end payroll processing including MIP/GIP statutory forms, personal file management, and full labour-law compliance tailored to the BiH regulatory framework.",
+        "title": "Payroll & personnel administration",
+        "description": "End-to-end payroll: MIP/GIP statutory filings, personnel file administration, contract drafting, and full BiH labour-law compliance — handled discreetly under your firm's letterhead.",
         "tag": "Labour Law · HR"
       },
       "austrian": {
-        "title": "Austrian Market Outsourcing",
-        "description": "Dedicated white-label support for Austrian Steuerberater and Wirtschaftsprüfer. Covers bookkeeping in the Austrian chart of accounts, digital archiving, UVA preparation, and DSGVO-compliant file handover.",
+        "title": "Austrian outsourcing for Steuerberater",
+        "description": "Austrian chart-of-accounts bookkeeping, UVA preparation, BMD/RZL workflows, digital archiving, and DSGVO-compliant file handover. Your clients never see us.",
         "tag": "AT · DSGVO"
       },
-      "strategy": {
-        "title": "Business Plans",
-        "description": "Investor-ready business plans with ROI modelling, market-entry analysis for Slovenia and the EU, competitive benchmarking, and financial projections aligned to IFRS reporting standards.",
-        "tag": "ROI · Projections"
+      "investor": {
+        "title": "Investor documentation & feasibility",
+        "description": "Investor-grade business plans, two-stage feasibility studies (prefeasibility and full viability), ROI modelling, market-entry analysis for Slovenia and the EU, and IFRS-aligned financial projections — bankable documentation for local and international investors.",
+        "tag": "ROI · Feasibility · IFRS"
       },
-      "feasibility": {
-        "title": "Feasibility Analysis",
-        "description": "Two-stage analysis: Prefeasibility — rapid risk identification and scope validation; Feasibility — detailed economic modelling, ROI forecasting, and bankable viability reporting for local and international investors.",
-        "tag": "Pre-Investment"
+      "fpa": {
+        "title": "Financial planning & analysis",
+        "description": "Outsourced FP&A and controlling: monthly management reporting packs, rolling forecasts, budget vs. actuals, KPI dashboards, cash-flow modelling, and variance analysis — delivered in your firm's templates and reporting cadence.",
+        "tag": "FP&A · Controlling"
       },
       "grants": {
-        "title": "Grant Applications",
-        "description": "End-to-end EU structural fund and IPA grant management: opportunity mapping, application drafting, narrative reporting, and donor-compliant budget preparation for BiH-registered entities.",
+        "title": "EU grant & IPA fund administration",
+        "description": "Opportunity mapping, application drafting, narrative reporting, and donor-compliant budget preparation across EU structural funds and IPA mechanisms.",
         "tag": "EU Funds · IPA"
       }
     }
   },
   "whyUs": {
-    "title": "Why Bosnia Business Hub",
-    "subtitle": "A decade of institutional knowledge meets a lean, modern practice built for EU-BiH collaboration.",
+    "title": "A decade of institutional knowledge. A practice built for the EU–BiH corridor.",
+    "subtitle": "Every deliverable ships under your brand, in your formatting templates, on your reporting calendar. Your clients meet your firm — not ours.",
     "stats": {
       "clients": "Active Clients",
       "austria": "Active in Austria",
       "team": "Expert Team",
-      "aiPowered": "AI-Powered"
+      "aiPowered": "SLA Compliance"
     },
     "values": [
       {
-        "title": "Deep Local Expertise",
-        "description": "We navigate BiH's layered regulatory environment — Entity, Cantonal, and State-level — so you don't have to."
+        "title": "Regulatory depth",
+        "description": "We navigate Bosnia's Entity, Cantonal, and State-level frameworks daily. Your firm receives clean, jurisdictionally-correct outputs — not raw data."
       },
       {
-        "title": "EU-Ready Infrastructure",
-        "description": "GDPR-compliant data handling, encrypted file transfer, and multilingual reporting (DE/EN/BS)."
+        "title": "EU-grade infrastructure",
+        "description": "DSGVO-aligned data handling, encrypted transfer, ISO-grade process discipline, and reporting in DE / EN / BHS."
       },
       {
-        "title": "White-Label Capacity",
-        "description": "Invisible to your clients. Our work ships under your brand, with your formatting, and on your timeline."
+        "title": "White-label discipline",
+        "description": "Every deliverable ships under your brand, in your formatting templates, on your reporting calendar. Your clients meet your firm — not ours."
       },
       {
-        "title": "Fixed SLA Commitments",
-        "description": "Monthly reporting deadlines, dedicated account managers, and escalation paths — all contractually defined."
+        "title": "Contractual SLAs",
+        "description": "Monthly reporting deadlines, named account managers, and documented escalation paths — all bound by a signed service-level agreement."
       }
     ],
     "testimonial": {
-      "quote": "BBH has taken over our entire payroll load — on time, error-free. 40h/month capacity gain.",
-      "author": "Steuerberater, Vienna",
-      "detail": "Austrian tax advisory firm, client since 2019"
+      "quote": "We quietly introduced BBH into our Austrian accounting practice to take over a portion of our local mandates. They integrated rapidly with our processes and procedures and now deliver more than 200 billable hours per month. Most importantly, our clients are visibly happier with more responsive accountants on their files.",
+      "author": "Managing partner · Steuerberatungskanzlei · Vienna",
+      "detail": "Client since 2019"
+    },
+    "practice": {
+      "title": "The practice, in brief.",
+      "items": [
+        { "k": "License", "v": "Officially licensed to provide accounting and tax services in Bosnia and Herzegovina." },
+        { "k": "Software", "v": "Pantheon (regional) and BMD NTCS (Austrian chart of accounts) — fully licensed, end-to-end digital workflows." },
+        { "k": "Team", "v": "7 in-house: 1 managing partner · 2 senior accountants · 3 junior accountants · 1 office administrator." },
+        { "k": "Reporting", "v": "DE / EN / BHS · monthly cadence · SLA-bound." }
+      ]
     }
   },
   "nearshoring": {
-    "title": "The Nearshoring Model",
-    "subtitle": "A structured onboarding path that de-risks the engagement from day one.",
+    "title": "A structured path from first call to full integration.",
+    "subtitle": "Three clearly defined stages. No ambiguity, no surprises — each step is documented, supervised, and SLA-governed from day one.",
     "steps": {
       "intro": {
         "label": "Step 01",
-        "title": "30-Minute Intro Call",
-        "description": "We identify your entry point — service scope, data transfer protocols, and reporting standards. No commitment required.",
-        "detail": "Free consultation"
+        "title": "30-minute discovery call",
+        "description": "We review service scope, data-transfer protocols, and reporting standards. No commitment required, no obligation to proceed.",
+        "detail": "Complimentary"
       },
       "pilot": {
         "label": "Step 02",
-        "title": "90-Day Pilot Mandate",
-        "description": "We onboard 10–20 of your Payroll or Accounting packages under full supervision. Establish benchmarks, test workflows.",
+        "title": "90-day pilot mandate",
+        "description": "We onboard a defined set of payroll or accounting packages under partner supervision. Workflows are tested, benchmarks established, exceptions documented.",
         "detail": "10–20 packages"
       },
       "scale": {
         "label": "Step 03",
-        "title": "SLA & Full Integration",
-        "description": "Formalise with a signed SLA. Dedicated team allocation, monthly performance reviews, and seamless scaling.",
+        "title": "Service agreement & integration",
+        "description": "We formalise the engagement with a signed SLA: dedicated capacity, monthly performance reviews, and a defined scaling path.",
         "detail": "Contractual SLA"
       }
     },
-    "cta": "Start the Conversation"
+    "cta": "Begin the conversation"
   },
   "trustBar": {
     "headline": "Ihr verlängerter Arm in Sarajevo",
-    "subline": "Your extended arm in Sarajevo",
+    "subline": "Your extended back office in Sarajevo.",
     "items": [
       { "icon": "shield", "label": "DSGVO Konform", "sub": "GDPR Compliant" },
-      { "icon": "award", "label": "ISO Quality Standards", "sub": "Process excellence" },
-      { "icon": "cpu", "label": "AI-Driven Automation", "sub": "Modern tooling" }
+      { "icon": "award", "label": "Licensed in BiH", "sub": "Accounting & tax practice" },
+      { "icon": "cpu", "label": "BMD NTCS · Pantheon", "sub": "End-to-end digital workflows" }
     ]
   },
   "footer": {
-    "tagline": "Precision accounting. Strategic clarity.",
+    "tagline": "Precision accounting. Institutional discipline.",
     "address": "Maršala Tita 3, 71000 Sarajevo, Bosnia and Herzegovina",
     "phone": "+387 33 XXX XXX",
     "email": "office@bbh.ba",

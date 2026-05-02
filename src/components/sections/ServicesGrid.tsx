@@ -5,23 +5,23 @@ import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import { RevealOnScroll, SectionLabel, SectionHeading } from '@/components/ui/reveal';
 
-type ServiceKey = 'accounting' | 'payroll' | 'austrian' | 'strategy' | 'feasibility' | 'grants';
+type ServiceKey = 'accounting' | 'payroll' | 'austrian' | 'investor' | 'fpa' | 'grants';
 
 // Row 1: accounting (8) + payroll (4)
-// Row 2: austrian (4) + strategy (4, -mt-12) + feasibility (4)
+// Row 2: austrian (4) + investor (4, -mt-12) + fpa (4)
 // Row 3: grants (7) + negative space (5)
 const LAYOUT: Record<ServiceKey, { span: string; offset?: string }> = {
-  accounting:  { span: 'md:col-span-8' },
-  payroll:     { span: 'md:col-span-4' },
-  austrian:    { span: 'md:col-span-4' },
-  strategy:    { span: 'md:col-span-4', offset: 'md:-mt-12' },
-  feasibility: { span: 'md:col-span-4' },
-  grants:      { span: 'md:col-span-7' },
+  accounting: { span: 'md:col-span-8' },
+  payroll:    { span: 'md:col-span-4' },
+  austrian:   { span: 'md:col-span-4' },
+  investor:   { span: 'md:col-span-4', offset: 'md:-mt-12' },
+  fpa:        { span: 'md:col-span-4' },
+  grants:     { span: 'md:col-span-7' },
 };
 
 const SERVICE_KEYS: ServiceKey[] = [
   'accounting', 'payroll',
-  'austrian', 'strategy', 'feasibility',
+  'austrian', 'investor', 'fpa',
   'grants',
 ];
 

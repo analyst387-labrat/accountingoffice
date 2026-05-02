@@ -2,113 +2,122 @@
   "nav": {
     "services": "Usluge",
     "whyUs": "Zašto BBH",
-    "nearshoring": "Nearshoring",
+    "nearshoring": "Saradnja",
     "contact": "Kontakt",
     "cta": "Kontaktirajte nas"
   },
   "hero": {
-    "tagline": "White-Label računovodstvo za EU firme",
-    "headline": "Vaš strateški White-Label partner za računovodstvo",
-    "subheadline": "BiH-baziran kapacitet za austrijske poreske savjetnike, njemačke CFO-ove i regionalna preduzeća. MSFI-usklađen. GDPR-spreman. SLA-zaštićen.",
-    "cta_primary": "Zakazite 30-min uvodni razgovor",
-    "cta_secondary": "Istražite usluge",
+    "tagline": "White-Label računovodstvo & porezi · DACH mandati",
+    "headline": "Tihi kapacitet za ozbiljne poreske i računovodstvene kancelarije.",
+    "subheadline": "Bosnia Business Hub pruža računovodstveni i poreski kapacitet usklađen sa MSFI i HGB standardima austrijskim Steuerberater-ima, njemačkim poreznim savjetnicima i CFO-ovima. Diskretno, GDPR-usklađeno, SLA-vezano.",
+    "cta_primary": "Zakažite konsultaciju",
+    "cta_secondary": "Pregledajte usluge",
     "badge": "Osnovano 2016 · Maršala Tita 3, Sarajevo",
     "stats": [
-      { "value": "79", "suffix": "", "label": "Aktivnih klijenata u Austriji" },
-      { "value": "40", "suffix": "h", "label": "Kapacitet po klijentu/mj." },
-      { "value": "100", "suffix": "+", "label": "Klijenata ukupno" },
-      { "value": "100", "suffix": "%", "label": "SLA usklađenost" }
+      { "value": "79", "suffix": "", "label": "Aktivnih austrijskih mandata" },
+      { "value": "40", "suffix": "h", "label": "Vraćeni kapacitet · po partneru / mjesečno" },
+      { "value": "100", "suffix": "+", "label": "Ukupna baza klijenata" },
+      { "value": "100", "suffix": "%", "label": "Ispunjenje SLA · 2024" }
     ]
   },
   "services": {
-    "title": "Naše usluge",
-    "subtitle": "Sveobuhvatne finansijske i savjetodavne usluge za operativnu izvrsnost — za BiH subjekte i EU firme koje traže White-Label nearshore kapacitet.",
+    "title": "Šest linija usluga, jedan okvir saradnje.",
+    "subtitle": "Svaki mandat vodi imenovani partner, regulira ga dokumentirani SLA i prati fiksni mjesečni ritam izvještavanja. Mi smo vaš back office — nevidljivi vašim klijentima.",
     "items": {
       "accounting": {
-        "title": "Sveobuhvatno vođenje poslovnih knjiga",
-        "description": "Kompletno MSFI-usklađeno vođenje glavne knjige, porezno savjetovanje i PDV optimizacija, računovodstvo zaliha i godišnji finansijski izvještaji za subjekte registrovane u BiH.",
+        "title": "BiH računovodstvo & izvještavanje",
+        "description": "Vođenje glavne knjige po MSFI, optimizacija PDV-a, knjigovodstvo zaliha i godišnji finansijski izvještaji za pravna lica registrovana u BiH.",
         "tag": "MSFI · IFRS"
       },
       "payroll": {
-        "title": "Obračun plaća i HR",
-        "description": "Diskretna i cjelovita obrada platnog spiska uključujući zakonske MIP/GIP obrasce, upravljanje personalnim dosjeima i usklađenost s radnim zakonodavstvom BiH.",
+        "title": "Obračun plata & ljudski resursi",
+        "description": "Potpuni obračun plata: MIP/GIP obrasci, vođenje personalnih dosjea, izrada ugovora i puna usklađenost s BiH radnim zakonodavstvom — diskretno pod vašim memorandumom.",
         "tag": "Radno pravo · HR"
       },
       "austrian": {
-        "title": "Outsourcing za austrijsko tržište",
-        "description": "White-Label računovodstvena podrška za austrijske Steuerberater i Wirtschaftsprüfer: austrijski kontni okvir, digitalno arhiviranje, priprema UVA obrazaca i GDPR-usklađeno predavanje dokumentacije.",
+        "title": "Outsourcing za austrijske Steuerberater-e",
+        "description": "Knjigovodstvo po austrijskom kontnom planu, priprema UVA, BMD/RZL radni tokovi, digitalna arhiva i DSGVO-usklađena predaja podataka. Vaši klijenti nas ne vide.",
         "tag": "AT · DSGVO"
       },
-      "strategy": {
-        "title": "Poslovni planovi",
-        "description": "Poslovni planovi spremni za investitore s ROI modeliranjem, analizom ulaska na tržište Slovenije i EU, konkurentnim benchmarkingom i finansijskim projekcijama usklađenim s IFRS standardima.",
-        "tag": "ROI · Projekcije"
+      "investor": {
+        "title": "Investicijska dokumentacija & izvodljivost",
+        "description": "Investitorski biznis planovi, dvostepene studije izvodljivosti (predizvodljivost i puna izvodljivost), ROI modeliranje, analize ulaska na tržište Slovenije i EU te IFRS-usklađene finansijske projekcije — bankarski prihvatljiva dokumentacija za lokalne i međunarodne investitore.",
+        "tag": "ROI · Feasibility · IFRS"
       },
-      "feasibility": {
-        "title": "Studije izvodljivosti",
-        "description": "Dvostepena analiza: Predfeasibility — brza identifikacija rizika i validacija opsega; Feasibility — detaljno ekonomsko modeliranje, ROI prognoza i bankabilni izvještaji o isplativosti za domaće i strane investitore.",
-        "tag": "Predinvesticija"
+      "fpa": {
+        "title": "Finansijsko planiranje i analiza (FP&A)",
+        "description": "Outsourcovani FP&A i controlling: mjesečni management izvještaji, rolling forecasti, budžet vs. ostvarenje, KPI dashboardi, cash-flow modeliranje i analiza odstupanja — isporučeno u vašim obrascima i ritmu izvještavanja.",
+        "tag": "FP&A · Controlling"
       },
       "grants": {
-        "title": "Aplikacije za grant sredstva",
-        "description": "Kompletno upravljanje EU strukturnim fondovima i IPA grant aplikacijama: mapiranje mogućnosti, izrada prijava, narativno izvještavanje i budžetska dokumentacija usklađena s donatorskim zahtjevima.",
+        "title": "EU fondovi & IPA programi",
+        "description": "Mapiranje prilika, izrada aplikacija, narativno izvještavanje i priprema budžeta usklađenog s donatorima za EU strukturne fondove i IPA mehanizme.",
         "tag": "EU fondovi · IPA"
       }
     }
   },
   "whyUs": {
-    "title": "Zašto Bosnia Business Hub",
-    "subtitle": "Decenija institucionalnog znanja susreće se sa savremenom, efikasnom praksom za EU-BiH saradnju.",
+    "title": "Decenija institucionalnog znanja. Praksa izgrađena za EU–BiH koridor.",
+    "subtitle": "Svaki rezultat isporučujemo pod vašim brendom, u vašim formatima i prema vašem kalendaru. Vaši klijenti susreću vašu firmu — ne nas.",
     "stats": {
       "clients": "Aktivnih klijenata",
       "austria": "Aktivnih u Austriji",
       "team": "Tim stručnjaka",
-      "aiPowered": "AI automatizacija"
+      "aiPowered": "SLA usklađenost"
     },
     "values": [
       {
-        "title": "Duboka lokalna ekspertiza",
-        "description": "Navigiramo kroz slojevito regulatorno okruženje BiH – entitetski, kantonalni i državni nivo – umjesto vas."
+        "title": "Regulatorna dubina",
+        "description": "Svakodnevno se krećemo kroz entitetski, kantonalni i državni nivo BiH. Vaša firma dobija čiste, pravno tačne rezultate — ne sirove podatke."
       },
       {
-        "title": "EU-ready infrastruktura",
-        "description": "GDPR-usklađeno upravljanje podacima, šifriran prijenos datoteka i višejezično izvještavanje (DE/EN/BS)."
+        "title": "EU-spremna infrastruktura",
+        "description": "Obrada podataka usklađena s GDPR-om, šifrovani prijenos, ISO-disciplina procesa i izvještavanje na DE / EN / BHS."
       },
       {
-        "title": "White-label kapacitet",
-        "description": "Nevidljivi vašim klijentima. Naš rad se isporučuje pod vašim brendom, u vašem formatu i prema vašem rasporedu."
+        "title": "White-label disciplina",
+        "description": "Svaki rezultat isporučujemo pod vašim brendom, u vašim formatima i prema vašem kalendaru. Vaši klijenti susreću vašu firmu — ne nas."
       },
       {
-        "title": "Fiksne SLA obaveze",
-        "description": "Mjesečni rokovi izvještavanja, dedicirani account menadžeri i eskalacijski putevi – sve ugovorno definirano."
+        "title": "Ugovorni SLA",
+        "description": "Mjesečni rokovi izvještavanja, imenovani account manageri i dokumentovani putevi eskalacije — sve regulisano potpisanim SLA-om."
       }
     ],
     "testimonial": {
-      "quote": "BBH je preuzeo kompletnu obradu plaća — na vrijeme, bez grešaka. Dobitak od 40h/mj kapaciteta.",
-      "author": "Steuerberater, Beč",
-      "detail": "Austrijska poreska savjetodavna firma, klijent od 2019."
+      "quote": "BBH smo tiho uveli u našu austrijsku računovodstvenu praksu kako bi preuzeli dio naših lokalnih mandata. Brzo su se integrisali u naše procese i procedure te isporučuju više od 200 naplativih sati mjesečno. Najvažnije od svega, naši klijenti su vidno zadovoljniji odgovornijim računovođama na njihovim predmetima.",
+      "author": "Upravljački partner · Steuerberatungskanzlei · Beč",
+      "detail": "Klijent od 2019."
+    },
+    "practice": {
+      "title": "Praksa, ukratko.",
+      "items": [
+        { "k": "Licenca", "v": "Službeno licencirani za pružanje računovodstvenih i poreznih usluga u Bosni i Hercegovini." },
+        { "k": "Softver", "v": "Pantheon (regionalni) i BMD NTCS (austrijski kontni plan) — puna licenca, potpuno digitalni tokovi rada." },
+        { "k": "Tim", "v": "7 u stalnom radnom odnosu: 1 managing partner · 2 senior računovođe · 3 junior računovođe · 1 administrator." },
+        { "k": "Izvještavanje", "v": "DE / EN / BHS · mjesečni ritam · SLA-vezano." }
+      ]
     }
   },
   "nearshoring": {
-    "title": "Nearshoring model",
-    "subtitle": "Strukturiran put onboardinga koji smanjuje rizik od prvog dana.",
+    "title": "Strukturiran put od prvog razgovora do potpune integracije.",
+    "subtitle": "Tri jasno definisane faze. Bez nejasnoća, bez iznenađenja — svaki korak je dokumentovan, nadziran i SLA-regulisan od prvog dana.",
     "steps": {
       "intro": {
         "label": "Korak 01",
-        "title": "30-min uvodni razgovor",
-        "description": "Identificiramo vaš ulazni punkt — opseg usluga, protokoli prijenosa podataka i standardi izvještavanja. Bez obaveze.",
-        "detail": "Besplatna konsultacija"
+        "title": "30-minutni uvodni razgovor",
+        "description": "Pregledamo obim usluga, protokole prijenosa podataka i standarde izvještavanja. Bez obaveze i bez nastavka, ako tako odlučite.",
+        "detail": "Bez obaveze"
       },
       "pilot": {
         "label": "Korak 02",
         "title": "90-dnevni pilot mandat",
-        "description": "Preuzimamo 10–20 vaših paketa platnog spiska ili računovodstva pod punim nadzorom. Uspostavljamo referentne vrijednosti i radne tokove.",
+        "description": "Preuzimamo definisani broj paketa pod nadzorom partnera. Tokovi rada se testiraju, postavljaju benchmarki, dokumentuju izuzeci.",
         "detail": "10–20 paketa"
       },
       "scale": {
         "label": "Korak 03",
-        "title": "SLA i potpuna integracija",
-        "description": "Formalizujemo potpisanim SLA-om. Namjenski tim, mjesečni pregledi performansi i neometano skaliranje.",
+        "title": "Ugovor o uslugama & integracija",
+        "description": "Formalizujemo angažman potpisanim SLA-om: dodijeljeni kapacitet, mjesečni pregledi učinka i definisan put za skaliranje.",
         "detail": "Ugovorni SLA"
       }
     },
@@ -119,12 +128,12 @@
     "subline": "Vaš BiH kapacitet. Evropski standardi.",
     "items": [
       { "icon": "shield", "label": "GDPR usklađenost", "sub": "Zaštita podataka" },
-      { "icon": "award", "label": "ISO kvalitetni standardi", "sub": "Procesna izvrsnost" },
-      { "icon": "cpu", "label": "AI automatizacija", "sub": "Moderni alati" }
+      { "icon": "award", "label": "Licencirani u BiH", "sub": "Računovodstvo & porezi" },
+      { "icon": "cpu", "label": "BMD NTCS · Pantheon", "sub": "Potpuno digitalni tokovi" }
     ]
   },
   "footer": {
-    "tagline": "Precizno računovodstvo. Strateška jasnoća.",
+    "tagline": "Precizno računovodstvo. Institucionalna disciplina.",
     "address": "Maršala Tita 3, 71000 Sarajevo, Bosna i Hercegovina",
     "phone": "+387 33 XXX XXX",
     "email": "office@bbh.ba",
