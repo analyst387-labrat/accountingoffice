@@ -46,7 +46,7 @@ export default function Header() {
   return (
     <>
       <header className="fixed top-0 inset-x-0 z-50 bg-[#0c0e10]/80 backdrop-blur-lg border-b border-[#23282d]">
-        <div className="max-w-7xl mx-auto px-6 h-14 grid grid-cols-[1fr_auto_1fr] items-center gap-6">
+        <div className="max-w-[1440px] mx-auto px-6 h-14 grid grid-cols-[1fr_auto_1fr] items-center gap-6">
 
           {/* LEFT: Logo + brand name */}
           <Link href={`/${locale}`} className="flex items-center gap-3 shrink-0 py-1 group">

@@ -12,16 +12,18 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <main>
-        <HeroSection />
-        <KpiStrip />
-        <Ticker />
-        <ServicesGrid />
-        <WhyUs />
-        <NearshoringModel />
-        <ContactSection />
-      </main>
-      <Footer />
+      <div className="max-w-[1440px] mx-auto border-x border-[#23282d]">
+        <main>
+          <HeroSection />
+          <KpiStrip />
+          <Ticker />
+          <ServicesGrid />
+          <WhyUs />
+          <NearshoringModel />
+          <ContactSection />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }

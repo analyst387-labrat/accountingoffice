@@ -4,6 +4,14 @@ import { useTranslations } from 'next-intl';
 
 type StatItem = { value: string; suffix: string; label: string };
 
+// Border classes per cell: 2-col mobile, 4-col desktop
+const CELL_BORDERS = [
+  'border-r border-[#23282d]',                                  // 0: right always
+  'border-r border-[#23282d]',                                  // 1: right always (desktop col 2 of 4; on mobile clips at edge)
+  'border-r border-[#23282d] border-t border-[#23282d] lg:border-t-0', // 2: right always, top on mobile only
+  'border-t border-[#23282d] lg:border-t-0',                   // 3: no right, top on mobile only
+];
+
 export default function KpiStrip() {
   const t = useTranslations('hero');
   const stats = t.raw('stats') as StatItem[];
@@ -14,15 +22,7 @@ export default function KpiStrip() {
         {stats.map((stat, i) => (
           <div
             key={i}
-            className="relative px-8 py-7 border-[#23282d]"
-            style={{
-              borderRightWidth: i < stats.length - 1 ? '1px' : '0',
-              borderRightStyle: 'solid',
-              borderRightColor: '#23282d',
-              borderTopWidth: i >= 2 ? '1px' : '0',
-              borderTopStyle: 'solid',
-              borderTopColor: '#23282d',
-            }}
+            className={`relative px-8 py-7 ${CELL_BORDERS[i] ?? ''}`}
           >
             {/* top-right tag */}
             <span

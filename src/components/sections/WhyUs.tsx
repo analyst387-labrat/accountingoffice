@@ -110,6 +110,14 @@ function BridgeBand() {
   );
 }
 
+// Border classes per cell for grid-cols-1 mobile / sm:grid-cols-2 / lg:grid-cols-4
+const PRACTICE_BORDERS = [
+  'border-b border-[#23282d] sm:border-r lg:border-b-0',         // 0
+  'border-b border-[#23282d] lg:border-r lg:border-b-0',         // 1
+  'border-b border-[#23282d] sm:border-b-0 sm:border-r',         // 2
+  '',                                                              // 3: last — no borders
+];
+
 function PracticeStrip({ practice }: { practice: PracticeData }) {
   return (
     <div className="bg-[#14171a] border-t border-[#23282d]">
@@ -117,11 +125,7 @@ function PracticeStrip({ practice }: { practice: PracticeData }) {
         {practice.items.map((item, i) => (
           <div
             key={i}
-            className="px-8 py-8"
-            style={{
-              borderRight: i < practice.items.length - 1 ? '1px solid #23282d' : 'none',
-              borderBottom: i < 2 ? '1px solid #23282d' : 'none',
-            }}
+            className={`px-8 py-8 ${PRACTICE_BORDERS[i] ?? ''}`}
           >
             <p
               className="text-[10px] tracking-[0.18em] uppercase text-[#7fa9c4] mb-3"
