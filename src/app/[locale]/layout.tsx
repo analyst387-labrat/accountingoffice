@@ -42,27 +42,51 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     bs: 'White Label Backbone Office — Strateško računovodstvo, obračun plaća i poslovno savjetovanje za BiH i EU firme.',
   };
 
+  const ogDescription = t('subheadline');
+
   return {
     title: {
       default: 'White Label Backbone Office',
       template: '%s · WLB',
     },
     description: descriptions[locale] ?? descriptions.en,
-    keywords: ['accounting', 'BiH', 'Steuerberater', 'nearshoring', 'MSFI', 'payroll', 'Bosnia', 'white label'],
+    keywords: [
+      'white label accounting', 'WLB', 'wlboffice', 'backbone office',
+      'BiH accounting', 'Steuerberater outsourcing', 'nearshoring accounting',
+      'MSFI', 'IFRS', 'HGB', 'DSGVO', 'payroll Bosnia', 'Austrian accountant',
+      'DACH mandates', 'BMD NTCS', 'Pantheon accounting',
+    ],
     metadataBase: new URL('https://wlboffice.com'),
+    robots: { index: true, follow: true },
+    icons: {
+      icon: [{ url: '/images/logo/wlb%20blue.png', type: 'image/png' }],
+      apple: [{ url: '/images/logo/wlb%20blue.png', type: 'image/png' }],
+    },
     alternates: {
       canonical: `/${locale}`,
-      languages: {
-        en: '/en',
-        de: '/de',
-        bs: '/bs',
-      },
+      languages: { en: '/en', de: '/de', bs: '/bs' },
     },
     openGraph: {
       title: 'White Label Backbone Office',
-      description: t('subheadline'),
+      description: ogDescription,
+      siteName: 'White Label Backbone Office',
       locale: locale === 'bs' ? 'bs_BA' : locale === 'de' ? 'de_DE' : 'en_US',
       type: 'website',
+      url: `https://wlboffice.com/${locale}`,
+      images: [
+        {
+          url: '/images/office/Headline%20Photo%20Townhall%20Sarajevo.png',
+          width: 1200,
+          height: 630,
+          alt: 'White Label Backbone Office — Sarajevo',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'White Label Backbone Office',
+      description: ogDescription,
+      images: ['/images/office/Headline%20Photo%20Townhall%20Sarajevo.png'],
     },
   };
 }

@@ -60,7 +60,7 @@ export default function Header() {
               />
             </div>
             <span
-              className="hidden lg:block text-[10px] font-mono tracking-[0.18em] uppercase text-[#6a6c6a] group-hover:text-[#a4a4a0] transition-colors duration-200"
+              className="hidden lg:block text-[12px] font-mono tracking-[0.18em] uppercase text-[#6a6c6a] group-hover:text-[#a4a4a0] transition-colors duration-200"
               style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
             >
               WHITE LABEL BACKBONE OFFICE

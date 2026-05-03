@@ -55,7 +55,7 @@ export default function KpiStrip() {
 
             {/* Label */}
             <p
-              className="text-[10px] tracking-[0.18em] uppercase text-[#6a6c6a] leading-snug"
+              className="text-[11px] tracking-[0.18em] uppercase text-[#6a6c6a] leading-snug"
               style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
             >
               {stat.label}

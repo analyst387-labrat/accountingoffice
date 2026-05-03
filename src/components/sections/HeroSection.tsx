@@ -30,7 +30,7 @@ export default function HeroSection() {
           <div className="flex items-center gap-2.5 mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#7fa9c4] animate-pulse shrink-0" />
             <span
-              className="text-[10px] tracking-[0.22em] uppercase text-[#6a6c6a]"
+              className="text-[11px] tracking-[0.22em] uppercase text-[#6a6c6a]"
               style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
             >
               ESTABLISHED 2016 · MARŠALA TITA 3, SARAJEVO
@@ -40,7 +40,7 @@ export default function HeroSection() {
           {/* Badge */}
           <div className="mb-8">
             <span
-              className="inline-flex items-center gap-2.5 border border-[#2d3239] rounded-full px-4 py-1.5 text-[10px] tracking-[0.18em] uppercase text-[#a4a4a0]"
+              className="inline-flex items-center gap-2.5 border border-[#2d3239] rounded-full px-4 py-1.5 text-[11px] tracking-[0.18em] uppercase text-[#a4a4a0]"
               style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#7fa9c4] shrink-0" />
@@ -90,7 +90,7 @@ export default function HeroSection() {
               {COMPLIANCE_TAGS.map((tag, i) => (
                 <span
                   key={tag}
-                  className="text-[10px] tracking-[0.18em] uppercase text-[#6a6c6a]"
+                  className="text-[10.5px] tracking-[0.18em] uppercase text-[#6a6c6a]"
                   style={{
                     fontFamily: 'var(--font-jetbrains-mono), monospace',
                     ...(i > 0 ? { paddingLeft: '18px', marginLeft: '18px', borderLeft: '1px solid #23282d' } : {}),

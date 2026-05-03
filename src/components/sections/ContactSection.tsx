@@ -34,7 +34,7 @@ export default function ContactSection() {
                 lineHeight: 0.96,
               }}
             >
-              Begin the conversation.
+              {t('heading')}
             </h2>
 
             <p className="text-[15px] text-[#a4a4a0] leading-relaxed max-w-md mb-10">
@@ -87,61 +87,61 @@ export default function ContactSection() {
           <form onSubmit={(e) => e.preventDefault()} className="space-y-8 max-w-lg w-full">
 
             <div>
-              <label className="block text-[10.5px] tracking-[0.06em] uppercase text-[#6a6c6a] mb-2" style={{ fontFamily: FIELD_STYLE }}>
-                Full Name
+              <label className="block text-[11px] tracking-[0.06em] uppercase text-[#6a6c6a] mb-2" style={{ fontFamily: FIELD_STYLE }}>
+                {t('form.name')}
               </label>
               <input
                 type="text"
-                placeholder="Max Mustermann"
+                placeholder={t('form.namePlaceholder')}
                 className="w-full bg-transparent border-b border-[#2d3239] pb-2.5 text-[15px] text-[#f3f1ea] placeholder:text-[#6a6c6a] focus:outline-none focus:border-[#7fa9c4] transition-colors duration-200"
               />
             </div>
 
             <div>
-              <label className="block text-[10.5px] tracking-[0.06em] uppercase text-[#6a6c6a] mb-2" style={{ fontFamily: FIELD_STYLE }}>
-                Firm / Company
+              <label className="block text-[11px] tracking-[0.06em] uppercase text-[#6a6c6a] mb-2" style={{ fontFamily: FIELD_STYLE }}>
+                {t('form.company')}
               </label>
               <input
                 type="text"
-                placeholder="Kanzlei Mustermann GmbH"
+                placeholder={t('form.companyPlaceholder')}
                 className="w-full bg-transparent border-b border-[#2d3239] pb-2.5 text-[15px] text-[#f3f1ea] placeholder:text-[#6a6c6a] focus:outline-none focus:border-[#7fa9c4] transition-colors duration-200"
               />
             </div>
 
             <div>
-              <label className="block text-[10.5px] tracking-[0.06em] uppercase text-[#6a6c6a] mb-2" style={{ fontFamily: FIELD_STYLE }}>
-                Business Email
+              <label className="block text-[11px] tracking-[0.06em] uppercase text-[#6a6c6a] mb-2" style={{ fontFamily: FIELD_STYLE }}>
+                {t('form.email')}
               </label>
               <input
                 type="email"
-                placeholder="max@kanzlei.at"
+                placeholder={t('form.emailPlaceholder')}
                 className="w-full bg-transparent border-b border-[#2d3239] pb-2.5 text-[15px] text-[#f3f1ea] placeholder:text-[#6a6c6a] focus:outline-none focus:border-[#7fa9c4] transition-colors duration-200"
               />
             </div>
 
             <div>
-              <label className="block text-[10.5px] tracking-[0.06em] uppercase text-[#6a6c6a] mb-2" style={{ fontFamily: FIELD_STYLE }}>
-                Notes / Description of Mandate
+              <label className="block text-[11px] tracking-[0.06em] uppercase text-[#6a6c6a] mb-2" style={{ fontFamily: FIELD_STYLE }}>
+                {t('form.notes')}
               </label>
               <textarea
                 rows={4}
-                placeholder="Tell us about your capacity needs…"
+                placeholder={t('form.notesPlaceholder')}
                 className="w-full bg-transparent border-b border-[#2d3239] pb-2.5 text-[15px] text-[#f3f1ea] placeholder:text-[#6a6c6a] focus:outline-none focus:border-[#7fa9c4] transition-colors duration-200 resize-none"
               />
             </div>
 
             <div className="flex items-center justify-between pt-2 gap-4 flex-wrap">
               <span
-                className="text-[10.5px] tracking-[0.04em] uppercase text-[#6a6c6a]"
+                className="text-[11px] tracking-[0.04em] uppercase text-[#6a6c6a]"
                 style={{ fontFamily: FIELD_STYLE }}
               >
-                DSGVO · ENCRYPTED · 24H REPLY
+                {t('form.trust')}
               </span>
               <button
                 type="submit"
                 className="rounded-full bg-[#f3f1ea] text-[#0c0e10] px-6 py-2.5 text-[13px] font-medium hover:bg-[#d4c8a6] transition-colors duration-200 min-h-[40px]"
               >
-                Send Message →
+                {t('form.submit')}
               </button>
             </div>
           </form>

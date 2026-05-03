@@ -133,7 +133,20 @@
     ]
   },
   "contact": {
-    "lede": "Direct correspondence with a managing partner. Reply within one business day."
+    "heading": "Begin the conversation.",
+    "lede": "Direct correspondence with a managing partner. Reply within one business day.",
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "Max Mustermann",
+      "company": "Firm / Company",
+      "companyPlaceholder": "Kanzlei Mustermann GmbH",
+      "email": "Business Email",
+      "emailPlaceholder": "max@kanzlei.at",
+      "notes": "Notes / Description of Mandate",
+      "notesPlaceholder": "Tell us about your capacity needs…",
+      "trust": "DSGVO · ENCRYPTED · 24H REPLY",
+      "submit": "Send Message →"
+    }
   },
   "footer": {
     "tagline": "Precision accounting. Institutional discipline.",

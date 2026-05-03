@@ -47,7 +47,7 @@ export default function Footer() {
             {COMPLIANCE_TAGS.map((tag) => (
               <span
                 key={tag}
-                className="text-[10px] tracking-[0.18em] uppercase text-[#6a6c6a]"
+                className="text-[11px] tracking-[0.18em] uppercase text-[#6a6c6a]"
                 style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
               >
                 {tag}
@@ -62,7 +62,7 @@ export default function Footer() {
           style={{ padding: '48px 40px' }}
         >
           <h6
-            className="text-[10px] tracking-[0.22em] uppercase text-[#6a6c6a] mb-2"
+            className="text-[11px] tracking-[0.22em] uppercase text-[#6a6c6a] mb-2"
             style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
           >
             CONTACT
@@ -87,7 +87,7 @@ export default function Footer() {
         {/* Practice column */}
         <div style={{ padding: '48px 40px' }}>
           <h6
-            className="text-[10px] tracking-[0.22em] uppercase text-[#6a6c6a] mb-4"
+            className="text-[11px] tracking-[0.22em] uppercase text-[#6a6c6a] mb-4"
             style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
           >
             PRACTICE

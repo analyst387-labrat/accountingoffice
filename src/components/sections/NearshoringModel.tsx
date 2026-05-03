@@ -23,7 +23,7 @@ function StepCard({ stepKey, index }: { stepKey: StepKey; index: number }) {
       {/* Top row: step label + pill tag */}
       <div className="flex items-center justify-between mb-5">
         <span
-          className="text-[10px] tracking-[0.22em] uppercase text-[#6a6c6a]"
+          className="text-[11px] tracking-[0.22em] uppercase text-[#6a6c6a]"
           style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
         >
           STEP {String(index + 1).padStart(2, '0')}

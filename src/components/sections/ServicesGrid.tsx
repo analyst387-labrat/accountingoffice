@@ -42,14 +42,14 @@ function ServiceCard({ serviceKey, index }: { serviceKey: ServiceKey; index: num
       {/* Top row */}
       <div className="flex items-center justify-between mb-6">
         <span
-          className="text-[10px] tracking-[0.18em] text-[#f3f1ea]"
+          className="text-[11px] tracking-[0.18em] text-[#f3f1ea]"
           style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
           aria-hidden
         >
           {num}
         </span>
         <span
-          className="text-[10px] tracking-[0.14em] uppercase text-[#6a6c6a]"
+          className="text-[11px] tracking-[0.14em] uppercase text-[#6a6c6a]"
           style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
         >
           {t(`items.${serviceKey}.tag`)}
@@ -77,7 +77,7 @@ function ServiceCard({ serviceKey, index }: { serviceKey: ServiceKey; index: num
       {/* Learn more */}
       <div className="mt-6">
         <span
-          className="text-[10px] tracking-[0.2em] uppercase text-[#6a6c6a] transition-colors duration-200 flex items-center gap-2"
+          className="text-[11px] tracking-[0.2em] uppercase text-[#6a6c6a] transition-colors duration-200 flex items-center gap-2"
           style={{ fontFamily: 'var(--font-jetbrains-mono), monospace', color: hovered ? '#a4a4a0' : '#6a6c6a' }}
         >
           LEARN MORE

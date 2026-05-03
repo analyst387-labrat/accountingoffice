@@ -32,7 +32,7 @@ function PillarsGrid({ values }: { values: ValueItem[] }) {
       {values.map((item, i) => (
         <div key={i} className={`flex flex-col gap-3 px-8 py-9 ${PILLAR_BORDERS[i]}`}>
           <span
-            className="text-[10px] tracking-[0.18em] uppercase text-[#7fa9c4]"
+            className="text-[11px] tracking-[0.18em] uppercase text-[#7fa9c4]"
             style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
           >
             /{String(i + 1).padStart(2, '0')}

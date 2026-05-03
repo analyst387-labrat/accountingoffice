@@ -133,7 +133,20 @@
     ]
   },
   "contact": {
-    "lede": "Direktna korespondencija s upravljačkim partnerom. Odgovor u roku od jednog radnog dana."
+    "heading": "Pokrenite razgovor.",
+    "lede": "Direktna korespondencija s upravljačkim partnerom. Odgovor u roku od jednog radnog dana.",
+    "form": {
+      "name": "Ime i prezime",
+      "namePlaceholder": "Max Mustermann",
+      "company": "Kancelarija / Kompanija",
+      "companyPlaceholder": "Kanzlei Mustermann GmbH",
+      "email": "Poslovni e-mail",
+      "emailPlaceholder": "max@kanzlei.at",
+      "notes": "Napomene / Opis mandata",
+      "notesPlaceholder": "Opišite vaše kapacitetne potrebe…",
+      "trust": "DSGVO · KRIPTIRANO · 24H ODGOVOR",
+      "submit": "Pošaljite poruku →"
+    }
   },
   "footer": {
     "tagline": "Precizno računovodstvo. Institucionalna disciplina.",

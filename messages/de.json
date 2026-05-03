@@ -133,7 +133,20 @@
     ]
   },
   "contact": {
-    "lede": "Direkte Korrespondenz mit einem geschäftsführenden Partner. Antwort innerhalb eines Werktages."
+    "heading": "Das Gespräch beginnen.",
+    "lede": "Direkte Korrespondenz mit einem geschäftsführenden Partner. Antwort innerhalb eines Werktages.",
+    "form": {
+      "name": "Vollständiger Name",
+      "namePlaceholder": "Max Mustermann",
+      "company": "Kanzlei / Unternehmen",
+      "companyPlaceholder": "Kanzlei Mustermann GmbH",
+      "email": "Geschäftliche E-Mail",
+      "emailPlaceholder": "max@kanzlei.at",
+      "notes": "Notizen / Mandatsbeschreibung",
+      "notesPlaceholder": "Beschreiben Sie Ihren Kapazitätsbedarf…",
+      "trust": "DSGVO · VERSCHLÜSSELT · 24H ANTWORT",
+      "submit": "Nachricht senden →"
+    }
   },
   "footer": {
     "tagline": "Präzise Buchhaltung. Institutionelle Disziplin.",
