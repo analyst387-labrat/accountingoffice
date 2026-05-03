@@ -99,8 +99,11 @@ export default function ServicesGrid() {
   return (
     <section id="services" className="bg-[#0c0e10] border-b border-[#23282d]">
       {/* Section header */}
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] border-b border-[#23282d]">
-        <div className="px-10 pt-20 pb-12 flex items-center">
+      <div
+        className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] border-b border-[#23282d] px-6 lg:px-10 pt-12 lg:pt-20 pb-8 lg:pb-12"
+        style={{ columnGap: '60px' }}
+      >
+        <div className="mb-4 lg:mb-0">
           <span
             className="text-[11px] tracking-[0.22em] uppercase text-[#6a6c6a]"
             style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
@@ -108,7 +111,7 @@ export default function ServicesGrid() {
             02 — PRACTICE AREAS
           </span>
         </div>
-        <div className="px-10 pt-20 pb-12">
+        <div>
           <h2
             className="text-[#f3f1ea] font-normal mb-4"
             style={{

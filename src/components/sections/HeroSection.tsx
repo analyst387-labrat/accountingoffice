@@ -85,7 +85,7 @@ export default function HeroSection() {
           </div>
 
           {/* Compliance strip */}
-          <div className="border-t border-[#23282d] pt-5">
+          <div className="mt-auto border-t border-[#23282d] pt-5">
             <div className="flex flex-wrap items-center gap-y-2">
               {COMPLIANCE_TAGS.map((tag, i) => (
                 <span
