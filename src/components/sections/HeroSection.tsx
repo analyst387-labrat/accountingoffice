@@ -25,7 +25,7 @@ export default function HeroSection() {
       <div className="flex-1 flex flex-col lg:grid lg:grid-cols-[1.05fr_0.95fr] min-h-[640px] lg:min-h-0 lg:h-[calc(100vh-200px)] border-b border-[#23282d]">
 
         {/* ── LEFT: Copy ── */}
-        <div className="flex flex-col justify-center px-6 lg:px-14 xl:px-20 pt-28 pb-12 lg:py-0 lg-divider-r">
+        <div className="flex flex-col px-6 lg:px-14 xl:px-20 pt-28 pb-12 lg-divider-r">
           {/* Eyebrow */}
           <div className="flex items-center gap-2.5 mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#7fa9c4] animate-pulse shrink-0" />
