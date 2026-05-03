@@ -75,8 +75,8 @@ export default function NearshoringModel() {
   return (
     <section id="nearshoring" className="bg-[#0c0e10] border-b border-[#23282d]">
       {/* Section header */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 border-b border-[#23282d]">
-        <div className="px-8 py-10 lg:border-r lg:border-[#23282d] flex items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] border-b border-[#23282d]">
+        <div className="lg-divider-r px-10 pt-20 pb-12 flex items-center">
           <span
             className="text-[11px] tracking-[0.22em] uppercase text-[#6a6c6a]"
             style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
@@ -84,19 +84,19 @@ export default function NearshoringModel() {
             04 — ENGAGEMENT MODEL
           </span>
         </div>
-        <div className="px-8 py-10">
+        <div className="px-10 pt-20 pb-12">
           <h2
             className="text-[#f3f1ea] font-normal mb-4"
             style={{
-              fontSize: 'clamp(28px, 3vw, 40px)',
+              fontSize: 'clamp(36px, 4.2vw, 60px)',
               letterSpacing: '-0.02em',
               fontFamily: 'var(--font-newsreader), Georgia, serif',
-              lineHeight: 1.1,
+              lineHeight: 1.0,
             }}
           >
             {t('title')}
           </h2>
-          <p className="text-[15px] text-[#a4a4a0] leading-relaxed max-w-lg">
+          <p className="text-[16px] text-[#a4a4a0] leading-relaxed max-w-[60ch]">
             {t('subtitle')}
           </p>
         </div>

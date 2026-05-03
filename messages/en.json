@@ -132,6 +132,9 @@
       { "icon": "cpu", "label": "BMD NTCS · Pantheon", "sub": "End-to-end digital workflows" }
     ]
   },
+  "contact": {
+    "lede": "Direct correspondence with a managing partner. Reply within one business day."
+  },
   "footer": {
     "tagline": "Precision accounting. Institutional discipline.",
     "address": "Maršala Tita 3, 71000 Sarajevo, Bosnia and Herzegovina",

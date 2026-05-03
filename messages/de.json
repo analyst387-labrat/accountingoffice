@@ -132,6 +132,9 @@
       { "icon": "cpu", "label": "BMD NTCS · Pantheon", "sub": "Vollständig digitale Workflows" }
     ]
   },
+  "contact": {
+    "lede": "Direkte Korrespondenz mit einem geschäftsführenden Partner. Antwort innerhalb eines Werktages."
+  },
   "footer": {
     "tagline": "Präzise Buchhaltung. Institutionelle Disziplin.",
     "address": "Maršala Tita 3, 71000 Sarajevo, Bosnien und Herzegowina",

@@ -282,3 +282,10 @@
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+
+/* ── Responsive vertical divider — section headers and body grids ── */
+@media (min-width: 1024px) {
+  .lg-divider-r {
+    border-right: 1px solid #23282d;
+  }
+}

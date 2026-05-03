@@ -132,6 +132,9 @@
       { "icon": "cpu", "label": "BMD NTCS · Pantheon", "sub": "Potpuno digitalni tokovi" }
     ]
   },
+  "contact": {
+    "lede": "Direktna korespondencija s upravljačkim partnerom. Odgovor u roku od jednog radnog dana."
+  },
   "footer": {
     "tagline": "Precizno računovodstvo. Institucionalna disciplina.",
     "address": "Maršala Tita 3, 71000 Sarajevo, Bosna i Hercegovina",

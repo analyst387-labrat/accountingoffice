@@ -19,13 +19,13 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col bg-[#0c0e10] overflow-hidden"
+      className="relative flex flex-col bg-[#0c0e10] overflow-hidden"
     >
       {/* Two-column grid on desktop */}
-      <div className="flex-1 flex flex-col lg:grid lg:grid-cols-[1.05fr_0.95fr] min-h-screen border-b border-[#23282d]">
+      <div className="flex-1 flex flex-col lg:grid lg:grid-cols-[1.05fr_0.95fr] min-h-[640px] lg:min-h-0 lg:h-[calc(100vh-200px)] border-b border-[#23282d]">
 
         {/* ── LEFT: Copy ── */}
-        <div className="flex flex-col justify-center px-6 lg:px-14 xl:px-20 pt-28 pb-12 lg:py-0 lg:border-r lg:border-[#23282d]">
+        <div className="flex flex-col justify-center px-6 lg:px-14 xl:px-20 pt-28 pb-12 lg:py-0 lg-divider-r">
           {/* Eyebrow */}
           <div className="flex items-center gap-2.5 mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#7fa9c4] animate-pulse shrink-0" />
@@ -86,12 +86,15 @@ export default function HeroSection() {
 
           {/* Compliance strip */}
           <div className="border-t border-[#23282d] pt-5">
-            <div className="flex flex-wrap gap-x-5 gap-y-1">
-              {COMPLIANCE_TAGS.map((tag) => (
+            <div className="flex flex-wrap items-center gap-y-2">
+              {COMPLIANCE_TAGS.map((tag, i) => (
                 <span
                   key={tag}
                   className="text-[10px] tracking-[0.18em] uppercase text-[#6a6c6a]"
-                  style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+                  style={{
+                    fontFamily: 'var(--font-jetbrains-mono), monospace',
+                    ...(i > 0 ? { paddingLeft: '18px', marginLeft: '18px', borderLeft: '1px solid #23282d' } : {}),
+                  }}
                 >
                   {tag}
                 </span>
