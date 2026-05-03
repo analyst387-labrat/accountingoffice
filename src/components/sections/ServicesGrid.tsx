@@ -11,6 +11,17 @@ const SERVICE_KEYS: ServiceKey[] = [
   'grants',
 ];
 
+// 6-item grid: md:grid-cols-2, lg:grid-cols-3
+// right border = has a card to its right in THAT breakpoint's layout
+const CARD_RIGHT_BORDER: Record<number, string> = {
+  0: 'md:border-r border-[#23282d]',         // col 1 at md & lg
+  1: 'lg:border-r border-[#23282d]',         // col 2 at lg only (last col at md)
+  2: 'md:border-r lg:border-r-0 border-[#23282d]', // col 1 at md, last col at lg
+  3: 'md:border-r border-[#23282d]',         // col 1 at md & lg
+  4: 'lg:border-r border-[#23282d]',         // col 2 at lg only
+  5: '',                                      // always last col
+};
+
 function ServiceCard({ serviceKey, index }: { serviceKey: ServiceKey; index: number }) {
   const t = useTranslations('services');
   const [hovered, setHovered] = useState(false);
@@ -18,12 +29,11 @@ function ServiceCard({ serviceKey, index }: { serviceKey: ServiceKey; index: num
 
   return (
     <article
-      className="relative flex flex-col border-t border-[#23282d] transition-colors duration-200"
+      className={`relative flex flex-col border-t border-[#23282d] transition-colors duration-200 ${CARD_RIGHT_BORDER[index] ?? ''}`}
       style={{
         padding: '36px 32px',
         minHeight: '320px',
         background: hovered ? '#14171a' : '#0c0e10',
-        borderRight: '1px solid #23282d',
         cursor: 'default',
       }}
       onMouseEnter={() => setHovered(true)}
