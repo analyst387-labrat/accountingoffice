@@ -1,7 +1,7 @@
 {
   "nav": {
     "services": "Leistungen",
-    "whyUs": "Warum BBH",
+    "whyUs": "Warum WLB",
     "nearshoring": "Mandatsablauf",
     "contact": "Kontakt",
     "cta": "Beratung anfragen"
@@ -84,7 +84,7 @@
       }
     ],
     "testimonial": {
-      "quote": "Wir haben BBH leise in unsere österreichische Kanzlei eingebunden, um einen Teil unserer lokalen Mandate zu übernehmen. Die Integration in unsere Prozesse erfolgte zügig, und es werden inzwischen mehr als 200 verrechenbare Stunden pro Monat geliefert. Am wichtigsten: Unsere Mandanten sind sichtbar zufriedener mit reaktionsschnelleren Buchhaltern.",
+      "quote": "Wir haben WLB leise in unsere österreichische Kanzlei eingebunden, um einen Teil unserer lokalen Mandate zu übernehmen. Die Integration in unsere Prozesse erfolgte zügig, und es werden inzwischen mehr als 200 verrechenbare Stunden pro Monat geliefert. Am wichtigsten: Unsere Mandanten sind sichtbar zufriedener mit reaktionsschnelleren Buchhaltern.",
       "author": "Geschäftsführender Partner · Steuerberatungskanzlei · Wien",
       "detail": "Mandant seit 2019"
     },
@@ -139,12 +139,12 @@
     "tagline": "Präzise Buchhaltung. Institutionelle Disziplin.",
     "address": "Maršala Tita 3, 71000 Sarajevo, Bosnien und Herzegowina",
     "phone": "+387 33 XXX XXX",
-    "email": "office@bbh.ba",
+    "email": "office@wlboffice.com",
     "links": {
       "privacy": "Datenschutz",
       "imprint": "Impressum",
       "services": "Leistungen"
     },
-    "copyright": "© {year} Bosnia Business Hub. Alle Rechte vorbehalten."
+    "copyright": "© {year} White Label Backbone Office. Alle Rechte vorbehalten."
   }
 }

@@ -17,12 +17,8 @@ function StepCard({ stepKey, index }: { stepKey: StepKey; index: number }) {
 
   return (
     <article
-      className="flex flex-col"
-      style={{
-        padding: '40px 32px 48px',
-        borderRight: !isLast ? '1px solid #23282d' : 'none',
-        borderTop: '1px solid #23282d',
-      }}
+      className={`flex flex-col border-t border-[#23282d] ${!isLast ? 'lg-divider-r' : ''}`}
+      style={{ padding: '40px 32px 48px' }}
     >
       {/* Top row: step label + pill tag */}
       <div className="flex items-center justify-between mb-5">

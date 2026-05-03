@@ -31,11 +31,10 @@ export default function Footer() {
         >
           <div className="relative h-8 w-28 shrink-0">
             <Image
-              src="/images/logo/BBH Linear Logo Black.png"
-              alt="Bosnia Business Hub"
+              src="/images/logo/wlb%20white.png"
+              alt="White Label Backbone Office"
               fill
               className="object-contain object-left"
-              style={{ filter: 'brightness(0) invert(1)' }}
             />
           </div>
           <p

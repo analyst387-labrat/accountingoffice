@@ -1,7 +1,7 @@
 {
   "nav": {
     "services": "Services",
-    "whyUs": "Why BBH",
+    "whyUs": "Why WLB",
     "nearshoring": "Engagement",
     "contact": "Contact",
     "cta": "Get in Touch"
@@ -84,7 +84,7 @@
       }
     ],
     "testimonial": {
-      "quote": "We quietly introduced BBH into our Austrian accounting practice to take over a portion of our local mandates. They integrated rapidly with our processes and procedures and now deliver more than 200 billable hours per month. Most importantly, our clients are visibly happier with more responsive accountants on their files.",
+      "quote": "We quietly introduced WLB into our Austrian accounting practice to take over a portion of our local mandates. They integrated rapidly with our processes and procedures and now deliver more than 200 billable hours per month. Most importantly, our clients are visibly happier with more responsive accountants on their files.",
       "author": "Managing partner · Steuerberatungskanzlei · Vienna",
       "detail": "Client since 2019"
     },
@@ -139,12 +139,12 @@
     "tagline": "Precision accounting. Institutional discipline.",
     "address": "Maršala Tita 3, 71000 Sarajevo, Bosnia and Herzegovina",
     "phone": "+387 33 XXX XXX",
-    "email": "office@bbh.ba",
+    "email": "office@wlboffice.com",
     "links": {
       "privacy": "Privacy Policy",
       "imprint": "Imprint",
       "services": "Services"
     },
-    "copyright": "© {year} Bosnia Business Hub. All rights reserved."
+    "copyright": "© {year} White Label Backbone Office. All rights reserved."
   }
 }

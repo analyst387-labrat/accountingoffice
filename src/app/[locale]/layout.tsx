@@ -37,19 +37,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'hero' });
 
   const descriptions: Record<string, string> = {
-    en: 'Bosnia Business Hub — Strategic accounting, payroll, and business advisory for BiH and EU firms.',
-    de: 'Bosnia Business Hub — Strategisches Rechnungswesen, Lohnbuchhaltung und Unternehmensberatung für BiH und EU-Firmen.',
-    bs: 'Bosnia Business Hub — Strateško računovodstvo, obračun plaća i poslovno savjetovanje za BiH i EU firme.',
+    en: 'White Label Backbone Office — Strategic accounting, payroll, and business advisory for BiH and EU firms.',
+    de: 'White Label Backbone Office — Strategisches Rechnungswesen, Lohnbuchhaltung und Unternehmensberatung für BiH und EU-Firmen.',
+    bs: 'White Label Backbone Office — Strateško računovodstvo, obračun plaća i poslovno savjetovanje za BiH i EU firme.',
   };
 
   return {
     title: {
-      default: 'Bosnia Business Hub',
-      template: '%s · BBH',
+      default: 'White Label Backbone Office',
+      template: '%s · WLB',
     },
     description: descriptions[locale] ?? descriptions.en,
-    keywords: ['accounting', 'BiH', 'Steuerberater', 'nearshoring', 'MSFI', 'payroll', 'Bosnia'],
-    metadataBase: new URL('https://bbh.ba'),
+    keywords: ['accounting', 'BiH', 'Steuerberater', 'nearshoring', 'MSFI', 'payroll', 'Bosnia', 'white label'],
+    metadataBase: new URL('https://wlboffice.com'),
     alternates: {
       canonical: `/${locale}`,
       languages: {
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     openGraph: {
-      title: 'Bosnia Business Hub',
+      title: 'White Label Backbone Office',
       description: t('subheadline'),
       locale: locale === 'bs' ? 'bs_BA' : locale === 'de' ? 'de_DE' : 'en_US',
       type: 'website',

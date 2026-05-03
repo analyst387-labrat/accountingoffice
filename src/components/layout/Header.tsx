@@ -52,11 +52,10 @@ export default function Header() {
           <Link href={`/${locale}`} className="flex items-center gap-3 shrink-0 py-1 group">
             <div className="relative h-7 w-24 shrink-0">
               <Image
-                src="/images/logo/BBH Linear Logo Black.png"
-                alt="Bosnia Business Hub"
+                src="/images/logo/wlb%20white.png"
+                alt="White Label Backbone Office"
                 fill
                 className="object-contain object-left"
-                style={{ filter: 'brightness(0) invert(1)' }}
                 priority
               />
             </div>
@@ -64,7 +63,7 @@ export default function Header() {
               className="hidden lg:block text-[10px] font-mono tracking-[0.18em] uppercase text-[#6a6c6a] group-hover:text-[#a4a4a0] transition-colors duration-200"
               style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
             >
-              BOSNIA BUSINESS HUB
+              WHITE LABEL BACKBONE OFFICE
             </span>
           </Link>
 

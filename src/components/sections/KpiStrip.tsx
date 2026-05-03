@@ -6,10 +6,10 @@ type StatItem = { value: string; suffix: string; label: string };
 
 // Border classes per cell: 2-col mobile, 4-col desktop
 const CELL_BORDERS = [
-  'border-r border-[#23282d]',                                  // 0: right always
-  'border-r border-[#23282d]',                                  // 1: right always (desktop col 2 of 4; on mobile clips at edge)
+  'border-r border-[#23282d]',                                         // 0: right always (col 1 in both layouts)
+  'lg:border-r border-[#23282d]',                                      // 1: right only at lg+ (last col in mobile 2-col)
   'border-r border-[#23282d] border-t border-[#23282d] lg:border-t-0', // 2: right always, top on mobile only
-  'border-t border-[#23282d] lg:border-t-0',                   // 3: no right, top on mobile only
+  'border-t border-[#23282d] lg:border-t-0',                          // 3: no right, top on mobile only
 ];
 
 export default function KpiStrip() {

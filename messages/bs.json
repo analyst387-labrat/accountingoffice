@@ -1,7 +1,7 @@
 {
   "nav": {
     "services": "Usluge",
-    "whyUs": "Zašto BBH",
+    "whyUs": "Zašto WLB",
     "nearshoring": "Saradnja",
     "contact": "Kontakt",
     "cta": "Kontaktirajte nas"
@@ -84,7 +84,7 @@
       }
     ],
     "testimonial": {
-      "quote": "BBH smo tiho uveli u našu austrijsku računovodstvenu praksu kako bi preuzeli dio naših lokalnih mandata. Brzo su se integrisali u naše procese i procedure te isporučuju više od 200 naplativih sati mjesečno. Najvažnije od svega, naši klijenti su vidno zadovoljniji odgovornijim računovođama na njihovim predmetima.",
+      "quote": "WLB smo tiho uveli u našu austrijsku računovodstvenu praksu kako bi preuzeli dio naših lokalnih mandata. Brzo su se integrisali u naše procese i procedure te isporučuju više od 200 naplativih sati mjesečno. Najvažnije od svega, naši klijenti su vidno zadovoljniji odgovornijim računovođama na njihovim predmetima.",
       "author": "Upravljački partner · Steuerberatungskanzlei · Beč",
       "detail": "Klijent od 2019."
     },
@@ -139,12 +139,12 @@
     "tagline": "Precizno računovodstvo. Institucionalna disciplina.",
     "address": "Maršala Tita 3, 71000 Sarajevo, Bosna i Hercegovina",
     "phone": "+387 33 XXX XXX",
-    "email": "office@bbh.ba",
+    "email": "office@wlboffice.com",
     "links": {
       "privacy": "Politika privatnosti",
       "imprint": "Impressum",
       "services": "Usluge"
     },
-    "copyright": "© {year} Bosnia Business Hub. Sva prava zadržana."
+    "copyright": "© {year} White Label Backbone Office. Sva prava zadržana."
   }
 }
