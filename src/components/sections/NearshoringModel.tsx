@@ -72,7 +72,7 @@ export default function NearshoringModel() {
     <section id="nearshoring" className="bg-[#0c0e10] border-b border-[#23282d]">
       {/* Section header */}
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] border-b border-[#23282d]">
-        <div className="lg-divider-r px-10 pt-20 pb-12 flex items-center">
+        <div className="px-10 pt-20 pb-12 flex items-center">
           <span
             className="text-[11px] tracking-[0.22em] uppercase text-[#6a6c6a]"
             style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
